@@ -1,0 +1,31 @@
+{
+  "name": "Well Better Spring + Angular + MySQL Codespace Development Environment",
+  "image": "mcr.microsoft.com/vscode/devcontainers/java:17",
+  "features": {
+    "node": "23.5.0",
+    "maven": "3.9.9",
+    "docker": "27.4.1"
+  },
+  "extensions": [
+    "vscjava.vscode-spring-boot-dashboard",
+    "redhat.java",
+    "vscjava.vscode-maven",
+    "ms-vscode.node-debug2",
+    "angular.ng-template",
+    "dbaeumer.vscode-eslint"
+  ],
+  "postCreateCommand": "npm install -g @angular/cli && npm install",
+  "portsAttributes": {
+    "8080": {
+      "label": "Spring Boot"
+    },
+    "4200": {
+      "label": "Angular"
+    },
+    "3306": {
+      "label": "MySQL"
+    }
+  },
+  "dockerComposeFile": "docker-compose.yml",
+  "remoteUser": "vscode"
+}
