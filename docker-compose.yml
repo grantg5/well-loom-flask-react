@@ -1,0 +1,52 @@
+version: '3.7'
+services:
+  spring-app:
+    build: 1.0
+    image: openjdk:17
+    container_name: well-better-spring-app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/well-better-db
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=testingPassword
+      - SPRING_DATASOURCE_DRIVER_CLASS_NAME=com.mysql.cj.jdbc.Driver
+    volumes:
+      - ./spring-app:/app
+    command: ["java", "-jar", "/app/target/spring-app.jar"]
+    networks:
+      - mynetwork
+
+  angular-app:
+    image: node:23
+    container_name: well-better-angular-app
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./well-better-angular-app:/app
+    working_dir: /app
+    command: ["npm", "start"]
+    networks:
+      - mynetwork
+
+  mysql:
+    image: mysql:8.0
+    container_name: well-better-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: testingPassword
+      MYSQL_DATABASE: well-better-db
+    ports:
+      - "3306:3306"
+    networks:
+      - mynetwork
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+networks:
+  mynetwork:
+    driver: bridge
+
+volumes:
+  mysql-data:
