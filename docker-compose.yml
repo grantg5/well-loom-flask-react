@@ -1,7 +1,8 @@
 version: '3.7'
 services:
   spring-app:
-    build: .
+    build: 1.0
+    image: openjdk:17
     container_name: well-better-spring-app
     ports:
       - "8080:8080"
@@ -12,6 +13,9 @@ services:
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=testingPassword
       - SPRING_DATASOURCE_DRIVER_CLASS_NAME=com.mysql.cj.jdbc.Driver
+    volumes:
+      - ./spring-app:/app
+    command: ["java", "-jar", "/app/target/spring-app.jar"]
     networks:
       - mynetwork
 
