@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   spring-app:
-    build: 1.0
+    build: ./well-better-backend
     image: openjdk:17
     container_name: well-better-spring-app
     ports:
@@ -20,6 +20,7 @@ services:
       - mynetwork
 
   angular-app:
+    build: ./well-better-frontend
     image: node:23
     container_name: well-better-angular-app
     ports:
