@@ -2,13 +2,13 @@
 FROM openjdk:17-jdk-slim
 
 # Create the 'codespace' user and set permissions
-RUN useradd -m -s /bin/bash codespace
+# RUN useradd -m -s /bin/bash codespace
 
 # Adjust ownership of workspace directory
-RUN chown -R codespace:codespace /workspace
+# RUN chown -R codespace:codespace /workspace
 
 # Switch to the 'codespace' user
-USER codespace
+# USER codespace
 
 # Set the working directory inside the container
 WORKDIR /app
