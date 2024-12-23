@@ -2,7 +2,7 @@
 FROM node:23 AS builder
 
 # Set a working directory in the container
-WORKDIR /home/codespace
+WORKDIR /app
 
 # Copy package.json and package-lock.json (or yarn.lock) to install dependencies
 COPY package*.json ./
