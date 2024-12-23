@@ -1,6 +1,12 @@
 # Use the official OpenJDK image as the base image
 FROM openjdk:17-jdk-slim
 
+# Create the 'codespace' user and set permissions
+RUN useradd -m -s /bin/bash codespace
+
+# Switch to the 'codespace' user
+USER codespace
+
 # Set the working directory inside the container
 WORKDIR /app
 
