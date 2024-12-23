@@ -1,8 +1,8 @@
 # Stage 1: Build the Angular app
 FROM node:23 AS builder
 
-# Set the working directory inside the container
-WORKDIR /app
+# Set a working directory in the container
+WORKDIR /home/codespace
 
 # Copy package.json and package-lock.json (or yarn.lock) to install dependencies
 COPY package*.json ./
