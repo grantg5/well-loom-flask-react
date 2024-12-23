@@ -1,18 +1,12 @@
 # Use the official OpenJDK image as the base image
 FROM openjdk:17-jdk-slim
 
-# Create a non-root user
-RUN useradd -m -s /bin/bash codespace
-
-# Switch to the non-root user
-USER codespace
+# Using the vscode user in Codespace for easy local debug
+RUN chown -R vscode:vscode /app
+USER vscode
 
 # Set a working directory in the container
 WORKDIR /app
-
-# Copy application files and set appropriate permissions
-COPY . /app
-RUN chown -R codespace:codespace /app
 
 # Copy only the build configuration files first (for dependency caching)
 COPY pom.xml .
