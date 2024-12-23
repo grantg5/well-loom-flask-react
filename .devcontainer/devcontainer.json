@@ -28,5 +28,5 @@
     }
   },
   "dockerComposeFile": "../docker-compose.yml",
-  "remoteUser": "codespace"
+  "remoteUser": "vscode"
 }
