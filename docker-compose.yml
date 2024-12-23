@@ -1,7 +1,9 @@
 version: '3.8'
 services:
   spring-app:
-    build: ./well-better-backend
+    build:
+      context: ./well-better-backend
+      dockerfile: Dockerfile
     image: openjdk:17
     container_name: well-better-spring-app
     ports:
@@ -20,7 +22,9 @@ services:
       - mynetwork
 
   angular-app:
-    build: ./well-better-frontend
+    build:
+      context: ./well-better-frontend
+      dockefile: Dockerfile
     image: node:23
     container_name: well-better-angular-app
     ports:
