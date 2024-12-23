@@ -18,6 +18,7 @@ services:
     volumes:
       - ./spring-app:/app
     command: ["java", "-jar", "/app/target/spring-app.jar"]
+    links: - angular-app
     networks:
       - mynetwork
 
