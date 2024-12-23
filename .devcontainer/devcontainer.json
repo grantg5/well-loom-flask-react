@@ -1,10 +1,11 @@
 {
   "name": "Well Better Spring + Angular + MySQL Codespace Development Environment",
   "image": "mcr.microsoft.com/vscode/devcontainers/java:17",
+  "service": "spring-app",
   "features": {
     "node": "23.5.0",
     "maven": "3.9.9",
-    "docker": "27.4.1"
+    "docker-from-docker": "27.4.1"
   },
   "extensions": [
     "vscjava.vscode-spring-boot-dashboard",
@@ -26,6 +27,6 @@
       "label": "MySQL"
     }
   },
-  "dockerComposeFile": "docker-compose.yml",
+  "dockerComposeFile": "../docker-compose.yml",
   "remoteUser": "codespace"
 }
