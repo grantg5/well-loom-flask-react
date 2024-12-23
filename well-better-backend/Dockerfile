@@ -1,17 +1,18 @@
 # Use the official OpenJDK image as the base image
 FROM openjdk:17-jdk-slim
 
-# Create the 'codespace' user and set permissions
-# RUN useradd -m -s /bin/bash codespace
+# Create a non-root user
+RUN useradd -m -s /bin/bash codespace
 
-# Adjust ownership of workspace directory
-# RUN chown -R codespace:codespace /workspace
+# Switch to the non-root user
+USER codespace
 
-# Switch to the 'codespace' user
-# USER codespace
+# Set a working directory for the user
+WORKDIR /home/codespace
 
-# Set the working directory inside the container
-WORKDIR /app
+# Copy application files and set appropriate permissions
+COPY . /home/codespace
+RUN chown -R codespace:codespace /home/codespace
 
 # Copy only the build configuration files first (for dependency caching)
 COPY pom.xml .
