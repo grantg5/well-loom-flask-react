@@ -7,12 +7,12 @@ RUN useradd -m -s /bin/bash codespace
 # Switch to the non-root user
 USER codespace
 
-# Set a working directory for the user
-WORKDIR /home/codespace
+# Set a working directory in the container
+WORKDIR /app
 
 # Copy application files and set appropriate permissions
-COPY . /home/codespace
-RUN chown -R codespace:codespace /home/codespace
+COPY . /app
+RUN chown -R codespace:codespace /app
 
 # Copy only the build configuration files first (for dependency caching)
 COPY pom.xml .
