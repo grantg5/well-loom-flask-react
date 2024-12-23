@@ -1,0 +1,11 @@
+"projects": {
+  "well-better": {
+    "architect": {
+      "build": {
+        "options": {
+          "outputPath": "dist"
+        }
+      }
+    }
+  }
+}
