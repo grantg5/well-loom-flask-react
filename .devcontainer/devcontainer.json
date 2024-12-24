@@ -1,5 +1,5 @@
 {
-  "name": "Well Better Spring + Angular + MySQL Codespace Development Environment",
+  "name": "Well Better Spring + Angular + PostgreSQL Codespace Development Environment",
   "image": "mcr.microsoft.com/vscode/devcontainers/java:17",
   "service": "spring-app",
   "features": {
@@ -13,9 +13,15 @@
     "vscjava.vscode-maven",
     "ms-vscode.node-debug2",
     "angular.ng-template",
-    "dbaeumer.vscode-eslint"
+    "ms-vscode.vscode-typescript-next",
+    "streetsidesoftware.code-spell-checker"
   ],
-  "postCreateCommand": "npm install -g @angular/cli && npm install",
+  "settings": {
+    "java.home": "/usr/lib/jvm/java-17-openjdk",
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "editor.formatOnSave": true
+  },
+  "postCreateCommand": "mvn clean install && npm install -g @angular/cli && npm install",
   "portsAttributes": {
     "8080": {
       "label": "Spring Boot"
@@ -23,10 +29,11 @@
     "4200": {
       "label": "Angular"
     },
-    "3306": {
-      "label": "MySQL"
+    "5432": {
+      "label": "PostgreSQL"
     }
   },
+  "forwardPorts": [8080, 4200, 5432],
   "dockerComposeFile": "../docker-compose.yml",
   "remoteUser": "vscode"
 }
