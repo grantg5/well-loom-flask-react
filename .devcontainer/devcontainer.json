@@ -17,7 +17,6 @@
     "streetsidesoftware.code-spell-checker"
   ],
   "settings": {
-    "java.home": "/usr/lib/jvm/java-17-openjdk",
     "terminal.integrated.defaultProfile.linux": "bash",
     "editor.formatOnSave": true
   },
