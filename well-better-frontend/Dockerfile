@@ -1,29 +1,30 @@
 # Stage 1: Build the Angular app
 FROM node:23 AS builder
 
-# Set a working directory in the container
+RUN mkdir -p /app
 WORKDIR /app
+EXPOSE 4200
 
-# Copy package.json and package-lock.json (or yarn.lock) to install dependencies
-COPY package*.json ./
+ENV PATH /app/node_modules/.bin:$PATH
 
-# Install dependencies
+COPY . /app
+
 RUN npm install
+# RUN npm rebuild node-sass
 
-# Copy the Angular app's source code
-COPY . .
+CMD ["npm", "run", "docker-start"]
 
 # Build the Angular app for production
-RUN npm run build --prod
+# RUN npm run build --prod
 
 # Stage 2: Serve the Angular app using Nginx
-FROM nginx:stable-alpine
+# FROM nginx:stable-alpine
 
 # Copy the Angular build output to the Nginx HTML directory
-COPY --from=builder /app/dist/* /usr/share/nginx/html/
+# COPY --from=builder ./dist/* /usr/share/nginx/html/
 
 # Expose the default Nginx port
-EXPOSE 80
+# EXPOSE 80
 
 # Start Nginx server
-CMD ["nginx", "-g", "daemon off;"]
+# CMD ["nginx", "-g", "daemon off;"]
