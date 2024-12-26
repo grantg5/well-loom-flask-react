@@ -21,17 +21,6 @@
     "editor.formatOnSave": true
   },
   "postCreateCommand": "mvn clean install && npm install -g @angular/cli && npm install",
-  "portsAttributes": {
-    "8080": {
-      "label": "Spring Boot"
-    },
-    "4200": {
-      "label": "Angular"
-    },
-    "5432": {
-      "label": "PostgreSQL"
-    }
-  },
   "forwardPorts": [8080, 4200, 5432],
   "dockerComposeFile": "../docker-compose.yml",
   "remoteUser": "vscode"
