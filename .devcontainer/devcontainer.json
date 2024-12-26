@@ -21,7 +21,6 @@
     "editor.formatOnSave": true
   },
   "postCreateCommand": "mvn clean install && npm install -g @angular/cli && npm install",
-  "forwardPorts": [8080, 4200, 5432],
   "dockerComposeFile": "../docker-compose.yml",
   "remoteUser": "vscode"
 }
