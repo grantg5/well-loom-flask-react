@@ -4,9 +4,9 @@ services:
     image: postgres:15
     container_name: well-better-postgres-db
     environment:
-      POSTGRES_DB=well-better
-      POSTGRES_USER=well_better_db_user
-      POSTGRES_PASSWORD=testingPassword
+      POSTGRES_DB: well-better
+      POSTGRES_USER: well_better_db_user
+      POSTGRES_PASSWORD: testingPassword
     ports:
       - "5432:5432"
     networks:
