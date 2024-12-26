@@ -1,5 +1,19 @@
 version: '3.8'
 services:
+  postgres:
+    image: postgres:15
+    container_name: well-better-postgres-db
+    environment:
+      POSTGRES_DB: well-better
+      POSTGRES_USER: well_better_db_user
+      POSTGRES_PASSWORD: testingPassword
+    ports:
+      - "5432:5432"
+    networks:
+      - mynetwork
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
   spring-app:
     build:
       context: ./well-better-backend
@@ -17,7 +31,6 @@ services:
     volumes:
       - ./spring-app:/app
     command: ["java", "-jar", "/app/target/spring-app.jar"]
-    links: - angular-app
     networks:
       - mynetwork
 
@@ -29,26 +42,14 @@ services:
     container_name: well-better-angular-app
     ports:
       - "4200:4200"
+    depends_on:
+      - spring-app
     volumes:
       - ./well-better-angular-app:/app
     working_dir: /app
     command: ["npm", "start"]
     networks:
       - mynetwork
-
-  postgres:
-    image: postgres:15
-    container_name: well-better-postgres-db
-    environment:
-      POSTGRES_DB: well-better
-      POSTGRES_USER: well_better_db_user
-      POSTGRES_PASSWORD: testingPassword
-    ports:
-      - "5432:5432"
-    networks:
-      - mynetwork
-    volumes:
-      - postgres-data:/var/lib/postgresql/data
 
 networks:
   mynetwork:
