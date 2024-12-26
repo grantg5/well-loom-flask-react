@@ -4,15 +4,20 @@ services:
     image: postgres:15
     container_name: well-better-postgres-db
     environment:
-      POSTGRES_DB: well-better
-      POSTGRES_USER: well_better_db_user
-      POSTGRES_PASSWORD: testingPassword
+      POSTGRES_DB=well-better
+      POSTGRES_USER=well_better_db_user
+      POSTGRES_PASSWORD=testingPassword
     ports:
       - "5432:5432"
     networks:
       - mynetwork
     volumes:
       - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "well_better_db_user"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   spring-app:
     build:
@@ -23,9 +28,9 @@ services:
     ports:
       - "8080:8080"
     environment:
-      - SPRING_DATASOURCE_URL: "jdbc:postgresql://postgres:5432/well-better-db"
-      - SPRING_DATASOURCE_USERNAME: well_better_db_user
-      - SPRING_DATASOURCE_PASSWORD: testingPassword
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/well-better-db
+      - SPRING_DATASOURCE_USERNAME=well_better_db_user
+      - SPRING_DATASOURCE_PASSWORD=testingPassword
     depends_on:
       - postgres
     volumes:
@@ -37,7 +42,7 @@ services:
   angular-app:
     build:
       context: ./well-better-frontend
-      dockefile: Dockerfile
+      dockerfile: Dockerfile
     image: node:23
     container_name: well-better-angular-app
     ports:
