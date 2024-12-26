@@ -23,7 +23,7 @@ services:
     ports:
       - "8080:8080"
     environment:
-      - SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/well-better-db
+      - SPRING_DATASOURCE_URL: "jdbc:postgresql://postgres:5432/well-better-db"
       - SPRING_DATASOURCE_USERNAME: well_better_db_user
       - SPRING_DATASOURCE_PASSWORD: testingPassword
     depends_on:
