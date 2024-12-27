@@ -15,7 +15,7 @@ services:
     networks:
       - mynetwork
     volumes:
-      - ./out.sql:/docker-entrypoint-initdb.d/CreateDB.sql
+      - ./out.sql:/docker-entrypoint-initdb.d/
 
   spring-app:
     build:
