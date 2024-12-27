@@ -6,4 +6,3 @@ ENV POSTGRES_DB well-better-db
 
 RUN apt-get update && apt-get install -y postgresql-17.2 postgresql-client-17.2 postgresql-contrib-17.2
 COPY CreateDB.sql /docker-entrypoint-initdb.d/
-CHMOD 644 /docker-entrypoint-initdb.d/CreateDB.sql
