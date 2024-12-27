@@ -15,7 +15,7 @@ services:
     networks:
       - mynetwork
     volumes:
-      - postgres-data:/var/lib/postgresql/data
+      - ./out.sql:/docker-entrypoint-initdb.d/CreateDB.sql
 
   spring-app:
     build:
