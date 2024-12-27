@@ -1,12 +1,11 @@
 version: '3.8'
 services:
   postgres:
+    build:
+      context: ./well-better-db
+      dockerfile: Dockerfile
     image: postgres:15
     container_name: well-better-postgres-db
-    environment:
-      POSTGRES_DB: well-better-db
-      POSTGRES_USER: well_better_db_user
-      POSTGRES_PASSWORD: testingPassword
     ports:
       - "5432:5432"
     networks:
