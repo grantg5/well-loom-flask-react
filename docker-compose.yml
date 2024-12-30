@@ -12,6 +12,8 @@ services:
       POSTGRES_DB: well-better-db
     ports:
       - "5432:5432"
+    volumes:
+      - "./data/postgres_passport_data:/var/lib/postgresql/data"
     networks:
       - mynetwork
 
