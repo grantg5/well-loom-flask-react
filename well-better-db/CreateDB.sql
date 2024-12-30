@@ -1,5 +1,3 @@
-ALTER DATABASE well-better-db SET log_statement = 'all';
-
 CREATE TABLE user (
   user_id BIGSERIAL PRIMARY KEY,
   email text,
