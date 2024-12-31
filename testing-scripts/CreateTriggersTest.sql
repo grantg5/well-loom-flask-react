@@ -12,21 +12,13 @@ DECLARE returnValue text;
     SELECT string_agg(format('CREATE TRIGGER set_create_date_time BEFORE UPDATE ON %s '
                          'FOR EACH ROW EXECUTE PROCEDURE set_create_date_time();'
                         , c.oid::regclass), E'\n')
-    FROM   pg_namespace n
-    JOIN   pg_class     c ON c.relnamespace = n.oid
-    WHERE  n.nspname = 'public' --TODO: Add conditions to this to not pick up pkey, lookup id tables
+    FROM pg_namespace n
+    JOIN pg_class c ON c.relnamespace = n.oid
+    JOIN information_schema.tables inf_sch ON inf_sch.table_name = c.relname
+    WHERE  inf_sch.table_schema = 'public'
     INTO returnValue;
 
     return returnValue;
-
-    -- execute format(
-    --   'CREATE TRIGGER create_date_time AFTER INSERT ON
-    --     (SELECT table_name FROM information_schema.tables
-    --     WHERE table_schema NOT IN ("pg_catalog", "information_schema")
-    --     AND table_type = "BASE TABLE")
-    --   FOR EACH ROW EXECUTE PROCEDURE set_create_date_time();'
-    --   ) into temp;
-
   END;
 $apply_create_date_time_triggers$ LANGUAGE plpgsql;
 
