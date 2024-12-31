@@ -1,11 +1,14 @@
+-- Table creation
 CREATE TABLE well_better_user (
-  user_id BIGSERIAL PRIMARY KEY,
+  id BIGSERIAL PRIMARY KEY,
   email text,
-  is_active boolean
+  is_active boolean,
+  create_date_time timestamp,
+  update_date_time timestamp
 );
 
 CREATE TABLE reference_lookup (
-  ref_id BIGSERIAL PRIMARY KEY,
+  id BIGSERIAL PRIMARY KEY,
   category text,
   ref_value text,
   is_active boolean,
@@ -16,7 +19,7 @@ CREATE TABLE reference_lookup (
 );
 
 CREATE TABLE practice (
-  practice_id BIGSERIAL PRIMARY KEY,
+  id BIGSERIAL PRIMARY KEY,
   name text,
   category bigint references reference_lookup(ref_id),
   is_active boolean,
@@ -25,3 +28,6 @@ CREATE TABLE practice (
   updated_by bigint references well_better_user(user_id),
   update_date_time timestamp
 );
+
+
+-- TODO: Pull trigger stuff pulled out back into here
