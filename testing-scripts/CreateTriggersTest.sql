@@ -1,19 +1,23 @@
 -- Create datetime function
 CREATE FUNCTION set_create_date_time() RETURNS TRIGGER AS $set_create_date_time$
   BEGIN
-    execute format('UPDATE % SET create_date_time = NOW() WHERE id = %', TG_TABLE_NAME, NEW.id) into result;
-    return result;
+    NEW.create_date_time:= current_timestamp;
+    RETURN NEW;
   END;
-$set_create_date_time$ LANGUAGE plpgsql
+$set_create_date_time$ LANGUAGE plpgsql;
 
 CREATE FUNCTION apply_create_date_time_triggers() RETURNS TEXT AS $apply_create_date_time_triggers$
+DECLARE returnValue text;
   BEGIN
     SELECT string_agg(format('CREATE TRIGGER set_create_date_time BEFORE UPDATE ON %s '
                          'FOR EACH ROW EXECUTE PROCEDURE set_create_date_time();'
                         , c.oid::regclass), E'\n')
     FROM   pg_namespace n
     JOIN   pg_class     c ON c.relnamespace = n.oid
-    WHERE  n.nspname = 'public';
+    WHERE  n.nspname = 'public' --TODO: Add conditions to this to not pick up pkey, lookup id tables
+    INTO returnValue;
+
+    return returnValue;
 
     -- execute format(
     --   'CREATE TRIGGER create_date_time AFTER INSERT ON
@@ -24,6 +28,8 @@ CREATE FUNCTION apply_create_date_time_triggers() RETURNS TEXT AS $apply_create_
     --   ) into temp;
 
   END;
-$apply_create_date_time_triggers$ LANGUAGE plpgsql
+$apply_create_date_time_triggers$ LANGUAGE plpgsql;
 
-CALL apply_create_date_time_triggers();
+SELECT apply_create_date_time_triggers();
+
+-- Although this is returning the CREATE TRIGGER statements, it's not executing them. Need to figure that out...
