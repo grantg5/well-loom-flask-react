@@ -8,19 +8,16 @@
     "docker-from-docker": "27.4.1"
   },
   "extensions": [
-    "vscjava.vscode-spring-boot-dashboard",
-    "redhat.java",
-    "vscjava.vscode-maven",
-    "ms-vscode.node-debug2",
-    "angular.ng-template",
-    "ms-vscode.vscode-typescript-next",
-    "streetsidesoftware.code-spell-checker"
+    "TabNine.tabnine-vscode",
+    "infinity1207.angular2-switcher",
+    "vscode-spring-initializr",
+    "Angular.ng-template"
   ],
   "settings": {
     "terminal.integrated.defaultProfile.linux": "bash",
     "editor.formatOnSave": true
   },
-  "postCreateCommand": "mvn clean install && npm install -g @angular/cli && npm install",
+  "postCreateCommand": "mvn clean install && npm install -g @angular/cli@18",
   "dockerComposeFile": "../docker-compose.yml",
   "remoteUser": "vscode"
 }
