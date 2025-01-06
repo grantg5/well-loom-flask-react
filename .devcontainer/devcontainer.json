@@ -16,7 +16,7 @@
     "terminal.integrated.defaultProfile.linux": "bash",
     "editor.formatOnSave": true
   },
-  "postCreateCommand": "mvn clean install && npm install -g @angular/cli@18",
+  "postCreateCommand": "npm install -g @angular/cli@18",
   "dockerComposeFile": "../docker-compose.yml",
   "remoteUser": "vscode"
 }

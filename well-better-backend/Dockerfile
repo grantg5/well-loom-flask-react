@@ -13,7 +13,7 @@ COPY pom.xml .
 COPY src ./src
 
 # Install Maven
-RUN apt-get update && apt-get install -y maven && apt-get clean
+RUN apt-get install -y maven
 
 # Download dependencies and build the application
 RUN mvn -B -f pom.xml dependency:resolve
