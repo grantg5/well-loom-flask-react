@@ -39,7 +39,7 @@ services:
     build:
       context: ./well-better-frontend
       dockerfile: Dockerfile
-    image: node:23
+    image: node:22
     container_name: well-better-angular-app
     ports:
       - "4200:4200"
