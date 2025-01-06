@@ -1,5 +1,5 @@
 # Stage 1: Build the Angular app
-FROM node:23 AS builder
+FROM node:22 AS builder
 
 RUN mkdir -p /app
 WORKDIR /app
@@ -10,6 +10,7 @@ ENV PATH /app/node_modules/.bin:$PATH
 COPY . /app
 
 RUN npm install
+RUN npm install -g @angular/cli@18
 # RUN npm rebuild node-sass
 
 CMD ["npm", "run", "docker-start"]
