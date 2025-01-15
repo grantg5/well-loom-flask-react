@@ -1,5 +1,5 @@
 {
-  "name": "well-better-frontend-client",
+  "name": "well-better-frontend",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:well-better-frontend-client": "node dist/well-better-frontend-client/server/server.mjs"
+    "serve:ssr:well-better-frontend": "node dist/well-better-frontend/server/server.mjs"
   },
   "private": true,
   "dependencies": {
