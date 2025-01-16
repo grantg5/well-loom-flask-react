@@ -1,0 +1,30 @@
+@use '@angular/material' as mat;
+@include mat.core();
+
+$primary: mat.m2-define-palette(mat.$m2-indigo-palette);
+$accent: mat.m2-define-palette(mat.$m2-grey-palette);
+$warn: mat.m2-define-palette(mat.$m2-red-palette);
+
+$theme: mat.m2-define-light-theme((
+    color: (
+        primary: $primary,
+        accent: $accent,
+        warn: $warn,
+    ),
+    typography: (
+      plain-family: Comic Sans,
+      brand-family: Comic Sans,
+      bold-weight: 900,
+      medium-weight: 500,
+      regular-weight: 300,
+    ),
+    density: 0
+));
+
+html {
+    @include mat.core-theme($theme);
+    @include mat.all-component-themes($theme);
+    @include mat.all-component-typographies($theme);
+}
+
+/*Trying to get font of header to change, via https://stackoverflow.com/questions/79041889/how-to-change-the-font-family-in-material-v18*/
