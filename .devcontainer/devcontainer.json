@@ -1,5 +1,5 @@
 {
-  "name": "Well Better Spring + Angular + PostgreSQL Codespace Development Environment",
+  "name": "Well Loom Spring + Angular + PostgreSQL Codespace Development Environment",
   "image": "mcr.microsoft.com/vscode/devcontainers/java:17",
   "service": "spring-app",
   "features": {

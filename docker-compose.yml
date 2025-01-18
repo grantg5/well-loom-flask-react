@@ -2,33 +2,33 @@ version: '3.8'
 services:
   postgres:
     build:
-      context: ./well-better-db
+      context: ./well-loom-db
       dockerfile: Dockerfile
     image: postgres:15
-    container_name: well-better-db
+    container_name: well-loom-db
     environment:
-      POSTGRES_USER: well_better_db_user
+      POSTGRES_USER: well_loom_db_user
       POSTGRES_PASSWORD: testingPassword
-      POSTGRES_DB: well-better-db
+      POSTGRES_DB: well-loom-db
     ports:
       - "5432:5432"
     volumes:
-      - ./well-better-db:/docker-entrypoint-initdb.d
+      - ./well-loom-db:/docker-entrypoint-initdb.d
       - ./testing-scripts:/lib/testing-scripts
     networks:
       - mynetwork
 
   spring-app:
     build:
-      context: ./well-better-services
+      context: ./well-loom-services
       dockerfile: Dockerfile
     image: openjdk:17
-    container_name: well-better-services
+    container_name: well-loom-services
     ports:
       - "8080:8080"
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/well-better-db
-      - SPRING_DATASOURCE_USERNAME=well_better_db_user
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/well-loom-db
+      - SPRING_DATASOURCE_USERNAME=well_loom_db_user
       - SPRING_DATASOURCE_PASSWORD=testingPassword
     depends_on:
       - postgres
@@ -37,10 +37,10 @@ services:
 
   angular-app:
     build:
-      context: ./well-better-frontend
+      context: ./well-loom-frontend
       dockerfile: Dockerfile
     image: node:22
-    container_name: well-better-frontend
+    container_name: well-loom-frontend
     ports:
       - "80:80"
     depends_on:
