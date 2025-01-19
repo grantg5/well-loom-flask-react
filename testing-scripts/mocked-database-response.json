@@ -1,0 +1,93 @@
+{
+  "area": [
+    { "id": 1, "area_name": "Spiritual", "area_description": "Focuses on practices related to the soul and inner peace.", "is_active": true, "created_by": 1, "create_date_time": "2025-01-01T10:00:00", "updated_by": 2, "update_date_time": "2025-01-10T12:00:00" },
+    { "id": 2, "area_name": "Mental", "area_description": "Practices designed to enhance cognitive and emotional well-being.", "is_active": true, "created_by": 2, "create_date_time": "2025-01-02T11:00:00", "updated_by": 1, "update_date_time": "2025-01-12T13:00:00" },
+    { "id": 3, "area_name": "Physical", "area_description": "Focuses on improving the body's health and fitness.", "is_active": true, "created_by": 3, "create_date_time": "2025-01-03T12:00:00", "updated_by": 2, "update_date_time": "2025-01-13T14:00:00" },
+    { "id": 4, "area_name": "Emotional", "area_description": "Practices aimed at achieving emotional balance and understanding.", "is_active": true, "created_by": 4, "create_date_time": "2025-01-04T13:00:00", "updated_by": 3, "update_date_time": "2025-01-14T15:00:00" },
+    { "id": 5, "area_name": "Social", "area_description": "Practices that focus on enhancing social connections and interactions.", "is_active": true, "created_by": 5, "create_date_time": "2025-01-05T14:00:00", "updated_by": 4, "update_date_time": "2025-01-15T16:00:00" }
+  ],
+  "theory": [
+    { "id": 1, "theory_name": "Cognitive Behavioral Theory", "theory_founder": "Aaron Beck", "theory_description": "A theory focusing on changing patterns of thinking and behavior.", "is_active": true, "created_by": 1, "create_date_time": "2025-01-01T10:00:00", "updated_by": 2, "update_date_time": "2025-01-10T12:00:00" },
+    { "id": 2, "theory_name": "Maslow's Hierarchy of Needs", "theory_founder": "Abraham Maslow", "theory_description": "A theory of psychological health based on fulfilling innate human needs.", "is_active": true, "created_by": 2, "create_date_time": "2025-01-02T11:00:00", "updated_by": 1, "update_date_time": "2025-01-12T13:00:00" },
+    { "id": 3, "theory_name": "Self-Determination Theory", "theory_founder": "Edward Deci and Richard Ryan", "theory_description": "A theory focusing on motivation and personal growth.", "is_active": true, "created_by": 3, "create_date_time": "2025-01-03T12:00:00", "updated_by": 2, "update_date_time": "2025-01-13T14:00:00" },
+    { "id": 4, "theory_name": "Attachment Theory", "theory_founder": "John Bowlby", "theory_description": "A theory emphasizing the importance of early relationships in child development.", "is_active": true, "created_by": 4, "create_date_time": "2025-01-04T13:00:00", "updated_by": 3, "update_date_time": "2025-01-14T15:00:00" },
+    { "id": 5, "theory_name": "Flow Theory", "theory_founder": "Mihaly Csikszentmihalyi", "theory_description": "A theory focused on the experience of optimal performance and engagement.", "is_active": true, "created_by": 5, "create_date_time": "2025-01-05T14:00:00", "updated_by": 4, "update_date_time": "2025-01-15T16:00:00" }
+  ],
+  "area_theory_mapping": [
+    { "id": 1, "area_id": 1, "theory_id": 1, "is_active": true, "created_by": 1, "create_date_time": "2025-01-01T10:00:00", "updated_by": 2, "update_date_time": "2025-01-10T12:00:00" },
+    { "id": 2, "area_id": 2, "theory_id": 2, "is_active": true, "created_by": 2, "create_date_time": "2025-01-02T11:00:00", "updated_by": 1, "update_date_time": "2025-01-12T13:00:00" },
+    { "id": 3, "area_id": 3, "theory_id": 3, "is_active": true, "created_by": 3, "create_date_time": "2025-01-03T12:00:00", "updated_by": 2, "update_date_time": "2025-01-13T14:00:00" },
+    { "id": 4, "area_id": 4, "theory_id": 4, "is_active": true, "created_by": 4, "create_date_time": "2025-01-04T13:00:00", "updated_by": 3, "update_date_time": "2025-01-14T15:00:00" },
+    { "id": 5, "area_id": 5, "theory_id": 5, "is_active": true, "created_by": 5, "create_date_time": "2025-01-05T14:00:00", "updated_by": 4, "update_date_time": "2025-01-15T16:00:00" }
+  ],
+  "practice_group": [
+    { "id": 1, "practice_group_name": "Yoga", "practice_group_description": "A group of physical, mental, and spiritual practices aimed at promoting health.", "practice_group_image": "yoga_image.jpg", "is_active": true, "created_by": 1, "create_date_time": "2025-01-01T10:00:00", "updated_by": 2, "update_date_time": "2025-01-10T12:00:00" },
+    { "id": 2, "practice_group_name": "Meditation", "practice_group_description": "A group of practices for mental clarity, relaxation, and stress reduction.", "practice_group_image": "meditation_image.jpg", "is_active": true, "created_by": 2, "create_date_time": "2025-01-02T11:00:00", "updated_by": 1, "update_date_time": "2025-01-12T13:00:00" },
+    { "id": 3, "practice_group_name": "Fitness", "practice_group_description": "A group focusing on physical exercises and routines for improving health.", "practice_group_image": "fitness_image.jpg", "is_active": true, "created_by": 3, "create_date_time": "2025-01-03T12:00:00", "updated_by": 2, "update_date_time": "2025-01-13T14:00:00" },
+    { "id": 4, "practice_group_name": "Nutrition", "practice_group_description": "A group of practices and guidelines focused on healthy eating habits.", "practice_group_image": "nutrition_image.jpg", "is_active": true, "created_by": 4, "create_date_time": "2025-01-04T13:00:00", "updated_by": 3, "update_date_time": "2025-01-14T15:00:00" },
+    { "id": 5, "practice_group_name": "Mindfulness", "practice_group_description": "A group focusing on staying present and aware in the moment.", "practice_group_image": "mindfulness_image.jpg", "is_active": true, "created_by": 5, "create_date_time": "2025-01-05T14:00:00", "updated_by": 4, "update_date_time": "2025-01-15T16:00:00" }
+  ],
+  "area_practice_group_mapping": [
+    { "id": 1, "area_id": 1, "practice_group_id": 1, "is_active": true, "created_by": 1, "create_date_time": "2025-01-01T10:00:00", "updated_by": 2, "update_date_time": "2025-01-10T12:00:00" },
+    { "id": 2, "area_id": 2, "practice_group_id": 2, "is_active": true, "created_by": 2, "create_date_time": "2025-01-02T11:00:00", "updated_by": 1, "update_date_time": "2025-01-12T13:00:00" },
+    { "id": 3, "area_id": 3, "practice_group_id": 3, "is_active": true, "created_by": 3, "create_date_time": "2025-01-03T12:00:00", "updated_by": 2, "update_date_time": "2025-01-13T14:00:00" },
+    { "id": 4, "area_id": 4, "practice_group_id": 4, "is_active": true, "created_by": 4, "create_date_time": "2025-01-04T13:00:00", "updated_by": 3, "update_date_time": "2025-01-14T15:00:00" },
+    { "id": 5, "area_id": 5, "practice_group_id": 5, "is_active": true, "created_by": 5, "create_date_time": "2025-01-05T14:00:00", "updated_by": 4, "update_date_time": "2025-01-15T16:00:00" }
+  ],
+  "practice": [
+    { "id": 1, "practice_name": "Yoga", "practice_description": "A mind-body practice that combines physical postures, breathing exercises, and meditation.", "practice_image": "yoga_practice_image.jpg", "is_active": true, "created_by": 1, "create_date_time": "2025-01-01T10:00:00", "updated_by": 2, "update_date_time": "2025-01-10T12:00:00" },
+    { "id": 2, "practice_name": "Meditation", "practice_description": "A practice where an individual uses a technique to focus the mind and attain a mentally clear state.", "practice_image": "meditation_practice_image.jpg", "is_active": true, "created_by": 2, "create_date_time": "2025-01-02T11:00:00", "updated_by": 1, "update_date_time": "2025-01-12T13:00:00" },
+    { "id": 3, "practice_name": "Strength Training", "practice_description": "Physical exercises designed to improve strength and endurance.", "practice_image": "strength_training_image.jpg", "is_active": true, "created_by": 3, "create_date_time": "2025-01-03T12:00:00", "updated_by": 2, "update_date_time": "2025-01-13T14:00:00" },
+    { "id": 4, "practice_name": "Mindfulness", "practice_description": "A practice of paying attention to the present moment, non-judgmentally.", "practice_image": "mindfulness_practice_image.jpg", "is_active": true, "created_by": 4, "create_date_time": "2025-01-04T13:00:00", "updated_by": 3, "update_date_time": "2025-01-14T15:00:00" },
+    { "id": 5, "practice_name": "Breathwork", "practice_description": "A practice involving conscious control of breath to improve mental and physical health.", "practice_image": "breathwork_practice_image.jpg", "is_active": true, "created_by": 5, "create_date_time": "2025-01-05T14:00:00", "updated_by": 4, "update_date_time": "2025-01-15T16:00:00" }
+  ],
+  "practice_group_practice_mapping": [
+    { "id": 1, "practice_group_id": 1, "practice_id": 1, "is_active": true, "created_by": 1, "create_date_time": "2025-01-01T10:00:00", "updated_by": 2, "update_date_time": "2025-01-10T12:00:00" },
+    { "id": 2, "practice_group_id": 2, "practice_id": 2, "is_active": true, "created_by": 2, "create_date_time": "2025-01-02T11:00:00", "updated_by": 1, "update_date_time": "2025-01-12T13:00:00" },
+    { "id": 3, "practice_group_id": 3, "practice_id": 3, "is_active": true, "created_by": 3, "create_date_time": "2025-01-03T12:00:00", "updated_by": 2, "update_date_time": "2025-01-13T14:00:00" },
+    { "id": 4, "practice_group_id": 4, "practice_id": 4, "is_active": true, "created_by": 4, "create_date_time": "2025-01-04T13:00:00", "updated_by": 3, "update_date_time": "2025-01-14T15:00:00" },
+    { "id": 5, "practice_group_id": 5, "practice_id": 5, "is_active": true, "created_by": 5, "create_date_time": "2025-01-05T14:00:00", "updated_by": 4, "update_date_time": "2025-01-15T16:00:00" }
+  ],
+  "resource": [
+    { "id": 1, "resource_name": "Yoga for Beginners", "resource_author": "John Doe", "resource_description": "A comprehensive guide to yoga poses and breathing exercises.", "resource_image": "yoga_resource_image.jpg", "resource_link": "https://example.com/yoga", "is_active": true, "created_by": 1, "create_date_time": "2025-01-01T10:00:00", "updated_by": 2, "update_date_time": "2025-01-10T12:00:00" },
+    { "id": 2, "resource_name": "Mindfulness for Mental Clarity", "resource_author": "Jane Smith", "resource_description": "A guide to mindfulness practices to reduce stress and improve focus.", "resource_image": "mindfulness_resource_image.jpg", "resource_link": "https://example.com/mindfulness", "is_active": true, "created_by": 2, "create_date_time": "2025-01-02T11:00:00", "updated_by": 1, "update_date_time": "2025-01-12T13:00:00" },
+    { "id": 3, "resource_name": "Healthy Eating for Fitness", "resource_author": "Dr. John Lee", "resource_description": "A nutritional guide to support fitness goals and healthy living.", "resource_image": "nutrition_resource_image.jpg", "resource_link": "https://example.com/nutrition", "is_active": true, "created_by": 3, "create_date_time": "2025-01-03T12:00:00", "updated_by": 2, "update_date_time": "2025-01-13T14:00:00" },
+    { "id": 4, "resource_name": "The Science of Strength Training", "resource_author": "Michael Brown", "resource_description": "A deep dive into the mechanics and benefits of strength training.", "resource_image": "strength_training_resource_image.jpg", "resource_link": "https://example.com/strengthtraining", "is_active": true, "created_by": 4, "create_date_time": "2025-01-04T13:00:00", "updated_by": 3, "update_date_time": "2025-01-14T15:00:00" },
+    { "id": 5, "resource_name": "Breathwork for Stress Relief", "resource_author": "Sophia Green", "resource_description": "Techniques for managing stress through conscious breath control.", "resource_image": "breathwork_resource_image.jpg", "resource_link": "https://example.com/breathwork", "is_active": true, "created_by": 5, "create_date_time": "2025-01-05T14:00:00", "updated_by": 4, "update_date_time": "2025-01-15T16:00:00" }
+  ],
+  "theory_resource_mapping": [
+    { "id": 1, "theory_id": 1, "resource_id": 1, "is_active": true, "created_by": 1, "create_date_time": "2025-01-01T10:00:00", "updated_by": 2, "update_date_time": "2025-01-10T12:00:00" },
+    { "id": 2, "theory_id": 2, "resource_id": 2, "is_active": true, "created_by": 2, "create_date_time": "2025-01-02T11:00:00", "updated_by": 1, "update_date_time": "2025-01-12T13:00:00" },
+    { "id": 3, "theory_id": 3, "resource_id": 3, "is_active": true, "created_by": 3, "create_date_time": "2025-01-03T12:00:00", "updated_by": 2, "update_date_time": "2025-01-13T14:00:00" },
+    { "id": 4, "theory_id": 4, "resource_id": 4, "is_active": true, "created_by": 4, "create_date_time": "2025-01-04T13:00:00", "updated_by": 3, "update_date_time": "2025-01-14T15:00:00" },
+    { "id": 5, "theory_id": 5, "resource_id": 5, "is_active": true, "created_by": 5, "create_date_time": "2025-01-05T14:00:00", "updated_by": 4, "update_date_time": "2025-01-15T16:00:00" }
+  ],
+  "practice_resource_mapping": [
+    { "id": 1, "practice_id": 1, "resource_id": 1, "is_active": true, "created_by": 1, "create_date_time": "2025-01-01T10:00:00", "updated_by": 2, "update_date_time": "2025-01-10T12:00:00" },
+    { "id": 2, "practice_id": 2, "resource_id": 2, "is_active": true, "created_by": 2, "create_date_time": "2025-01-02T11:00:00", "updated_by": 1, "update_date_time": "2025-01-12T13:00:00" },
+    { "id": 3, "practice_id": 3, "resource_id": 3, "is_active": true, "created_by": 3, "create_date_time": "2025-01-03T12:00:00", "updated_by": 2, "update_date_time": "2025-01-13T14:00:00" },
+    { "id": 4, "practice_id": 4, "resource_id": 4, "is_active": true, "created_by": 4, "create_date_time": "2025-01-04T13:00:00", "updated_by": 3, "update_date_time": "2025-01-14T15:00:00" },
+    { "id": 5, "practice_id": 5, "resource_id": 5, "is_active": true, "created_by": 5, "create_date_time": "2025-01-05T14:00:00", "updated_by": 4, "update_date_time": "2025-01-15T16:00:00" }
+  ],
+  "symptom": [
+    { "id": 1, "symptom_name": "Anxiety", "symptom_description": "A feeling of worry, nervousness, or unease.", "is_active": true, "created_by": 1, "create_date_time": "2025-01-01T10:00:00", "updated_by": 2, "update_date_time": "2025-01-10T12:00:00" },
+    { "id": 2, "symptom_name": "Fatigue", "symptom_description": "A state of extreme tiredness or lack of energy.", "is_active": true, "created_by": 2, "create_date_time": "2025-01-02T11:00:00", "updated_by": 1, "update_date_time": "2025-01-12T13:00:00" },
+    { "id": 3, "symptom_name": "Depression", "symptom_description": "A mood disorder characterized by persistent feelings of sadness.", "is_active": true, "created_by": 3, "create_date_time": "2025-01-03T12:00:00", "updated_by": 2, "update_date_time": "2025-01-13T14:00:00" },
+    { "id": 4, "symptom_name": "Insomnia", "symptom_description": "Difficulty falling or staying asleep.", "is_active": true, "created_by": 4, "create_date_time": "2025-01-04T13:00:00", "updated_by": 3, "update_date_time": "2025-01-14T15:00:00" },
+    { "id": 5, "symptom_name": "Chronic Pain", "symptom_description": "Persistent pain that lasts for weeks or months.", "is_active": true, "created_by": 5, "create_date_time": "2025-01-05T14:00:00", "updated_by": 4, "update_date_time": "2025-01-15T16:00:00" }
+  ],
+  "area_symptom_mapping": [
+    { "id": 1, "area_id": 1, "symptom_id": 1, "is_active": true, "created_by": 1, "create_date_time": "2025-01-01T10:00:00", "updated_by": 2, "update_date_time": "2025-01-10T12:00:00" },
+    { "id": 2, "area_id": 2, "symptom_id": 2, "is_active": true, "created_by": 2, "create_date_time": "2025-01-02T11:00:00", "updated_by": 1, "update_date_time": "2025-01-12T13:00:00" },
+    { "id": 3, "area_id": 3, "symptom_id": 3, "is_active": true, "created_by": 3, "create_date_time": "2025-01-03T12:00:00", "updated_by": 2, "update_date_time": "2025-01-13T14:00:00" },
+    { "id": 4, "area_id": 4, "symptom_id": 4, "is_active": true, "created_by": 4, "create_date_time": "2025-01-04T13:00:00", "updated_by": 3, "update_date_time": "2025-01-14T15:00:00" },
+    { "id": 5, "area_id": 5, "symptom_id": 5, "is_active": true, "created_by": 5, "create_date_time": "2025-01-05T14:00:00", "updated_by": 4, "update_date_time": "2025-01-15T16:00:00" }
+  ],
+  "practice_symptom_mapping": [
+    { "id": 1, "practice_id": 1, "symptom_id": 1, "is_active": true, "created_by": 1, "create_date_time": "2025-01-01T10:00:00", "updated_by": 2, "update_date_time": "2025-01-10T12:00:00" },
+    { "id": 2, "practice_id": 2, "symptom_id": 2, "is_active": true, "created_by": 2, "create_date_time": "2025-01-02T11:00:00", "updated_by": 1, "update_date_time": "2025-01-12T13:00:00" },
+    { "id": 3, "practice_id": 3, "symptom_id": 3, "is_active": true, "created_by": 3, "create_date_time": "2025-01-03T12:00:00", "updated_by": 2, "update_date_time": "2025-01-13T14:00:00" },
+    { "id": 4, "practice_id": 4, "symptom_id": 4, "is_active": true, "created_by": 4, "create_date_time": "2025-01-04T13:00:00", "updated_by": 3, "update_date_time": "2025-01-14T15:00:00" },
+    { "id": 5, "practice_id": 5, "symptom_id": 5, "is_active": true, "created_by": 5, "create_date_time": "2025-01-05T14:00:00", "updated_by": 4, "update_date_time": "2025-01-15T16:00:00" }
+  ]
+}
