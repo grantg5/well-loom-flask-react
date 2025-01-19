@@ -1,30 +1,117 @@
 @use '@angular/material' as mat;
 @include mat.core();
 
-$primary: mat.m2-define-palette(mat.$m2-indigo-palette);
-$accent: mat.m2-define-palette(mat.$m2-grey-palette);
-$warn: mat.m2-define-palette(mat.$m2-red-palette);
+$primary-colors: (
+  50: #f2f8e1,
+  100: #d8eab6,
+  200: #c0db8a,
+  300: #a8cc5d,
+  400: #94c13b,
+  500: #6b8e23,
+  600: #618020,
+  700: #56731c,
+  800: #4c6619,
+  900: #3a4d13,
+  A100: #e8ffcd,
+  A200: #c5ff8f,
+  A400: #a2ff52,
+  A700: #91ff39,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: rgba(black, 0.87),
+    A200: white,
+    A400: white,
+    A700: white
+  )
+);
+$primary-palette: mat.m2-define-palette($primary-colors, 500);
+
+$accent-colors: (
+  50: #fff4e5,
+  100: #ffe4bf,
+  200: #ffd399,
+  300: #ffc273,
+  400: #ffb347,
+  500: #ffa414,
+  600: #ff9400,
+  700: #e68500,
+  800: #cc7600,
+  900: #b36600,
+  A100: #ffffff,
+  A200: #ffe6db,
+  A400: #ffcbb8,
+  A700: #ffbfa6,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: rgba(black, 0.87),
+    A200: white,
+    A400: white,
+    A700: white
+  )
+);
+$accent-palette: mat.m2-define-palette($accent-colors, 500);
+
+$warn-colors: (
+  50: #fbe9e7,
+  100: #ffccbc,
+  200: #ffab91,
+  300: #ff8a65,
+  400: #ff7043,
+  500: #ff5722,
+  600: #f4511e,
+  700: #e64a19,
+  800: #d84315,
+  900: #bf360c,
+  A100: #ff9e80,
+  A200: #ff6e40,
+  A400: #ff3d00,
+  A700: #dd2c00,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: rgba(black, 0.87),
+    A200: white,
+    A400: white,
+    A700: white
+  )
+);
+$warn-palette: mat.m2-define-palette($warn-colors, 500);
 
 $theme: mat.m2-define-light-theme((
     color: (
-        primary: $primary,
-        accent: $accent,
-        warn: $warn,
-    ),
-    typography: (
-      plain-family: Comic Sans,
-      brand-family: Comic Sans,
-      bold-weight: 900,
-      medium-weight: 500,
-      regular-weight: 300,
+        primary: $primary-palette,
+        accent: $accent-palette,
+        warn: $warn-palette,
     ),
     density: 0
 ));
 
 html {
-    @include mat.core-theme($theme);
     @include mat.all-component-themes($theme);
-    @include mat.all-component-typographies($theme);
 }
-
-/*Trying to get font of header to change, via https://stackoverflow.com/questions/79041889/how-to-change-the-font-family-in-material-v18*/
