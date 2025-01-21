@@ -442,117 +442,128 @@
         {
             "id": 1,
             "practice_name": "Breathing",
-            "practice_description": "A mind-body practice focusing on conscious breath control to improve physical and mental health.",
+            "practice_short_description": "A mind-body practice focusing on conscious breath control to improve physical and mental health.",
+            "practice_long_description": "Breathing practices involve deliberate control of one's breath to reduce stress, enhance relaxation, and improve focus. Techniques like diaphragmatic breathing and box breathing can calm the nervous system, lower blood pressure, and promote overall well-being. These practices are often integrated into meditation, yoga, and stress management routines.",
             "practice_image": "breathing_practice_image.jpg",
             "is_active": true,
             "created_by": 1,
             "create_date_time": "2025-01-06T10:00:00",
             "updated_by": 2,
             "update_date_time": "2025-01-16T12:00:00"
-        },
-        {
+          },
+          {
             "id": 2,
             "practice_name": "Grounding Techniques",
-            "practice_description": "Exercises designed to help individuals reconnect with the present moment and reduce stress or anxiety.",
+            "practice_short_description": "Exercises designed to help individuals reconnect with the present moment and reduce stress or anxiety.",
+            "practice_long_description": "Grounding techniques are strategies used to center oneself in the present moment, particularly during times of stress or anxiety. These methods can involve focusing on sensory experiences, such as feeling textures, listening to sounds, or deep breathing, to interrupt negative thought patterns. Grounding helps individuals regain a sense of control and stability.",
             "practice_image": "grounding_techniques_image.jpg",
             "is_active": true,
             "created_by": 2,
             "create_date_time": "2025-01-07T11:00:00",
             "updated_by": 1,
             "update_date_time": "2025-01-17T13:00:00"
-        },
-        {
+          },
+          {
             "id": 3,
             "practice_name": "Meet with Friends",
-            "practice_description": "Socializing with friends to strengthen connections, reduce stress, and promote emotional well-being.",
+            "practice_short_description": "Socializing with friends to strengthen connections, reduce stress, and promote emotional well-being.",
+            "practice_long_description": "Meeting with friends provides a sense of connection and belonging that is essential for mental and emotional well-being. Socializing helps reduce feelings of loneliness and stress while boosting mood. Sharing experiences, laughter, and support with friends strengthens interpersonal bonds and enhances life satisfaction.",
             "practice_image": "meet_with_friends_image.jpg",
             "is_active": true,
             "created_by": 3,
             "create_date_time": "2025-01-08T12:00:00",
             "updated_by": 2,
             "update_date_time": "2025-01-18T14:00:00"
-        },
-        {
+          },
+          {
             "id": 4,
             "practice_name": "Join a Club",
-            "practice_description": "Engaging in group activities or hobbies to build community, reduce isolation, and encourage personal growth.",
+            "practice_short_description": "Engaging in group activities or hobbies to build community, reduce isolation, and encourage personal growth.",
+            "practice_long_description": "Joining a club allows individuals to connect with others who share similar interests, hobbies, or goals. It fosters a sense of community and belonging while providing opportunities to learn, grow, and share experiences. Being part of a group can reduce isolation, improve confidence, and encourage positive interactions.",
             "practice_image": "join_a_club_image.jpg",
             "is_active": true,
             "created_by": 4,
             "create_date_time": "2025-01-09T13:00:00",
             "updated_by": 3,
             "update_date_time": "2025-01-19T15:00:00"
-        },
-        {
+          },
+          {
             "id": 5,
             "practice_name": "Daily Parts Practice",
-            "practice_description": "An approach where individuals focus on different 'parts' of themselves to improve self-awareness and integration.",
+            "practice_short_description": "An approach where individuals focus on different 'parts' of themselves to improve self-awareness and integration.",
+            "practice_long_description": "Daily Parts Practice encourages individuals to explore and acknowledge the various 'parts' or aspects of their personality, emotions, and thoughts. By journaling or reflecting on these parts, individuals can increase self-awareness, foster inner harmony, and address conflicting feelings or behaviors in a structured way.",
             "practice_image": "daily_parts_practice_image.jpg",
             "is_active": true,
             "created_by": 5,
             "create_date_time": "2025-01-10T14:00:00",
             "updated_by": 4,
             "update_date_time": "2025-01-20T16:00:00"
-        },
-        {
+          },
+          {
             "id": 6,
             "practice_name": "Journaling with Parts",
-            "practice_description": "Writing exercises that involve exploring different 'parts' of the self to increase self-awareness and clarity.",
+            "practice_short_description": "Writing exercises that involve exploring different 'parts' of the self to increase self-awareness and clarity.",
+            "practice_long_description": "Journaling with Parts is a self-exploration technique where individuals write about the different facets of their inner self. This practice can help uncover hidden emotions, clarify goals, and resolve inner conflicts. It provides a safe space for reflection and growth, promoting a deeper understanding of one's psyche.",
             "practice_image": "journaling_with_parts_image.jpg",
             "is_active": true,
             "created_by": 1,
             "create_date_time": "2025-01-11T15:00:00",
             "updated_by": 2,
             "update_date_time": "2025-01-21T17:00:00"
-        },
-        {
+          },
+          {
             "id": 7,
             "practice_name": "Cognitive Behavioral Therapy (CBT)",
-            "practice_description": "A therapeutic approach that helps individuals identify and challenge negative thought patterns and behaviors.",
+            "practice_short_description": "A therapeutic approach that helps individuals identify and challenge negative thought patterns and behaviors.",
+            "practice_long_description": "Cognitive Behavioral Therapy (CBT) is a structured, evidence-based therapy that focuses on identifying and altering harmful thinking patterns and behaviors. CBT is widely used to treat anxiety, depression, and other mental health challenges by helping individuals develop healthier coping mechanisms and problem-solving skills.",
             "practice_image": "cbt_image.jpg",
             "is_active": true,
             "created_by": 2,
             "create_date_time": "2025-01-12T16:00:00",
             "updated_by": 1,
             "update_date_time": "2025-01-22T18:00:00"
-        },
-        {
+          },
+          {
             "id": 8,
             "practice_name": "Acceptance and Commitment Therapy (ACT)",
-            "practice_description": "A therapeutic approach that encourages individuals to accept difficult emotions and commit to behaviors aligned with their values.",
+            "practice_short_description": "A therapeutic approach that encourages individuals to accept difficult emotions and commit to behaviors aligned with their values.",
+            "practice_long_description": "Acceptance and Commitment Therapy (ACT) is a mindfulness-based therapy that encourages individuals to embrace their thoughts and feelings rather than fighting or avoiding them. By aligning actions with personal values, ACT helps foster psychological flexibility and resilience, promoting a meaningful and fulfilling life.",
             "practice_image": "act_image.jpg",
             "is_active": true,
             "created_by": 3,
             "create_date_time": "2025-01-13T17:00:00",
             "updated_by": 2,
             "update_date_time": "2025-01-23T19:00:00"
-        },
-        {
+          },
+          {
             "id": 9,
             "practice_name": "Cognitive Behavioral Therapy (CBT)",
-            "practice_description": "A therapeutic approach that helps individuals identify and challenge negative thought patterns and behaviors.",
+            "practice_short_description": "A therapeutic approach that helps individuals identify and challenge negative thought patterns and behaviors.",
+            "practice_long_description": "Cognitive Behavioral Therapy (CBT) is a structured, evidence-based therapy that focuses on identifying and altering harmful thinking patterns and behaviors. CBT is widely used to treat anxiety, depression, and other mental health challenges by helping individuals develop healthier coping mechanisms and problem-solving skills.",
             "practice_image": "cbt_image.jpg",
             "is_active": true,
             "created_by": 4,
             "create_date_time": "2025-01-14T18:00:00",
             "updated_by": 3,
             "update_date_time": "2025-01-24T20:00:00"
-        },
-        {
+          },
+          {
             "id": 10,
             "practice_name": "Metta Meditation",
-            "practice_description": "A meditation practice focused on cultivating love, kindness, and compassion towards oneself and others.",
+            "practice_short_description": "A meditation practice focused on cultivating love, kindness, and compassion towards oneself and others.",
+            "practice_long_description": "Metta Meditation, also known as Loving-Kindness Meditation, is a practice aimed at developing feelings of compassion and kindness for oneself and others. By silently repeating phrases of goodwill and focusing on positive emotions, individuals can enhance empathy, reduce anger, and foster a sense of interconnectedness.",
             "practice_image": "metta_meditation_image.jpg",
             "is_active": true,
             "created_by": 5,
             "create_date_time": "2025-01-15T19:00:00",
             "updated_by": 4,
             "update_date_time": "2025-01-25T21:00:00"
-        },
-        {
+          },
+          {
             "id": 11,
             "practice_name": "Mantra Meditation",
-            "practice_description": "A meditation practice that involves repeating a word or phrase to focus the mind and achieve a state of calmness.",
+            "practice_short_description": "A meditation practice that involves repeating a word or phrase to focus the mind and achieve a state of calmness.",
+            "practice_long_description": "Mantra Meditation is a mindfulness technique that involves silently or audibly repeating a chosen word or phrase, known as a mantra. This practice helps anchor the mind, reduce distractions, and foster inner calm. It is widely used to enhance concentration, relieve stress, and promote spiritual growth.",
             "practice_image": "mantra_meditation_image.jpg",
             "is_active": true,
             "created_by": 1,
@@ -563,95 +574,104 @@
         {
             "id": 12,
             "practice_name": "Mindfulness",
-            "practice_description": "The practice of being present and fully engaged with the current moment without judgment.",
+            "practice_short_description": "The practice of being present and fully engaged with the current moment without judgment.",
+            "practice_long_description": "Mindfulness is a mental practice that focuses on cultivating awareness of the present moment while letting go of distractions and judgments. This practice encourages individuals to engage fully with their thoughts, emotions, and surroundings, helping to reduce stress, enhance emotional regulation, and improve overall well-being.",
             "practice_image": "mindfulness_image.jpg",
             "is_active": true,
             "created_by": 2,
             "create_date_time": "2025-01-17T21:00:00",
             "updated_by": 1,
             "update_date_time": "2025-01-27T23:00:00"
-        },
-        {
+          },
+          {
             "id": 13,
             "practice_name": "Spiritual Reading",
-            "practice_description": "Reading sacred or inspirational texts to nurture the spirit and encourage personal growth.",
+            "practice_short_description": "Reading sacred or inspirational texts to nurture the spirit and encourage personal growth.",
+            "practice_long_description": "Spiritual reading involves exploring sacred, philosophical, or inspirational texts to gain insight, foster self-reflection, and nurture the spirit. This practice can provide guidance, promote personal growth, and offer a deeper sense of connection to one's values and beliefs.",
             "practice_image": "spiritual_reading_image.jpg",
             "is_active": true,
             "created_by": 3,
             "create_date_time": "2025-01-18T22:00:00",
             "updated_by": 2,
             "update_date_time": "2025-01-28T00:00:00"
-        },
-        {
+          },
+          {
             "id": 14,
             "practice_name": "Nature Walk",
-            "practice_description": "Walking in nature to improve physical health, reduce stress, and foster a sense of connection with the natural world.",
+            "practice_short_description": "Walking in nature to improve physical health, reduce stress, and foster a sense of connection with the natural world.",
+            "practice_long_description": "A nature walk is a therapeutic activity that allows individuals to reconnect with the outdoors. By walking through natural environments such as forests, parks, or beaches, individuals can improve their physical health, lower stress levels, and develop a greater appreciation for the beauty and tranquility of the natural world.",
             "practice_image": "nature_walk_image.jpg",
             "is_active": true,
             "created_by": 4,
             "create_date_time": "2025-01-19T23:00:00",
             "updated_by": 3,
             "update_date_time": "2025-01-29T01:00:00"
-        },
-        {
+          },
+          {
             "id": 15,
             "practice_name": "Sit Outside",
-            "practice_description": "Spending time outside to benefit from natural light, fresh air, and connection with the outdoors.",
+            "practice_short_description": "Spending time outside to benefit from natural light, fresh air, and connection with the outdoors.",
+            "practice_long_description": "Sitting outside is a simple yet effective way to enhance mental and physical well-being. Exposure to natural light and fresh air can boost mood, improve concentration, and provide a sense of calm and relaxation. This practice encourages slowing down and connecting with the environment.",
             "practice_image": "sit_outside_image.jpg",
             "is_active": true,
             "created_by": 5,
             "create_date_time": "2025-01-20T00:00:00",
             "updated_by": 4,
             "update_date_time": "2025-01-30T02:00:00"
-        },
-        {
+          },
+          {
             "id": 16,
             "practice_name": "Running",
-            "practice_description": "A cardiovascular exercise that involves moving at a fast pace to improve endurance and fitness.",
+            "practice_short_description": "A cardiovascular exercise that involves moving at a fast pace to improve endurance and fitness.",
+            "practice_long_description": "Running is a high-intensity physical activity that enhances cardiovascular health, builds stamina, and strengthens muscles. This practice also releases endorphins, often referred to as 'feel-good' hormones, making it an excellent way to boost mental health while staying fit.",
             "practice_image": "running_image.jpg",
             "is_active": true,
             "created_by": 1,
             "create_date_time": "2025-01-21T01:00:00",
             "updated_by": 2,
             "update_date_time": "2025-01-31T03:00:00"
-        },
-        {
+          },
+          {
             "id": 17,
             "practice_name": "Biking",
-            "practice_description": "A physical activity where individuals use a bicycle to enhance fitness, endurance, and cardiovascular health.",
+            "practice_short_description": "A physical activity where individuals use a bicycle to enhance fitness, endurance, and cardiovascular health.",
+            "practice_long_description": "Biking is a versatile exercise suitable for all fitness levels. Whether performed outdoors or on a stationary bike, it improves cardiovascular health, builds leg strength, and promotes overall endurance. Biking can also provide a sense of freedom and an opportunity to explore new surroundings.",
             "practice_image": "biking_image.jpg",
             "is_active": true,
             "created_by": 2,
             "create_date_time": "2025-01-22T02:00:00",
             "updated_by": 1,
             "update_date_time": "2025-02-01T04:00:00"
-        },
-        {
+          },
+          {
             "id": 18,
             "practice_name": "Brisk Walking",
-            "practice_description": "Walking at a quick pace to improve fitness, cardiovascular health, and overall well-being.",
+            "practice_short_description": "Walking at a quick pace to improve fitness, cardiovascular health, and overall well-being.",
+            "practice_long_description": "Brisk walking is a low-impact exercise that promotes heart health, boosts energy levels, and aids in weight management. This practice is accessible to most individuals and can be incorporated into daily routines to improve physical and mental health.",
             "practice_image": "brisk_walking_image.jpg",
             "is_active": true,
             "created_by": 3,
             "create_date_time": "2025-01-23T03:00:00",
             "updated_by": 2,
             "update_date_time": "2025-02-02T05:00:00"
-        },
-        {
+          },
+          {
             "id": 19,
             "practice_name": "Nighttime Routine",
-            "practice_description": "A set of practices performed before bed to wind down and promote restful sleep.",
+            "practice_short_description": "A set of practices performed before bed to wind down and promote restful sleep.",
+            "practice_long_description": "A nighttime routine involves consistent activities that prepare the body and mind for restful sleep. Common elements include reading, meditating, or practicing relaxation techniques. Establishing a routine signals to the brain that it is time to unwind, promoting better sleep quality.",
             "practice_image": "nighttime_routine_image.jpg",
             "is_active": true,
             "created_by": 4,
             "create_date_time": "2025-01-24T04:00:00",
             "updated_by": 3,
             "update_date_time": "2025-02-03T06:00:00"
-        },
-        {
+          },
+          {
             "id": 20,
             "practice_name": "Environmental Modification",
-            "practice_description": "Making changes to one's environment to reduce stress and improve well-being.",
+            "practice_short_description": "Making changes to one's environment to reduce stress and improve well-being.",
+            "practice_long_description": "Environmental modification focuses on creating a space that fosters tranquility and productivity. This can involve decluttering, introducing plants, improving lighting, or adding personal touches to transform a space into a supportive and comfortable environment.",
             "practice_image": "environmental_modification_image.jpg",
             "is_active": true,
             "created_by": 5,
@@ -662,7 +682,8 @@
         {
             "id": 21,
             "practice_name": "Weight Training",
-            "practice_description": "A physical exercise that involves using weights to build strength and muscle mass.",
+            "practice_short_description": "A physical exercise that involves using weights to build strength and muscle mass.",
+            "practice_long_description": "Weight training, also known as resistance training, involves exercises where you lift weights to enhance muscular strength and endurance. It targets different muscle groups and is essential for building muscle mass, improving bone density, and increasing metabolic rate. Common exercises include squats, deadlifts, and bench presses, which can be tailored to specific fitness goals and varying levels of intensity.",
             "practice_image": "weight_training_image.jpg",
             "is_active": true,
             "created_by": 1,
@@ -673,7 +694,8 @@
         {
             "id": 22,
             "practice_name": "Calisthenics",
-            "practice_description": "A form of exercise that uses bodyweight for resistance to enhance strength and flexibility.",
+            "practice_short_description": "A form of exercise that uses bodyweight for resistance to enhance strength and flexibility.",
+            "practice_long_description": "Calisthenics refers to a series of bodyweight exercises aimed at improving strength, endurance, and flexibility without the need for equipment. Common calisthenic exercises include push-ups, pull-ups, squats, and planks. This type of training can be performed anywhere, making it a versatile workout that builds functional strength and enhances mobility and coordination.",
             "practice_image": "calisthenics_image.jpg",
             "is_active": true,
             "created_by": 2,
@@ -684,7 +706,8 @@
         {
             "id": 23,
             "practice_name": "Stretching",
-            "practice_description": "Exercises designed to improve flexibility, range of motion, and muscle health.",
+            "practice_short_description": "Exercises designed to improve flexibility, range of motion, and muscle health.",
+            "practice_long_description": "Stretching involves various exercises that target muscle groups to increase flexibility and range of motion. Regular stretching helps improve circulation, reduce the risk of injury, and ease muscle tension. It can be done before or after workouts, or as part of a dedicated flexibility routine. Static, dynamic, and PNF (proprioceptive neuromuscular facilitation) stretching techniques all contribute to muscle health and joint mobility.",
             "practice_image": "stretching_image.jpg",
             "is_active": true,
             "created_by": 3,
@@ -695,7 +718,8 @@
         {
             "id": 24,
             "practice_name": "Yoga",
-            "practice_description": "A physical, mental, and spiritual practice that incorporates breath control, meditation, and physical postures.",
+            "practice_short_description": "A physical, mental, and spiritual practice that incorporates breath control, meditation, and physical postures.",
+            "practice_long_description": "Yoga is an ancient practice that blends physical postures (asanas), breath control (pranayama), and meditation to promote overall well-being. It helps to improve flexibility, balance, and strength while reducing stress and enhancing mindfulness. Various styles of yoga such as Hatha, Vinyasa, and Ashtanga offer different intensities and focus areas, catering to practitioners of all levels.",
             "practice_image": "yoga_image.jpg",
             "is_active": true,
             "created_by": 4,
@@ -706,7 +730,8 @@
         {
             "id": 25,
             "practice_name": "No Sugar",
-            "practice_description": "A dietary practice where individuals avoid consuming sugar to improve physical and mental health.",
+            "practice_short_description": "A dietary practice where individuals avoid consuming sugar to improve physical and mental health.",
+            "practice_long_description": "The No Sugar practice involves eliminating added sugars from the diet to improve overall health and well-being. Reducing sugar intake can help with weight management, reduce the risk of chronic diseases like type 2 diabetes, and support better mental clarity and energy levels. The focus is on whole, nutrient-dense foods such as fruits, vegetables, and lean proteins while avoiding sugary snacks, drinks, and processed foods.",
             "practice_image": "no_sugar_image.jpg",
             "is_active": true,
             "created_by": 5,
@@ -717,7 +742,8 @@
         {
             "id": 26,
             "practice_name": "Intermittent Fasting",
-            "practice_description": "A pattern of eating where individuals cycle between periods of fasting and eating to improve health and manage weight.",
+            "practice_short_description": "A pattern of eating where individuals cycle between periods of fasting and eating to improve health and manage weight.",
+            "practice_long_description": "Intermittent fasting is an eating pattern that alternates between periods of fasting and eating. It can take various forms, such as the 16/8 method (16 hours fasting, 8 hours eating) or the 5:2 method (eating normally for 5 days, restricting calories for 2 days). This practice has been shown to promote weight loss, improve metabolic health, and enhance cellular repair processes, among other benefits.",
             "practice_image": "intermittent_fasting_image.jpg",
             "is_active": true,
             "created_by": 1,

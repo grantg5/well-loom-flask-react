@@ -61,7 +61,8 @@
 | ----------- | ----------- |
 | id      | Primary key       |
 | practice_name   | Text  (Unique)       |
-| practice_description   | Text       |
+| practice_short_description   | Text       |
+| practice_long_description   | Text       |
 | practice_image   | Text       |
 | is_active      | Boolean       |
 | created_by   | user(id)        |
