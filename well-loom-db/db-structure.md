@@ -117,33 +117,33 @@
 | updated_by        | user(id)                                              |
 | update_date_time  | Datetime                                              |
 
-| symptom      | Something that a person can suffer from, which reduces their well being |
+| challenge      | Something that a person can suffer from, which reduces their well being |
 | ----------- | ----------- |
 | id      | Primary key       |
-| symptom_name   | Text  (Unique)       |
-| symptom description   | Text      |
+| challenge_name   | Text  (Unique)       |
+| challenge description   | Text      |
 | is_active      | Boolean       |
 | created_by   | user(id)        |
 | create_date_time   | Datetime        |
 | updated_by   | user(id)         |
 | update_date_time   | Datetime        |
 
-| area_symptom_mapping   | Many-to-many relationship between area and symptom |
+| area_challenge_mapping   | Many-to-many relationship between area and challenge |
 | ------------- | -------------------------------------------------- |
 | id            | Primary key                                       |
 | area_id       | Foreign key (area.id)                             |
-| symptom_id    | Foreign key (symptom.id)                          |
+| challenge_id    | Foreign key (challenge.id)                          |
 | is_active     | Boolean                                           |
 | created_by    | user(id)                                          |
 | create_date_time | Datetime                                        |
 | updated_by    | user(id)                                          |
 | update_date_time | Datetime                                        |
 
-| practice_symptom_mapping  | Many-to-many relationship between practice and symptom |
+| practice_challenge_mapping  | Many-to-many relationship between practice and challenge |
 | ---------------- | ----------------------------------------------------- |
 | id               | Primary key                                          |
 | practice_id      | Foreign key (practice.id)                            |
-| symptom_id       | Foreign key (symptom.id)                             |
+| challenge_id       | Foreign key (challenge.id)                             |
 | is_active        | Boolean                                              |
 | created_by       | user(id)                                             |
 | create_date_time | Datetime                                             |
