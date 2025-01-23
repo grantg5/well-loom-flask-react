@@ -6,24 +6,24 @@
         </button>
     </mat-form-field>
     <mat-form-field>
-        <mat-label>Area</mat-label>
-        <mat-select multiple [(value)]="areaIdsSelected" (selectionChange)="areasFiltered()">
+        <mat-label>Areas</mat-label>
+        <mat-select multiple [(value)]="areaIdsSelected" (selectionChange)="areasDropdownFiltered()">
             <!--TODO: Loop through input of practice areas queried from DB to create mat-options w/ value=id-->
             <mat-option value="test">Test</mat-option>
             <mat-option value="test2">Test2</mat-option>
         </mat-select>
     </mat-form-field>
     <mat-form-field>
-        <mat-label>Practice Group</mat-label>
-        <mat-select multiple [(value)]="practiceGroupIdsSelected" (selectionChange)="practiceGroupsFiltered()">
+        <mat-label>Practice Groups</mat-label>
+        <mat-select multiple [(value)]="practiceGroupIdsSelected" (selectionChange)="practiceGroupsDropdownFiltered()">
             <!--TODO: Loop through input of practice areas queried from DB to create mat-options w/ value=id-->
             <mat-option value="test">Test</mat-option>
             <mat-option value="test2">Test2</mat-option>
         </mat-select>
     </mat-form-field>
     <mat-form-field>
-        <mat-label>Challenge</mat-label>
-        <mat-select multiple [(value)]="challengeIdsSelected" (selectionChange)="challengesFiltered()">
+        <mat-label>Challenges</mat-label>
+        <mat-select multiple [(value)]="challengeIdsSelected" (selectionChange)="challengesDropdownFiltered()">
             <!--TODO: Loop through input of practice areas queried from DB to create mat-options w/ value=id-->
             <mat-option value="test">Test</mat-option>
             <mat-option value="test2">Test2</mat-option>
