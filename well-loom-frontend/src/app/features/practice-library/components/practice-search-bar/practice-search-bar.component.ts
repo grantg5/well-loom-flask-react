@@ -4,6 +4,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIcon } from '@angular/material/icon';
+import { GetAreasService } from 'shared/services/get-areas.service';
+import { Area } from 'shared/interfaces/area';
 
 @Component({
   selector: 'app-practice-search-bar',
@@ -17,18 +19,22 @@ export class PracticeSearchBarComponent {
   practiceGroupIdsSelected: number[] = [];
   challengeIdsSelected: number[] = [];
 
-  allDropdownValues: object = this.fetchAllDropdownValues();
+  // TODO: Update template to loop through areas for mat-options, showing name & setting value = id
 
-  areas: object = {};
-  practiceGroups: object = {};
-  challengeIds: object = {};
+  areas: Area[] = [];
+  practiceGroups: object = [{}];
+  challengeIds: object = [{}];
 
   @Output() dropdownUpdated = new EventEmitter<object>();
 
-  fetchAllDropdownValues(): object {
-    // TODO: Call "service" to fetch all dropdown values, populate areas, practiceGroups, challengeIds properties. Loop through them in html to build mat-options
+  constructor(private getAreasService: GetAreasService) { }
 
-    return {};
+  ngOnInit(): void {
+    this.getAreasService.getAreas().subscribe(data => {
+      this.areas = data;
+    });
+
+    //TODO: Continue getting practice groups & challenges like above
   }
 
   searchPractices(searchInput: string) {
@@ -44,14 +50,14 @@ export class PracticeSearchBarComponent {
 
   // These functions emit dropdown updates to the parent function to re-filter practices on. They also update available values in other dropdowns.
   areasDropdownFiltered() {
-    this.dropdownUpdated.emit({dropdown: "areas", idsSelected: this.areaIdsSelected});
+    this.dropdownUpdated.emit({ dropdown: "areas", idsSelected: this.areaIdsSelected });
   }
 
   practiceGroupsDropdownFiltered() {
-    this.dropdownUpdated.emit({dropdown: "practiceGroups", idsSelected: this.practiceGroupIdsSelected});
+    this.dropdownUpdated.emit({ dropdown: "practiceGroups", idsSelected: this.practiceGroupIdsSelected });
   }
 
   challengesDropdownFiltered() {
-    this.dropdownUpdated.emit({dropdown: "challenges", idsSelected: this.challengeIdsSelected});
+    this.dropdownUpdated.emit({ dropdown: "challenges", idsSelected: this.challengeIdsSelected });
   }
 }
