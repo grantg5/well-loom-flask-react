@@ -3,8 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { environment } from 'shared/environmentVariables';
 import { apiUrls } from 'shared/apiUrls';
-import { Area } from 'shared/interfaces/area'
-import { mock } from 'node:test';
+import { Area } from 'shared/interfaces/area';
 
 @Injectable({
   providedIn: 'root'

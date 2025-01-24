@@ -19,7 +19,7 @@ export class PracticeSearchBarComponent {
   practiceGroupIdsSelected: number[] = [];
   challengeIdsSelected: number[] = [];
 
-  // TODO: Update template to loop through areas for mat-options, showing name & setting value = id
+  //TODO: Add Theories to all of this
 
   areas: Area[] = [];
   practiceGroups: object = [{}];
@@ -50,6 +50,7 @@ export class PracticeSearchBarComponent {
 
   // These functions emit dropdown updates to the parent function to re-filter practices on. They also update available values in other dropdowns.
   areasDropdownFiltered() {
+    console.log(this.areaIdsSelected);
     this.dropdownUpdated.emit({ dropdown: "areas", idsSelected: this.areaIdsSelected });
   }
 

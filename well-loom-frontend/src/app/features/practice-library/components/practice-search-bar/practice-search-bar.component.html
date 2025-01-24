@@ -8,9 +8,18 @@
     <mat-form-field>
         <mat-label>Areas</mat-label>
         <mat-select multiple [(value)]="areaIdsSelected" (selectionChange)="areasDropdownFiltered()">
-            <!--TODO: Loop through input of practice areas queried from DB to create mat-options w/ value=id-->
-            <mat-option value="test">Test</mat-option>
-            <mat-option value="test2">Test2</mat-option>
+            @for (area of areas; track area.id) {
+                <mat-option value="{{ area.id }}">{{ area.areaName }}</mat-option>
+            }
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Theories</mat-label>
+        <!-- TODO: Update w/ Theories -->
+        <mat-select multiple [(value)]="areaIdsSelected" (selectionChange)="areasDropdownFiltered()">
+            @for (area of areas; track area.id) {
+                <mat-option value="{{ area.id }}">{{ area.areaName }}</mat-option>
+            }
         </mat-select>
     </mat-form-field>
     <mat-form-field>
