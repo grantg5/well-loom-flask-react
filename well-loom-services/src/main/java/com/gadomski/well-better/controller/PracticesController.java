@@ -1,4 +1,4 @@
-package com.gadomski.well-loom;
+package com.gadomski.well_loom;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -13,8 +13,7 @@ import org.springframework.data.domain.PageRequest;
 @RequestMapping("/api/practice")
 public class PracticesController {
     @GetMapping("/get-practices")
-    public String getPractices(@RequestHeader("pageNumber") int pageNumber,
-            @RequestHeader("pageSize") int pageSize) {
+    public String getPractices(@RequestHeader("pageNumber") int pageNumber, @RequestHeader("pageSize") int pageSize) {
         // TODO: import stuff, likely work w/ request body of type PracticeSearch for
         // searching
         // Then roll pagination when fetching from DB

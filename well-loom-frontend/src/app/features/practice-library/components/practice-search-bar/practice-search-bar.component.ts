@@ -6,6 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIcon } from '@angular/material/icon';
 import { GetAreasService } from 'shared/services/get-areas.service';
 import { Area } from 'shared/interfaces/area';
+import { Theory } from 'shared/interfaces/theory';
 
 @Component({
   selector: 'app-practice-search-bar',
@@ -16,12 +17,12 @@ import { Area } from 'shared/interfaces/area';
 })
 export class PracticeSearchBarComponent {
   areaIdsSelected: number[] = [];
+  theoryIdsSelected: number[] = [];
   practiceGroupIdsSelected: number[] = [];
   challengeIdsSelected: number[] = [];
 
-  //TODO: Add Theories to all of this
-
   areas: Area[] = [];
+  theories: Theory[] = [];
   practiceGroups: object = [{}];
   challengeIds: object = [{}];
 
@@ -52,6 +53,10 @@ export class PracticeSearchBarComponent {
   areasDropdownFiltered() {
     console.log(this.areaIdsSelected);
     this.dropdownUpdated.emit({ dropdown: "areas", idsSelected: this.areaIdsSelected });
+  }
+
+  theoriesDropdownFiltered() {
+    this.dropdownUpdated.emit({ dropdown: "theories", idsSelected: this.theoryIdsSelected });
   }
 
   practiceGroupsDropdownFiltered() {

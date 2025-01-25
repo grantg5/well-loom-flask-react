@@ -6,3 +6,5 @@ ENV POSTGRES_DB well-loom-db
 
 RUN chmod 644 ./CreateDB.sql
 ADD ./CreateDB.sql /docker-entrypoint-initdb.d/
+
+EXPOSE 5432

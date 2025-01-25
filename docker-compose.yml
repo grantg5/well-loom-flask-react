@@ -1,4 +1,9 @@
 version: '3.8'
+
+networks:
+  mynetwork:
+    driver: bridge
+
 services:
   postgres:
     build:
@@ -11,46 +16,42 @@ services:
       POSTGRES_PASSWORD: testingPassword
       POSTGRES_DB: well-loom-db
     ports:
-      - "5432:5432"
+      - "8001:5432"
     volumes:
       - ./well-loom-db:/docker-entrypoint-initdb.d
       - ./testing-scripts:/lib/testing-scripts
     networks:
       - mynetwork
+      
+    # spring-app:
+    #   build:
+    #     context: ./well-loom-services
+    #     dockerfile: Dockerfile
+    #   image: openjdk:17
+    #   container_name: well-loom-services
+    #   ports:
+    #     - "8080:8080"
+    #   environment:
+    #     - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/well-loom-db
+    #     - SPRING_DATASOURCE_USERNAME=well_loom_db_user
+    #     - SPRING_DATASOURCE_PASSWORD=testingPassword
+    #   depends_on:
+    #     - postgres
+    #   networks:
+    #     - mynetwork
 
-  spring-app:
-    build:
-      context: ./well-loom-services
-      dockerfile: Dockerfile
-    image: openjdk:17
-    container_name: well-loom-services
-    ports:
-      - "8080:8080"
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/well-loom-db
-      - SPRING_DATASOURCE_USERNAME=well_loom_db_user
-      - SPRING_DATASOURCE_PASSWORD=testingPassword
-    depends_on:
-      - postgres
-    networks:
-      - mynetwork
-
-  angular-app:
-    build:
-      context: ./well-loom-frontend
-      dockerfile: Dockerfile
-    image: node:22
-    container_name: well-loom-frontend
-    ports:
-      - "80:80"
-    depends_on:
-      - spring-app
-    networks:
-      - mynetwork
-
-networks:
-  mynetwork:
-    driver: bridge
+    # angular-app:
+    #   build:
+    #     context: ./well-loom-frontend
+    #     dockerfile: Dockerfile
+    #   image: node:22
+    #   container_name: well-loom-frontend
+    #   ports:
+    #     - "80:80"
+    #   depends_on:
+    #     - spring-app
+    #   networks:
+    #     - mynetwork
 
 volumes:
   postgres-data:

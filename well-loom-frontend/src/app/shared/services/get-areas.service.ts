@@ -13,7 +13,7 @@ export class GetAreasService {
   constructor(private http: HttpClient) { }
 
   getAreas(): Observable<Area[]> {
-    //Note: Now updating to pull from new Spring Boot service
+    //Note: Now updating to pull from new Spring Boot service, will delete mock after that's done
 
     const mockAreas: Area[] = [
       {
