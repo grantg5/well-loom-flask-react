@@ -30,3 +30,7 @@ var graph = session.createEntityGraph(Book.class);
 graph.addSubgraph(Book_.publisher);
 graph.addPluralSubgraph(Book_.authors).addSubgraph(Author_.person);
 Book book = session.byId(Book.class).withFetchGraph(graph).load(bookId);
+
+- Example fetch query across joins. Note, when using this will want to implement cascade to ensure updates cascade when needed
+@Query("SELECT up.practice FROM UserPractice up WHERE up.user.id = :userId AND up.isActive = true")
+List<Practice> findActivePracticesByUserId(@Param("userId") Long userId);
