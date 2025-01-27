@@ -12,6 +12,7 @@ https://malshani-wijekoon.medium.com/spring-boot-folder-structure-best-practices
 - CRUD endpoints for each table
 
 # Hibernate Learning Notes
+https://docs.jboss.org/hibernate/orm/6.4/introduction/html_single/Hibernate_Introduction.html#entities
 - Can put queries in a Queries interface w/ @HQL annotations for each query function, then call them via Queries_.functionName to improve type safety
 
   - Once done so, call these w/ any of the following exicutions: getResultList(), getSingleResult(), or getSingleResultOrNull(), executeUpdate()

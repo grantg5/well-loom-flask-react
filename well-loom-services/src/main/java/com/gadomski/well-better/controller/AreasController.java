@@ -10,13 +10,20 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.PageRequest;
 
 @RestController
-@RequestMapping("/api/area")
+@RequestMapping("/api")
 public class AreasController {
-    @GetMapping("/get-areas")
+    @GetMapping("/areas")
     public String getAreas() {
-        // TODO: import stuff, likely work w/ request body of type PracticeSearch for
-        // searching
-        // Then roll pagination when fetching from DB
+        // TODO: Handle request paramenters (key-value on input or hardcode possible columns?).
+        //       Add logic to call getAllAreas in service if no params, else call a search service
+
+        // TODO: Verify that I should return a string, call the AreaService's method to get all areas
+        return "delete me";
+    }
+
+    @GetMapping("/areas/{id}")
+    public String getAreaById(@PathVariable long id) {
+        // TODO: Return area fetched via id
         return "delete me";
     }
 }

@@ -1,18 +1,19 @@
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "area")
+@Table(name="area")
 public class Area {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
-    private int id;
+    @Column(name="area_name")
     private String areaName;
+
+    @Column(name="area_description")    
     private String areaDescription;
-    private boolean isActive;
-    private int createdBy;
-    private LocalDateTime createDateTime;
-    private int updatedBy;
-    private LocalDateTime updateDateTime;
+
+    public Area() {}
 
     // Getters
     public int getId() {
