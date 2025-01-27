@@ -1,3 +1,5 @@
+package com.gadomski.well_loom.model;
+
 import java.time.LocalDateTime;
 
 @Entity

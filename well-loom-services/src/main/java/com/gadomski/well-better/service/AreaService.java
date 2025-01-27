@@ -1,3 +1,5 @@
+package com.gadomski.well_loom;
+
 @Service
 public class AreaService {
     private final AreaRepository areaRepository;
