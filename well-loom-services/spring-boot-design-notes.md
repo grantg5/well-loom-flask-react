@@ -1,6 +1,13 @@
 # Folder Structure
 https://malshani-wijekoon.medium.com/spring-boot-folder-structure-best-practices-18ef78a81819
 
+- Folder structure w/ Hibernate/database access
+-- dao folder contains @Repository interface for each major entity (Practice, Area, User, etc.)
+--- Each of these interfaces contains the named HQL queries associated w/ said entity
+-- model folder contains @Entity classes for each table in DB, including mapping tables (w/ many-to-one mapping to the major entities)
+-- service folder contains business logic, calling query functions from the @Repository interfaces to orchastrate data fetch & write
+--- This will also contain one-off criteria-based queries instead of HQL when appropriate  
+
 # Endpoint design
 - CRUD endpoints for each table
 
