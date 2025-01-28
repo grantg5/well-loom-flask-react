@@ -1,22 +1,28 @@
--- Table creation
+CREATE TABLE area (
+  id BIGSERIAL PRIMARY KEY,
+  area_name text unique,
+  area_description text,
+  is_active boolean,
+  created_by bigint,
+  create_date_time timestamp,
+  updated_by bigint,
+  update_date_time timestamp
+);
+
+INSERT INTO area(area_name, area_description, is_active) VALUES ('Spiritual', 'Spiritual pratices', true)
+  ON CONFLICT (area_name) DO NOTHING;
+INSERT INTO area(area_name, area_description, is_active) VALUES ('Mental', 'Mental pratices', true)
+  ON CONFLICT (area_name) DO NOTHING;
+INSERT INTO area(area_name, area_description, is_active) VALUES ('Physical', 'Physical pratices', true)
+  ON CONFLICT (area_name) DO NOTHING;
+
+-- Delete & redo here on down w/ generated JSON & AI
 CREATE TABLE well_loom_user (
   id BIGSERIAL PRIMARY KEY,
   email text unique,
   is_active boolean,
   create_date_time timestamp,
   update_date_time timestamp
-);
-
-CREATE TABLE reference_lookup (
-  id BIGSERIAL PRIMARY KEY,
-  ref_type text,
-  ref_value text,
-  is_active boolean,
-  created_by bigint references well_loom_user(id),
-  create_date_time timestamp,
-  updated_by bigint references well_loom_user(id),
-  update_date_time timestamp,
-  UNIQUE (ref_type, ref_value)
 );
 
 CREATE TABLE well_being_category (
@@ -33,7 +39,7 @@ CREATE TABLE well_being_category (
 CREATE TABLE practice (
   id BIGSERIAL PRIMARY KEY,
   practice_name text unique,
-  source bigint references reference_lookup(id),
+  source bigint,
   practice_description text,
   is_active boolean,
   created_by bigint references well_loom_user(id),
@@ -57,7 +63,7 @@ CREATE TABLE category_practice_mapping (
 CREATE TABLE practice_resource (
   id BIGSERIAL PRIMARY KEY,
   resource_name text unique,
-  resource_type bigint references reference_lookup(id),
+  resource_type bigint,
   resource_description text,
   is_active boolean,
   created_by bigint references well_loom_user(id),
@@ -120,19 +126,6 @@ BEGIN
   END LOOP;
 END;
 $apply_create_date_time_triggers$;
-
--- Initial inserts
-INSERT INTO reference_lookup (ref_type, ref_value, is_active) VALUES ('practice_source', 'Buddhism', true);
-INSERT INTO reference_lookup (ref_type, ref_value, is_active) VALUES ('practice_source', 'Jungian Psychology', true);
-INSERT INTO reference_lookup (ref_type, ref_value, is_active) VALUES ('practice_source', 'Internal Family Systems', true);
-INSERT INTO reference_lookup (ref_type, ref_value, is_active) VALUES ('practice_source', 'Plant Medicine', true);
-INSERT INTO reference_lookup (ref_type, ref_value, is_active) VALUES ('practice_source', 'Cognitive Therapy', true);
-INSERT INTO reference_lookup (ref_type, ref_value, is_active) VALUES ('practice_source', 'Aerobic Exercise', true);
-INSERT INTO reference_lookup (ref_type, ref_value, is_active) VALUES ('practice_source', 'Nutritional Sciences', true);
-INSERT INTO reference_lookup (ref_type, ref_value, is_active) VALUES ('practice_source', 'Strength-based Exercises', true);
-INSERT INTO reference_lookup (ref_type, ref_value, is_active) VALUES ('practice_source', 'Flexibility', true);
-INSERT INTO reference_lookup (ref_type, ref_value, is_active) VALUES ('resource_type', 'Mobile App', true);
-INSERT INTO reference_lookup (ref_type, ref_value, is_active) VALUES ('resource_type', 'Book', true);
 
 INSERT INTO well_being_category (category_name, category_description, is_active) VALUES ('Spiritual', 'Connection to what exists beyond the self', true);
 INSERT INTO well_being_category (category_name, category_description, is_active) VALUES ('Therapeutic', 'Healing past traumas, wounds, discovering, and living more as your true self', true);

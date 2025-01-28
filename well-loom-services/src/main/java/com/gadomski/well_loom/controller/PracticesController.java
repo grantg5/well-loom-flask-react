@@ -1,4 +1,4 @@
-package com.gadomski.well_loom;
+package com.gadomski.well_loom.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
