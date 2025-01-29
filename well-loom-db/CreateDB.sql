@@ -214,20 +214,6 @@ INSERT INTO area_theory_mapping (id, area_id, theory_id, is_active) VALUES
 (6, 1, 6, true),
 (7, 1, 7, true);
 
-INSERT INTO practice_group (id, practice_group_name, practice_group_description, practice_group_image, is_active) VALUES 
-(1, 'Mindfulness', 'A group of practices for mental clarity, relaxation, and stress reduction.', 'yoga_image.jpg', true),
-(2, 'Socialization', 'Connecting with and spending time with others.', 'meditation_image.jpg', true),
-(3, 'Parts Work & Internal Family Systems', 'Discovering and interacting with various \"parts\", a.k.a. subpersonalities, to help process and heal from difficult events.', 'fitness_image.jpg', true),
-(4, 'Behavioral Theory', 'Scientifically-grounded practices to change thought patterns.', 'nutrition_image.jpg', true),
-(5, 'Meditation', 'Practices that help one observe their daily mental chatter.', 'mindfulness_image.jpg', true);
-
-INSERT INTO area_practice_group_mapping (id, area_id, practice_group_id, is_active) VALUES 
-(1, 2, 1, true),
-(2, 2, 2, true),
-(3, 2, 3, true),
-(4, 2, 4, true),
-(5, 1, 5, true);
-
 INSERT INTO practice_group (id, practice_group_name, practice_group_description, practice_group_image, is_active)
 VALUES
     (1, 'Mindfulness', 'A group of practices for mental clarity, relaxation, and stress reduction', 'yoga_image.jpg', true),
