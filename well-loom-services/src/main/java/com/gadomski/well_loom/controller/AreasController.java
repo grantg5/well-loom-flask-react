@@ -25,9 +25,6 @@ public class AreasController {
         // columns?).
         // Add logic to call getAllAreas in service if no params, else call a search
         // service
-
-        // TODO: Verify that I should return a string, call the AreaService's method to
-        // get all areas
         return ResponseEntity
                 .ok()
                 .contentType(MediaType.APPLICATION_JSON)

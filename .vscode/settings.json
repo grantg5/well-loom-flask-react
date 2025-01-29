@@ -1,0 +1,22 @@
+{
+    "java.format.settings.url": "eclipse-formatter.xml",
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.completion.enabled": true,
+    "java.completion.importOrder": [
+        "java",
+        "javax",
+        "org",
+        "com"
+    ],
+    "java.completion.favoriteStaticMembers": [
+        "org.mockito.Mockito.*",
+        "org.junit.Assert.*",
+        "java.util.Objects.requireNonNull",
+        "java.util.Objects.isNull"
+    ],
+    "java.compile.nullAnalysis.mode": "automatic",
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit",
+        "source.addMissingImports": "explicit"
+    }
+}
