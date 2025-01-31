@@ -9,33 +9,32 @@
         <mat-label>Areas</mat-label>
         <mat-select multiple [(value)]="areaIdsSelected" (selectionChange)="areasDropdownFiltered()">
             @for (area of areas; track area.id) {
-                <mat-option value="{{ area.id }}">{{ area.areaName }}</mat-option>
+            <mat-option value="{{ area.id }}">{{ area.areaName }}</mat-option>
             }
         </mat-select>
     </mat-form-field>
     <mat-form-field>
         <mat-label>Theories</mat-label>
-        <!-- TODO: Update w/ Theories -->
-        <mat-select multiple [(value)]="areaIdsSelected" (selectionChange)="areasDropdownFiltered()">
-            @for (area of areas; track area.id) {
-                <mat-option value="{{ area.id }}">{{ area.areaName }}</mat-option>
+        <mat-select multiple [(value)]="theoryIdsSelected" (selectionChange)="theoriesDropdownFiltered()">
+            @for (theory of theories; track theory.id) {
+            <mat-option value="{{ theory.id }}">{{ theory.theoryName }}</mat-option>
             }
         </mat-select>
     </mat-form-field>
     <mat-form-field>
         <mat-label>Practice Groups</mat-label>
         <mat-select multiple [(value)]="practiceGroupIdsSelected" (selectionChange)="practiceGroupsDropdownFiltered()">
-            <!--TODO: Loop through input of practice areas queried from DB to create mat-options w/ value=id-->
-            <mat-option value="test">Test</mat-option>
-            <mat-option value="test2">Test2</mat-option>
+            @for (practiceGroup of practiceGroups; track practiceGroup.id) {
+            <mat-option value="{{ practiceGroup.id }}">{{ practiceGroup.practiceGroupName }}</mat-option>
+            }
         </mat-select>
     </mat-form-field>
     <mat-form-field>
         <mat-label>Challenges</mat-label>
         <mat-select multiple [(value)]="challengeIdsSelected" (selectionChange)="challengesDropdownFiltered()">
-            <!--TODO: Loop through input of practice areas queried from DB to create mat-options w/ value=id-->
-            <mat-option value="test">Test</mat-option>
-            <mat-option value="test2">Test2</mat-option>
+            @for (challenge of challenges; track challenge.id) {
+            <mat-option value="{{ challenge.id }}">{{ challenge.challengeName }}</mat-option>
+            }
         </mat-select>
     </mat-form-field>
 </div>

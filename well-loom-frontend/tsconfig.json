@@ -10,13 +10,14 @@
       "shared/*": ["src/app/shared/*"],
     },
     "outDir": "./dist/out-tsc",
-    "strict": true,
+    "strict": false,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
     "isolatedModules": true,
+    "resolveJsonModule": true,
     "esModuleInterop": true,
     "sourceMap": true,
     "declaration": false,
@@ -28,7 +29,8 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "types": ["node"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

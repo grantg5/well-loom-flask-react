@@ -1,12 +1,17 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIcon } from '@angular/material/icon';
-import { GetAreasService } from 'shared/services/get-areas.service';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 import { Area } from 'shared/interfaces/area';
+import { Challenge } from 'shared/interfaces/challenge';
+import { PracticeGroup } from 'shared/interfaces/practiceGroup';
 import { Theory } from 'shared/interfaces/theory';
+import { GetAreasService } from 'shared/services/area/get-areas.service';
+import { GetChallengesService } from 'shared/services/challenge/get-challenges.service';
+import { GetPracticeGroupsService } from 'shared/services/practice-group/get-practice-groups.service';
+import { GetTheoriesService } from 'shared/services/theory/get-theories.service';
 
 @Component({
   selector: 'app-practice-search-bar',
@@ -22,20 +27,32 @@ export class PracticeSearchBarComponent {
   challengeIdsSelected: number[] = [];
 
   areas: Area[] = [];
-  theories: Theory[] = [];
-  practiceGroups: object = [{}];
-  challengeIds: object = [{}];
+  challenges: Challenge[] = [];
+  practiceGroups: PracticeGroup[] = [];
+  theories: Theory[] = [];  
 
   @Output() dropdownUpdated = new EventEmitter<object>();
 
-  constructor(private getAreasService: GetAreasService) { }
+  constructor(
+    private getAreasService: GetAreasService,
+    private getChallengesService: GetChallengesService,
+    private getPracticeGroupsService: GetPracticeGroupsService,
+    private getTheoriesService: GetTheoriesService
+  ) { }
 
   ngOnInit(): void {
     this.getAreasService.getAreas().subscribe(data => {
       this.areas = data;
     });
-
-    //TODO: Continue getting practice groups & challenges like above
+    this.getChallengesService.getChallenges().subscribe(data => {
+      this.challenges = data;
+    });
+    this.getPracticeGroupsService.getPracticeGroups().subscribe(data => {
+      this.practiceGroups = data;
+    });
+    this.getTheoriesService.getTheories().subscribe(data => {
+      this.theories = data;
+    });
   }
 
   searchPractices(searchInput: string) {

@@ -10,11 +10,11 @@ import { PracticesGroupedCardsComponent } from 'features/practice-library/compon
   styleUrl: './practice-search.component.css'
 })
 export class PracticeSearchComponent {
+  // Lazy-load practices by calling the get practices service, passing them into practice cards component
 
-  // Calls other functions in this class to update initially-queried practices list based on updated filters
   dropdownFilterUpdated(idsSelected: object) {
     // idsSelected = {dropdown: dropdown changed, idsSelected: ids of values selected}
 
-    
+    // Update initially-queried practices list based on updated filters
   }
 }
