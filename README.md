@@ -1,5 +1,5 @@
-App that recommends well-being boosting practices to users. Note: This app is created by an amateur trying to help his fellow humans, and should not be considered professional advice.
+Full-stack app that recommends well-being boosting practices to users, based on their challenges, needs, and preferences.
 
-Things to install on new codespace:
-npm install
-npm istall -g json-server (then watch testing-scripts/mocked-database-response.json)
+Built via Angular, Spring Boot, Hibernate, and Postgres
+
+Note: This app is created by an amateur trying to help his fellow humans, and should not be considered professional advice.
