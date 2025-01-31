@@ -1,7 +1,7 @@
 package com.gadomski.well_loom.controller;
 
-import com.example.demo.entity.Practice;
-import com.example.demo.service.PracticeService;
+import com.gadomski.well_loom.model.Practice;
+import com.gadomski.well_loom.service.PracticeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

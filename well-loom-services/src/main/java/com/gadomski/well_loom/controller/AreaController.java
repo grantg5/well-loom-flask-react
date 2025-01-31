@@ -15,7 +15,7 @@ import com.gadomski.well_loom.service.AreaService;
 
 @RestController
 @RequestMapping("/api")
-public class AreasController {
+public class AreaController {
     @Autowired
     private AreaService areaService;
 

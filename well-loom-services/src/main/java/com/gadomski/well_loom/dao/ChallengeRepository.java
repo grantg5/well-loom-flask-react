@@ -1,6 +1,6 @@
 package com.gadomski.well_loom.dao;
 
-import com.example.demo.entity.Challenge;
+import com.gadomski.well_loom.model.Challenge;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

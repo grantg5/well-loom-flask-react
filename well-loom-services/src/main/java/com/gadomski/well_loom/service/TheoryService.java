@@ -1,7 +1,7 @@
 package com.gadomski.well_loom.service;
 
-import com.example.demo.entity.Theory;
-import com.example.demo.repository.TheoryRepository;
+import com.gadomski.well_loom.model.Theory;
+import com.gadomski.well_loom.dao.TheoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;

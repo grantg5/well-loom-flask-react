@@ -29,13 +29,13 @@ public class Theory {
     private Boolean isActive;
 
     @Column(name = "created_by")
-    private User createdBy;
+    private Long createdBy;
 
     @Column(name = "create_date_time")
     private LocalDateTime createDateTime;
 
     @Column(name = "updated_by")
-    private User updatedBy;
+    private Long updatedBy;
 
     @Column(name = "update_date_time")
     private LocalDateTime updateDateTime;

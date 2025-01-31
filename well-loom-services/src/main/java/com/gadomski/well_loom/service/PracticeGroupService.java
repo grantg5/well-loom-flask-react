@@ -13,11 +13,11 @@ public class PracticeGroupService {
     private final PracticeGroupRepository practiceGroupRepository;
 
     @Autowired
-    public practiceGroupService(PracticeGroupRepository practiceGroupRepo) {
+    public PracticeGroupService(PracticeGroupRepository practiceGroupRepo) {
         this.practiceGroupRepository = practiceGroupRepo;
     }
 
     public List<PracticeGroup> getAllpracticeGroups() {
-        return practiceGroupRepository.findAllpracticeGroups();
+        return practiceGroupRepository.findAllPracticeGroups();
     }
 }

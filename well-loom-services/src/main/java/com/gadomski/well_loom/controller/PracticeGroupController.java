@@ -15,7 +15,7 @@ import com.gadomski.well_loom.service.PracticeGroupService;
 
 @RestController
 @RequestMapping("/api")
-public class PracticeGroupsController {
+public class PracticeGroupController {
     @Autowired
     private PracticeGroupService practiceGroupService;
 
