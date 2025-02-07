@@ -10,6 +10,7 @@ https://malshani-wijekoon.medium.com/spring-boot-folder-structure-best-practices
 
 # Endpoint design
 - CRUD endpoints for each table
+  - Optional get all relationships query param that fetches all relationships for a given item (or all relationships for all items if no id is given)
 
 # Hibernate Learning Notes
 https://docs.jboss.org/hibernate/orm/6.4/introduction/html_single/Hibernate_Introduction.html#entities

@@ -16,5 +16,7 @@ export class PracticeSearchComponent {
     // idsSelected = {dropdown: dropdown changed, idsSelected: ids of values selected}
 
     // Update initially-queried practices list based on updated filters
+    // Note: Practices only map to practice groups, so pull based on either selected practice groups,
+    // or if none are selected pull from all avaialbe practice groups
   }
 }

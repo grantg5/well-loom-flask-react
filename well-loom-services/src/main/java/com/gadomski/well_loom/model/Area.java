@@ -1,12 +1,16 @@
 package com.gadomski.well_loom.model;
 
+import java.util.Set;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
-
 
 @Entity
 @Table(name = "area")
@@ -23,6 +27,18 @@ public class Area {
 
     @Column(name = "is_active")
     private boolean isActive;
+
+    @ManyToMany
+    @JoinTable(name = "area_practice_group_mapping", joinColumns = @JoinColumn(name = "area_id"), inverseJoinColumns = @JoinColumn(name = "practice_group_id"))
+    private Set<PracticeGroup> practiceGroups;
+
+    @ManyToMany
+    @JoinTable(name = "area_theory_mapping", joinColumns = @JoinColumn(name = "area_id"), inverseJoinColumns = @JoinColumn(name = "theory_id"))
+    private Set<Theory> theories;
+
+    @ManyToMany
+    @JoinTable(name = "area_challenge_mapping", joinColumns = @JoinColumn(name = "area_id"), inverseJoinColumns = @JoinColumn(name = "challenge_id"))
+    private Set<Challenge> challenges;
 
     public Area() {
     }
@@ -44,6 +60,18 @@ public class Area {
         return isActive;
     }
 
+    public Set<PracticeGroup> getPracticeGroups() {
+        return practiceGroups;
+    }
+
+    public Set<Theory> getTheories() {
+        return theories;
+    }
+    
+    public Set<Challenge> getChallenges() {
+        return challenges;
+    }
+
     // Setters
     public void setId(int id) {
         this.id = id;
@@ -59,5 +87,17 @@ public class Area {
 
     public void setIsActive(boolean isActive) {
         this.isActive = isActive;
+    }
+
+    public void setPracticeGroups(Set<PracticeGroup> practiceGroups) {
+        this.practiceGroups = practiceGroups;
+    }
+
+    public void setTheories(Set<Theory> theories) {
+        this.theories = theories;
+    }
+
+    public void setChallenges(Set<Challenge> challenges) {
+        this.challenges = challenges;
     }
 }

@@ -37,7 +37,12 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-
+        <!--Hibernate-->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>6.6.6.Final</version>
+        </dependency>
         <!--Postgres DB-->
         <dependency>
             <groupId>org.postgresql</groupId>

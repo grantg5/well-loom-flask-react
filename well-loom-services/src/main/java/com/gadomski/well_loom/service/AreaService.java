@@ -5,8 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.gadomski.well_loom.dao.AreaRepository;
+import com.gadomski.well_loom.dao.area.AreaRepository;
 import com.gadomski.well_loom.model.Area;
+
+import jakarta.transaction.Transactional;
 
 @Service
 public class AreaService {
@@ -17,7 +19,8 @@ public class AreaService {
         this.areaRepository = areaRepo;
     }
 
-    public List<Area> getAllAreas() {
-        return areaRepository.findAllAreas();
+    @Transactional
+    public List<Area> getAllAreas(boolean includeRelations) {
+        return areaRepository.findAllAreas(includeRelations);
     }
 }

@@ -41,6 +41,8 @@ export class PracticeSearchBarComponent {
   ) { }
 
   ngOnInit(): void {
+    // Will def need to think through this structure in Angular more (parent w/ child update logic for each item)
+
     this.getAreasService.getAreas().subscribe(data => {
       this.areas = data;
     });
