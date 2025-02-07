@@ -15,12 +15,12 @@ import jakarta.persistence.criteria.Root;
 
 public class AreaRepositoryImpl implements AreaRepositoryCustom {
 
-    @PersistenceContext
     private EntityManager entityManager;
 
-    // public void setEntityManager(EntityManager entityManager) {
-    // this.entityManager = entityManager;
-    // }
+    @PersistenceContext
+    public void setEntityManager(EntityManager entityManager) {
+    this.entityManager = entityManager;
+    }
 
     public List<Area> findAllAreas(boolean includeRelations) {
         Session session = entityManager.unwrap(Session.class);
@@ -28,6 +28,8 @@ public class AreaRepositoryImpl implements AreaRepositoryCustom {
         CriteriaBuilder cb = session.getCriteriaBuilder();
         CriteriaQuery<Area> cq = cb.createQuery(Area.class);
         Root<Area> areaRoot = cq.from(Area.class);
+
+        // TODO: Always passing back joins regardless of includeRelations?...
 
         if (includeRelations) {
             areaRoot.join("practiceGroups");
