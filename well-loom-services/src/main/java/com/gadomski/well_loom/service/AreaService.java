@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gadomski.well_loom.dao.area.AreaRepository;
+import com.gadomski.well_loom.dto.AreaDTO;
 import com.gadomski.well_loom.model.Area;
 
 import jakarta.transaction.Transactional;
@@ -20,7 +21,12 @@ public class AreaService {
     }
 
     @Transactional
-    public List<Area> getAllAreas(boolean includeRelations) {
-        return areaRepository.findAllAreas(includeRelations);
+    public List<Area> getAllAreasWithRelationships() {
+        return areaRepository.findAllAreasWithRelationships();
+    }
+
+    @Transactional
+    public List<AreaDTO> getAllAreas() {
+        return areaRepository.findAllAreas();
     }
 }

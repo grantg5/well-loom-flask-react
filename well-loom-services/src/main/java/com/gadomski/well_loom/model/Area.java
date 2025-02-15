@@ -2,8 +2,11 @@ package com.gadomski.well_loom.model;
 
 import java.util.Set;
 
+import com.gadomski.well_loom.dto.AreaDTO;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -28,19 +31,26 @@ public class Area {
     @Column(name = "is_active")
     private boolean isActive;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "area_practice_group_mapping", joinColumns = @JoinColumn(name = "area_id"), inverseJoinColumns = @JoinColumn(name = "practice_group_id"))
     private Set<PracticeGroup> practiceGroups;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "area_theory_mapping", joinColumns = @JoinColumn(name = "area_id"), inverseJoinColumns = @JoinColumn(name = "theory_id"))
     private Set<Theory> theories;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "area_challenge_mapping", joinColumns = @JoinColumn(name = "area_id"), inverseJoinColumns = @JoinColumn(name = "challenge_id"))
     private Set<Challenge> challenges;
 
     public Area() {
+    }
+
+    public Area(AreaDTO areaDTO) {
+        this.id = areaDTO.getId();
+        this.areaName = areaDTO.getAreaName();
+        this.areaDescription = areaDTO.getAreaDescription();
+        this.isActive = areaDTO.getIsActive();
     }
 
     // Getters

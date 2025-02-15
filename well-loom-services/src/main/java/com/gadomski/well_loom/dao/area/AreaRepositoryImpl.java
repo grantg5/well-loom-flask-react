@@ -1,17 +1,13 @@
 package com.gadomski.well_loom.dao.area;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import org.hibernate.Session;
-import org.hibernate.query.Query;
-
+import com.gadomski.well_loom.dto.AreaDTO;
 import com.gadomski.well_loom.model.Area;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.criteria.CriteriaBuilder;
-import jakarta.persistence.criteria.CriteriaQuery;
-import jakarta.persistence.criteria.Root;
 
 public class AreaRepositoryImpl implements AreaRepositoryCustom {
 
@@ -19,25 +15,26 @@ public class AreaRepositoryImpl implements AreaRepositoryCustom {
 
     @PersistenceContext
     public void setEntityManager(EntityManager entityManager) {
-    this.entityManager = entityManager;
+        this.entityManager = entityManager;
     }
 
-    public List<Area> findAllAreas(boolean includeRelations) {
-        Session session = entityManager.unwrap(Session.class);
+    private List<Area> getAllAreas() {
+        String hql = "SELECT a FROM Area a WHERE a.isActive = true";
+        return entityManager.createQuery(hql, Area.class).getResultList();
+    }
 
-        CriteriaBuilder cb = session.getCriteriaBuilder();
-        CriteriaQuery<Area> cq = cb.createQuery(Area.class);
-        Root<Area> areaRoot = cq.from(Area.class);
+    public List<Area> findAllAreasWithRelationships() {
+        return getAllAreas();
+    }
 
-        // TODO: Always passing back joins regardless of includeRelations?...
+    public List<AreaDTO> findAllAreas() {
+        List<Area> rawAreas = getAllAreas();
+        List<AreaDTO> trimmedAreas = new ArrayList<AreaDTO>();
 
-        if (includeRelations) {
-            areaRoot.join("practiceGroups");
-            areaRoot.join("theories");
-            areaRoot.join("challenges");
+        for (Area area : rawAreas) {
+            trimmedAreas.add(new AreaDTO(area));
         }
 
-        Query<Area> query = session.createQuery(cq);
-        return query.getResultList();
+        return trimmedAreas;
     }
 }
