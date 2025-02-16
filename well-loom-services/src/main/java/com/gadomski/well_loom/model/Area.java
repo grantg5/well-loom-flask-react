@@ -2,8 +2,6 @@ package com.gadomski.well_loom.model;
 
 import java.util.Set;
 
-import com.gadomski.well_loom.dto.AreaDTO;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -44,13 +42,6 @@ public class Area {
     private Set<Challenge> challenges;
 
     public Area() {
-    }
-
-    public Area(AreaDTO areaDTO) {
-        this.id = areaDTO.getId();
-        this.areaName = areaDTO.getAreaName();
-        this.areaDescription = areaDTO.getAreaDescription();
-        this.isActive = areaDTO.getIsActive();
     }
 
     // Getters
