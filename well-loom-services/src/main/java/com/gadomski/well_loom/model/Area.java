@@ -2,40 +2,49 @@ package com.gadomski.well_loom.model;
 
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "area")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Area {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonView(Views.PlainEntity.class)
     private long id;
 
     @Column(name = "area_name")
+    @JsonView(Views.PlainEntity.class)
     private String areaName;
 
     @Column(name = "area_description")
+    @JsonView(Views.PlainEntity.class)
     private String areaDescription;
 
     @Column(name = "is_active")
+    @JsonView(Views.PlainEntity.class)
     private boolean isActive;
 
     @ManyToMany(mappedBy = "areas")
+    @JsonView(Views.EntityWithRelationships.class)
     private Set<Theory> theories;
 
     @ManyToMany(mappedBy = "areas")
+    @JsonView(Views.EntityWithRelationships.class)
     private Set<PracticeGroup> practiceGroups;
 
     @ManyToMany(mappedBy = "areas")
+    @JsonView(Views.EntityWithRelationships.class)
     private Set<Challenge> challenges;
 
     public Area() {

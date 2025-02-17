@@ -13,43 +13,59 @@ import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 @Entity
 @Table(name = "practice_group")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class PracticeGroup {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonView(Views.PlainEntity.class)
     private Long id;
 
     @Column(name = "practice_group_name")
+    @JsonView(Views.PlainEntity.class)
     private String practiceGroupName;
 
     @Column(name = "practice_group_description")
+    @JsonView(Views.PlainEntity.class)
     private String practiceGroupDescription;
 
     @Column(name = "practice_group_image")
+    @JsonView(Views.PlainEntity.class)
     private String practiceGroupImage;
 
     @Column(name = "is_active")
+    @JsonView(Views.PlainEntity.class)
     private Boolean isActive;
 
     @Column(name = "created_by")
+    @JsonView(Views.PlainEntity.class)
     private Long createdBy;
 
     @Column(name = "create_date_time")
+    @JsonView(Views.PlainEntity.class)
     private LocalDateTime createDateTime;
 
     @Column(name = "updated_by")
+    @JsonView(Views.PlainEntity.class)
     private Long updatedBy;
 
     @Column(name = "update_date_time")
+    @JsonView(Views.PlainEntity.class)
     private LocalDateTime updateDateTime;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "area_practice_group_mapping", joinColumns = @JoinColumn(name = "practice_group_id"), inverseJoinColumns = @JoinColumn(name = "area_id"))
+    @JsonView(Views.EntityWithRelationships.class)
     private Set<Area> areas;
 
     @ManyToMany(mappedBy = "practiceGroups")
+    @JsonView(Views.EntityWithRelationships.class)
     private Set<Practice> practices;
 
     public Set<Area> getAreas() {

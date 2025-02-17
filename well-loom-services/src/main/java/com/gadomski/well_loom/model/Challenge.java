@@ -13,40 +13,55 @@ import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonView;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 @Entity
 @Table(name = "challenge")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Challenge {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonView(Views.PlainEntity.class)
     private Long id;
 
     @Column(name = "challenge_name")
+    @JsonView(Views.PlainEntity.class)
     private String challengeName;
 
     @Column(name = "challenge_description")
+    @JsonView(Views.PlainEntity.class)
     private String challengeDescription;
 
     @Column(name = "is_active")
+    @JsonView(Views.PlainEntity.class)
     private Boolean isActive;
 
     @Column(name = "created_by")
+    @JsonView(Views.PlainEntity.class)
     private Long createdBy;
 
     @Column(name = "create_date_time")
+    @JsonView(Views.PlainEntity.class)
     private LocalDateTime createDateTime;
 
     @Column(name = "updated_by")
+    @JsonView(Views.PlainEntity.class)
     private Long updatedBy;
 
     @Column(name = "update_date_time")
+    @JsonView(Views.PlainEntity.class)
     private LocalDateTime updateDateTime;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "area_challenge_mapping", joinColumns = @JoinColumn(name = "challenge_id"), inverseJoinColumns = @JoinColumn(name = "area_id"))
+    @JsonView(Views.EntityWithRelationships.class)
     private Set<Area> areas;
 
     @ManyToMany(mappedBy = "challenges")
+    @JsonView(Views.EntityWithRelationships.class)
     private Set<Practice> practices;
 
     public Set<Area> getAreas() {
