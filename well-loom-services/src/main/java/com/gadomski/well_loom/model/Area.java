@@ -97,13 +97,13 @@ public class Area {
 
     public void setChallenges(Set<Challenge> challenges) {
         this.challenges = challenges;
-    
+    }
 
-public void setId(long id) {
-    this.id = id;
-}
+    public void setId(long id) {
+        this.id = id;
+    }
 
-public void setActive(boolean isActive) {
-    this.isActive = isActive;
-}}
+    public void setActive(boolean isActive) {
+        this.isActive = isActive;
+    }
 }

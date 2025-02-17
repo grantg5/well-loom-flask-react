@@ -13,47 +13,63 @@ import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 @Table(name = "practice")
 public class Practice {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonView(Views.PlainEntity.class)
     private Long id;
 
     @Column(name = "practice_name")
+    @JsonView(Views.PlainEntity.class)
     private String practiceName;
 
     @Column(name = "practice_short_description")
+    @JsonView(Views.PlainEntity.class)
     private String practiceShortDescription;
 
     @Column(name = "practice_long_description")
+    @JsonView(Views.PlainEntity.class)
     private String practiceLongDescription;
 
     @Column(name = "practice_image")
+    @JsonView(Views.PlainEntity.class)
     private String practiceImage;
 
     @Column(name = "is_active")
+    @JsonView(Views.PlainEntity.class)
     private Boolean isActive;
 
     @Column(name = "created_by")
+    @JsonView(Views.PlainEntity.class)
     private Long createdBy;
 
     @Column(name = "create_date_time")
+    @JsonView(Views.PlainEntity.class)
     private LocalDateTime createDateTime;
 
     @Column(name = "updated_by")
+    @JsonView(Views.PlainEntity.class)
     private Long updatedBy;
 
     @Column(name = "update_date_time")
+    @JsonView(Views.PlainEntity.class)
     private LocalDateTime updateDateTime;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "practice_challenge_mapping", joinColumns = @JoinColumn(name = "practice_id"), inverseJoinColumns = @JoinColumn(name = "challenge_id"))
+    @JsonView(Views.EntityWithRelationships.class)
     private Set<Challenge> challenges;
 
     @ManyToMany(fetch = FetchType.LAZY)
+    @JsonView(Views.EntityWithRelationships.class)
     @JoinTable(name = "practice_group_practice_mapping", joinColumns = @JoinColumn(name = "practice_id"), inverseJoinColumns = @JoinColumn(name = "practice_group_id"))
+    // @JsonIgnore
     private Set<PracticeGroup> practiceGroups;
 
     // TODO: Add resources mapping
