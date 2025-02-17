@@ -29,16 +29,13 @@ public class Area {
     @Column(name = "is_active")
     private boolean isActive;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "area_practice_group_mapping", joinColumns = @JoinColumn(name = "area_id"), inverseJoinColumns = @JoinColumn(name = "practice_group_id"))
-    private Set<PracticeGroup> practiceGroups;
-
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "area_theory_mapping", joinColumns = @JoinColumn(name = "area_id"), inverseJoinColumns = @JoinColumn(name = "theory_id"))
+    @ManyToMany(mappedBy = "areas")
     private Set<Theory> theories;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "area_challenge_mapping", joinColumns = @JoinColumn(name = "area_id"), inverseJoinColumns = @JoinColumn(name = "challenge_id"))
+    @ManyToMany(mappedBy = "areas")
+    private Set<PracticeGroup> practiceGroups;
+
+    @ManyToMany(mappedBy = "areas")
     private Set<Challenge> challenges;
 
     public Area() {
@@ -100,5 +97,13 @@ public class Area {
 
     public void setChallenges(Set<Challenge> challenges) {
         this.challenges = challenges;
-    }
+    
+
+public void setId(long id) {
+    this.id = id;
+}
+
+public void setActive(boolean isActive) {
+    this.isActive = isActive;
+}}
 }
