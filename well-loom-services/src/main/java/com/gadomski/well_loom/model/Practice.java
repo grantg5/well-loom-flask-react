@@ -14,6 +14,7 @@ import java.time.LocalDateTime;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
@@ -69,9 +70,8 @@ public class Practice {
     private Set<Challenge> challenges;
 
     @ManyToMany(fetch = FetchType.LAZY)
-    @JsonView(Views.EntityWithRelationships.class)
     @JoinTable(name = "practice_group_practice_mapping", joinColumns = @JoinColumn(name = "practice_id"), inverseJoinColumns = @JoinColumn(name = "practice_group_id"))
-    // @JsonIgnore
+    @JsonView(Views.EntityWithRelationships.class)
     private Set<PracticeGroup> practiceGroups;
 
     // TODO: Add resources mapping

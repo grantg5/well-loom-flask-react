@@ -5,8 +5,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.gadomski.well_loom.model.Views;
 import com.gadomski.well_loom.service.CRUDService;
 
-import java.util.List;
-
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJacksonValue;
@@ -23,13 +21,14 @@ public abstract class CRUDController<T> {
     }
 
     @GetMapping
-    public ResponseEntity<MappingJacksonValue> getAll(@RequestParam(name = "includeRelationships", required = false, defaultValue = "false") boolean includeRelationships) {
+    public ResponseEntity<MappingJacksonValue> getAll(@RequestParam(name = "includeFullEntityMap", required = false, defaultValue = "false") boolean includeFullEntityMap) {
         Class<?> jsonView;
 
-        if (includeRelationships) {
+        if (includeFullEntityMap) {
             jsonView = Views.EntityWithRelationships.class;
         } else {
             jsonView = Views.PlainEntity.class;
+            System.out.println("In plan entity");
         }
 
         MappingJacksonValue mjv = new MappingJacksonValue(service.getAll());
