@@ -2,15 +2,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { environmentVars } from 'shared/environmentVars';
 import { apiUrls } from 'shared/apiUrls';
 import { Area } from 'shared/interfaces/area';
+import { IGetResults } from '../reusable-components/results-interfaces';
+import { ReusableServiceCalls } from '../reusable-components/reusable-service-calls';
 
-interface GetAreasResults {
-  id: number,
+interface GetAreasResults extends IGetResults {
   areaName: string,
-  areaDescription: string,
-  isActive: boolean
+  areaDescription: string
 }
 
 @Injectable({
@@ -21,18 +20,16 @@ export class GetAreasService {
   constructor(private http: HttpClient) { }
 
   getAreas(): Observable<Area[]> {
-    const headers: HttpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
-    const fetchResultsObservable$: Observable<GetAreasResults[]> = this.http.get<GetAreasResults[]>(
-      `${ environmentVars.servicesUrl }${ apiUrls.apiRoot }${ apiUrls.getAreas }`, { headers }
-    );
+    const fetchResultsObservable$: Observable<GetAreasResults[]> =
+      ReusableServiceCalls.callGetService<GetAreasResults[]>(this.http, apiUrls.getAreas);
 
     return fetchResultsObservable$.pipe(
       map(fetchResults => fetchResults.map(fetchResult => (
-      {
-        id: fetchResult.id,
-        areaName: fetchResult.areaName,
-        areaDescription: fetchResult.areaDescription
-      } as Area
-    ))));
+        {
+          id: fetchResult.id,
+          areaName: fetchResult.areaName,
+          areaDescription: fetchResult.areaDescription
+        } as Area
+      ))));
   }
 }

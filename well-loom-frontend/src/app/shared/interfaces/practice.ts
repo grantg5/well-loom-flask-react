@@ -1,12 +1,8 @@
-export interface Practice {
-    id: number; // Primary key
-    practiceName: string; // Text (Unique)
-    practiceShortDescription: string; // Text
-    practiceLongDescription: string; // Text
-    practiceImage: string; // Text
-    isActive: boolean; // Boolean
-    createdBy: number; // user(id)
-    createDateTime: string; // Datetime
-    updatedBy: number; // user(id)
-    updateDateTime: string; // Datetime
-  }
+import { IEntity } from "./i-entity";
+
+export interface Practice extends IEntity {
+  practiceName: string;
+  practiceShortDescription: string;
+  practiceLongDescription: string;
+  practiceImage: string;
+}

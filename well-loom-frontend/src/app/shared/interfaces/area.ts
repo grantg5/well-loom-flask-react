@@ -1,10 +1,6 @@
-export interface Area {
-    id: number,
-    areaName: string,
-    areaDescription: string,
-    isActive: boolean,
-    createdBy: number,
-    createDateTime: string,
-    updatedBy: number,
-    updateDateTime: string
+import { IEntity } from "./i-entity";
+
+export interface Area extends IEntity {
+    areaName: string;
+    areaDescription: string;
 }
