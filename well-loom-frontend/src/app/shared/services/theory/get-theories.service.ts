@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { environmentVars } from 'shared/environmentVars';
 import { apiUrls } from 'shared/apiUrls';
 import { Theory } from 'shared/interfaces/theory';
+import { ReusableServiceCalls } from '../reusable-components/reusable-service-calls';
 
 interface GetTheoriesResults {
   id: number,
@@ -22,10 +23,8 @@ export class GetTheoriesService {
   constructor(private http: HttpClient) { }
 
   getTheories(): Observable<Theory[]> {
-    const headers: HttpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
-    const fetchResultsObservable$: Observable<GetTheoriesResults[]> = this.http.get<GetTheoriesResults[]>(
-      `${ environmentVars.servicesUrl }${ apiUrls.apiRoot }${ apiUrls.getTheories }`, { headers }
-    );
+    const fetchResultsObservable$: Observable<GetTheoriesResults[]> =
+              ReusableServiceCalls.callGetService<GetTheoriesResults[]>(this.http, apiUrls.getTheories);
 
     return fetchResultsObservable$.pipe(
       map(fetchResults => fetchResults.map(fetchResult => (

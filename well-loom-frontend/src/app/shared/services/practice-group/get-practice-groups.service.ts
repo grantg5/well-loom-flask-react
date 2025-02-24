@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { environmentVars } from 'shared/environmentVars';
 import { apiUrls } from 'shared/apiUrls';
 import { PracticeGroup } from 'shared/interfaces/practiceGroup';
+import { ReusableServiceCalls } from '../reusable-components/reusable-service-calls';
 
 interface GetPracticeGroupsResults {
   id: number,
@@ -22,10 +23,8 @@ export class GetPracticeGroupsService {
   constructor(private http: HttpClient) { }
 
   getPracticeGroups(): Observable<PracticeGroup[]> {
-    const headers: HttpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
-    const fetchResultsObservable$: Observable<GetPracticeGroupsResults[]> = this.http.get<GetPracticeGroupsResults[]>(
-      `${ environmentVars.servicesUrl }${ apiUrls.apiRoot }${ apiUrls.getPracticeGroups }`, { headers }
-    );
+    const fetchResultsObservable$: Observable<GetPracticeGroupsResults[]> =
+              ReusableServiceCalls.callGetService<GetPracticeGroupsResults[]>(this.http, apiUrls.getPracticeGroups);
 
     return fetchResultsObservable$.pipe(
       map(fetchResults => fetchResults.map(fetchResult => (

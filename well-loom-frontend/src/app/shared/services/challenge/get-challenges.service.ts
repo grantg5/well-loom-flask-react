@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { environmentVars } from 'shared/environmentVars';
 import { apiUrls } from 'shared/apiUrls';
 import { Challenge } from 'shared/interfaces/challenge';
+import { ReusableServiceCalls } from '../reusable-components/reusable-service-calls';
 
 interface GetChallengesResults {
   id: number,
@@ -21,10 +22,8 @@ export class GetChallengesService {
   constructor(private http: HttpClient) { }
 
   getChallenges(): Observable<Challenge[]> {
-    const headers: HttpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
-    const fetchResultsObservable$: Observable<GetChallengesResults[]> = this.http.get<GetChallengesResults[]>(
-      `${ environmentVars.servicesUrl }${ apiUrls.apiRoot }${ apiUrls.getChallenges }`, { headers }
-    );
+    const fetchResultsObservable$: Observable<GetChallengesResults[]> =
+          ReusableServiceCalls.callGetService<GetChallengesResults[]>(this.http, apiUrls.getChallenges);
 
     return fetchResultsObservable$.pipe(
       map(fetchResults => fetchResults.map(fetchResult => (
