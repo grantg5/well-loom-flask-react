@@ -1,4 +1,4 @@
-package com.gadomski.well_loom.dao;
+package com.gadomski.well_loom.repository;
 
 import com.gadomski.well_loom.model.Practice;
 import org.springframework.stereotype.Repository;

@@ -1,4 +1,4 @@
-package com.gadomski.well_loom.dao;
+package com.gadomski.well_loom.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.NoRepositoryBean;

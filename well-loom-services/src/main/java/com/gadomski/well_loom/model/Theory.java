@@ -24,53 +24,31 @@ public class Theory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonView(Views.PlainEntity.class)
     private Long id;
 
     @Column(name = "theory_name")
-    @JsonView(Views.PlainEntity.class)
     private String theoryName;
 
     @Column(name = "theory_founder")
-    @JsonView(Views.PlainEntity.class)
     private String theoryFounder;
 
     @Column(name = "theory_description")
-    @JsonView(Views.PlainEntity.class)
     private String theoryDescription;
 
     @Column(name = "is_active")
-    @JsonView(Views.PlainEntity.class)
     private Boolean isActive;
 
     @Column(name = "created_by")
-    @JsonView(Views.PlainEntity.class)
     private Long createdBy;
 
     @Column(name = "create_date_time")
-    @JsonView(Views.PlainEntity.class)
     private LocalDateTime createDateTime;
 
     @Column(name = "updated_by")
-    @JsonView(Views.PlainEntity.class)
     private Long updatedBy;
 
     @Column(name = "update_date_time")
-    @JsonView(Views.PlainEntity.class)
     private LocalDateTime updateDateTime;
-
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "area_theory_mapping", joinColumns = @JoinColumn(name = "theory_id"), inverseJoinColumns = @JoinColumn(name = "area_id"))
-    @JsonView(Views.EntityWithRelationships.class)
-    private Set<Area> areas;
-
-    public Set<Area> getAreas() {
-        return areas;
-    }
-
-    public void setAreas(Set<Area> areas) {
-        this.areas = areas;
-    }
 
     // Getters and Setters
     public Long getId() {

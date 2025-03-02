@@ -1,7 +1,8 @@
 package com.gadomski.well_loom.service;
 
 import com.gadomski.well_loom.model.Practice;
-import com.gadomski.well_loom.dao.PracticeRepository;
+import com.gadomski.well_loom.repository.PracticeRepository;
+
 import org.springframework.stereotype.Service;
 
 @Service
