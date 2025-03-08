@@ -1,7 +1,7 @@
-package com.gadomski.well_loom.service;
+package com.gadomski.well_loom.service.crud;
 
 import com.gadomski.well_loom.model.Challenge;
-import com.gadomski.well_loom.repository.ChallengeRepository;
+import com.gadomski.well_loom.repository.crud.ChallengeRepository;
 
 import org.springframework.stereotype.Service;
 

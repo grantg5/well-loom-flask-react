@@ -1,4 +1,4 @@
-package com.gadomski.well_loom.service;
+package com.gadomski.well_loom.service.crud;
 
 import java.util.List;
 

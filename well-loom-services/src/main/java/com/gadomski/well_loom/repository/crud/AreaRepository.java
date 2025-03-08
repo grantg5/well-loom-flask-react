@@ -1,4 +1,4 @@
-package com.gadomski.well_loom.repository;
+package com.gadomski.well_loom.repository.crud;
 
 import org.springframework.stereotype.Repository;
 
