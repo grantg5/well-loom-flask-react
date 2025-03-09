@@ -32,6 +32,9 @@ CREATE TABLE area_theory_mapping (
     updated_by BIGINT,
     update_date_time TIMESTAMP
 );
+COMMENT ON TABLE area_theory_mapping IS 'mapping_table';
+COMMENT ON COLUMN area_theory_mapping.area_id IS 'mapping_column_1';
+COMMENT ON COLUMN area_theory_mapping.theory_id IS 'mapping_column_2';
 
 CREATE TABLE practice_group (
     id BIGSERIAL PRIMARY KEY,
@@ -55,6 +58,9 @@ CREATE TABLE area_practice_group_mapping (
     updated_by BIGINT,
     update_date_time TIMESTAMP
 );
+COMMENT ON TABLE area_practice_group_mapping IS 'mapping_table';
+COMMENT ON COLUMN area_practice_group_mapping.area_id IS 'mapping_column_1';
+COMMENT ON COLUMN area_practice_group_mapping.practice_group_id IS 'mapping_column_2';
 
 CREATE TABLE practice (
     id BIGSERIAL PRIMARY KEY,
@@ -79,6 +85,9 @@ CREATE TABLE practice_group_practice_mapping (
     updated_by BIGINT,
     update_date_time TIMESTAMP
 );
+COMMENT ON TABLE practice_group_practice_mapping IS 'mapping_table';
+COMMENT ON COLUMN practice_group_practice_mapping.practice_group_id IS 'mapping_column_1';
+COMMENT ON COLUMN practice_group_practice_mapping.practice_id IS 'mapping_column_2';
 
 CREATE TABLE resource (
     id BIGSERIAL PRIMARY KEY,
@@ -104,6 +113,9 @@ CREATE TABLE theory_resource_mapping (
     updated_by BIGINT,
     update_date_time TIMESTAMP
 );
+COMMENT ON TABLE theory_resource_mapping IS 'mapping_table';
+COMMENT ON COLUMN theory_resource_mapping.resource_id IS 'mapping_column_1';
+COMMENT ON COLUMN theory_resource_mapping.theory_id IS 'mapping_column_2';
 
 CREATE TABLE practice_resource_mapping (
     id BIGSERIAL PRIMARY KEY,
@@ -115,6 +127,9 @@ CREATE TABLE practice_resource_mapping (
     updated_by BIGINT,
     update_date_time TIMESTAMP
 );
+COMMENT ON TABLE practice_resource_mapping IS 'mapping_table';
+COMMENT ON COLUMN practice_resource_mapping.practice_id IS 'mapping_column_1';
+COMMENT ON COLUMN practice_resource_mapping.resource_id IS 'mapping_column_2';
 
 CREATE TABLE challenge (
     id BIGSERIAL PRIMARY KEY,
@@ -137,6 +152,9 @@ CREATE TABLE area_challenge_mapping (
     updated_by BIGINT,
     update_date_time TIMESTAMP
 );
+COMMENT ON TABLE area_challenge_mapping IS 'mapping_table';
+COMMENT ON COLUMN area_challenge_mapping.area_id IS 'mapping_column_1';
+COMMENT ON COLUMN area_challenge_mapping.challenge_id IS 'mapping_column_2';
 
 CREATE TABLE practice_challenge_mapping (
     id BIGSERIAL PRIMARY KEY,
@@ -148,6 +166,9 @@ CREATE TABLE practice_challenge_mapping (
     updated_by BIGINT,
     update_date_time TIMESTAMP
 );
+COMMENT ON TABLE practice_challenge_mapping IS 'mapping_table';
+COMMENT ON COLUMN practice_challenge_mapping.challenge_id IS 'mapping_column_1';
+COMMENT ON COLUMN practice_challenge_mapping.practice_id IS 'mapping_column_2';
 
 -- Create datetime function
 CREATE FUNCTION set_create_date_time() RETURNS TRIGGER AS $set_create_date_time$
@@ -191,6 +212,28 @@ BEGIN
   END LOOP;
 END;
 $apply_create_date_time_triggers$;
+
+-- Create view(s)
+
+CREATE OR REPLACE VIEW mapping_table_metadata AS (
+    SELECT
+        c.relname AS table_name,
+        REPLACE(a1.attname, '_', '') AS column_1,
+        REPLACE(a2.attname, '_', '') AS column_2
+    FROM
+        pg_catalog.pg_class c
+    JOIN
+        pg_catalog.pg_namespace n ON c.relnamespace = n.oid
+    JOIN
+        pg_catalog.pg_attribute a1 ON a1.attrelid = c.oid
+    JOIN
+        pg_catalog.pg_attribute a2 ON a2.attrelid = c.oid
+    WHERE
+        n.nspname = 'public'
+        AND pg_catalog.obj_description(c.oid, 'pg_class') = 'mapping_table'
+        AND pg_catalog.col_description(a1.attrelid, a1.attnum) = 'mapping_column_1'
+        AND pg_catalog.col_description(a2.attrelid, a2.attnum) = 'mapping_column_2'
+);
 
 INSERT INTO area(area_name, area_description, is_active) VALUES ('Spiritual', 'Spiritual pratices', true);
 INSERT INTO area(area_name, area_description, is_active) VALUES ('Mental', 'Mental pratices', true);

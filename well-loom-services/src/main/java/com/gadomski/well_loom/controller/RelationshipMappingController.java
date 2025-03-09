@@ -20,11 +20,6 @@ public class RelationshipMappingController {
         this.rms = rms;
     }
 
-    // Design approach: make abstract, move below into new relationships controller, create relationships service & repository
-    // Update mapping mapping to be of of entity strings combo & relationship entity (ex. AreaTheoryMapping) in RepositoryConfig
-    // Ensure above is called from relationships service to pass correct mapping entity into repo
-    // In relationships repo, create method query to fetch all, that receives mapping table, entity1 id, entity2 id and goes off that
-
     @GetMapping
     public ResponseEntity<List<T>> getRelatedEntities(
       @RequestParam(name = "entity_1") String entity1,

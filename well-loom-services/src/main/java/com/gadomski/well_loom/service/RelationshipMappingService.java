@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.gadomski.well_loom.repository.RelationshipMappingRepository;
 
 @Service
-public class RelationshipMappingService {
+public class RelationshipMappingService<T> {
     private final RelationshipMappingRepository<T, Long> repo;
 
     @Autowired
@@ -16,7 +16,8 @@ public class RelationshipMappingService {
         this.repo = repo;
     }
 
-    // public List<T> getRelatedEntities(String entity1, String entity2, int entity1Id, int entity2Id) {
-        
-    // }
+    public List<T> getRelatedEntities(String entity1, String entity2, int entity1Id, int entity2Id) {
+        // Create new utility class to convert entities into mapping entity, returning mapping fields
+        // Call that, then call the repo
+    }
 }

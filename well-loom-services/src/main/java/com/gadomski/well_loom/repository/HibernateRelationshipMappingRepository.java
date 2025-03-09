@@ -13,6 +13,8 @@ public class HibernateRelationshipMappingRepository<T, Long> implements Relation
     @PersistenceContext
     private EntityManager entityManager;
 
+    public HibernateRelationshipMappingRepository() {}
+
     public List<T> getRelatedEntities(
         @Param("mappingEntity") Class<T> mappingEntity,
         @Param("entity1MappingField") String entity1MappingField,
@@ -28,6 +30,7 @@ public class HibernateRelationshipMappingRepository<T, Long> implements Relation
         
         TypedQuery<T> query = entityManager.createQuery(queryString, mappingEntity);
         query.setParameter("entity1Id", entity1Id);
+
         if (entity2Id != 0) {
             query.setParameter("entity2Id", entity2Id);
         }
