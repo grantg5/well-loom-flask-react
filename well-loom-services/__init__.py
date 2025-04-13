@@ -1,5 +1,5 @@
 from flask import Flask
-from psycopg2 import connect
+from psycopg import connect
 from string import Template
 from config import DB_URL, DB_USERNAME, DB_PASS
 
