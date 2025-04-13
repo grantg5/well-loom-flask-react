@@ -16,7 +16,7 @@ services:
       POSTGRES_PASSWORD: testingPassword
       POSTGRES_DB: well-loom-db
     ports:
-      - "5000:5432"
+      - "9000:5432"
     volumes:
       - ./well-loom-db:/docker-entrypoint-initdb.d
       - ./testing-scripts:/lib/testing-scripts
