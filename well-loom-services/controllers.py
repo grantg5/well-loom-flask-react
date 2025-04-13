@@ -21,7 +21,7 @@ def fetch_all(entity_type: str) -> List[Tuple[Any, ...]]:
     print(entity_type)
 
     if not is_valid_table_name(db_connection, entity_type):
-        raise ValueError(f"Invalid or unauthorized table: {entity_type}")
+        raise ValueError(f"Invalid or unauthorized table input: {entity_type}")
 
     query = query = sql.SQL("SELECT * FROM {}").format(sql.Identifier(entity_type))
     return cur.execute(query).fetchall()
