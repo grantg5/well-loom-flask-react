@@ -27,20 +27,24 @@ def fetch_all(entity_type: str) -> List[Tuple[Any, ...]]:
     if not is_valid_table_name(db_connection, entity_type):
         raise ValueError(f"Invalid or unauthorized table input: {entity_type}")
 
-    query = query = sql.SQL(
+    query = sql.SQL(
         "SELECT * FROM {}").format(sql.Identifier(entity_type))
     return cur.execute(query).fetchall()
 
 
 def fetch_entity_relationships(entity_type: str, entity_id: int) -> List[Tuple[Any, ...]]:
     cur = db_connection.cursor(row_factory=dict_row)
+    result_dict = {}
 
-    related_entities = {}
+    for item in mapping_tables[entity_type]:
+        print(item["table_name"] + ", " + item["id_field"])
 
-    # Next steps: write test using pytest for this method (returning mock result for now...), then use table_name & id_field to return everything from said table
-    # where id_field = entity_id
+        query = sql.SQL(
+            "SELECT * FROM {table} WHERE {id_field} = {id};").format(
+                table=sql.Identifier(item["table_name"]),
+                id_field=sql.Identifier(item["id_field"]),
+                id=entity_id
+            )
+        result_dict[item["entity_name"]] = cur.execute(query).fetchall()
 
-    for table_name, id_field in mapping_tables[entity_type]:
-        print(table_name + ", " + id_field)
-
-    # return {entity: [ids], entity2: [ids]} for all associated w/ provided entity w/ id
+    return result_dict
