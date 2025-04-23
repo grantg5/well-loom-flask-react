@@ -26,7 +26,12 @@
     "vscode": {
       "extensions": [
         "ms-python.python",
-        "Angular.ng-template"
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "formulahendry.auto-close-tag",
+        "steoates.autoimport",
+        "yoavbls.pretty-ts-errors",
+        "sonarsource.sonarlint-vscode"
       ],
       "settings": {
         "terminal.integrated.defaultProfile.linux": "bash",
@@ -34,7 +39,7 @@
       }
     }
   },
-  "forwardPorts": [5000],
-  "postCreateCommand": "npm install -g @angular/cli@18",
+  "forwardPorts": [5000, 5713],
+  "postCreateCommand": "cd well-loom-frontend && npm init -y && npm install react-router-dom axios @mui/material @emotion/react @emotion/styled tailwindcss postcss autoprefixer @reduxjs/toolkit react-redux @tailwindcss/vite",
   "remoteUser": "root"
 }
