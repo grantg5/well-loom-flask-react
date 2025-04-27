@@ -1,4 +1,12 @@
-const colors = {
+type ColorObject = {
+    [key: string]: string;
+};
+
+type ColorType = {
+    [key: string]: ColorObject;
+};
+
+const colors: ColorType = {
     primary: {
         // Primary palette (olive green)
         light: '#a8cc5d',      // 300

@@ -1,7 +1,7 @@
-import { createTheme } from '@mui/material/styles';
-import colors from "./app-colors";
+import { createTheme, Theme } from '@mui/material/styles';
+import colors from "./app-colors.ts";
 
-const theme = createTheme({
+const theme: Theme = createTheme({
   palette: {
     primary: {
       light: colors.primary[300],
