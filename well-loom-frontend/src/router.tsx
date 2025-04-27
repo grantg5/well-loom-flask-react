@@ -5,6 +5,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { About } from "./core/about";
 import { Home } from "./core/home";
 import { PracticeSearch } from "./modules/practice-search/practice-search";
+import { ThemeProvider } from "@mui/material";
+import theme from "./theming/theme.js";
 
 const router = createBrowserRouter([
     {
@@ -27,6 +29,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
-        <RouterProvider router={router} />
+        <ThemeProvider theme={theme}>
+            <RouterProvider router={router} />
+        </ThemeProvider>
     </React.StrictMode>
 );
