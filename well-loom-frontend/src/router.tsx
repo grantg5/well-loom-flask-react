@@ -1,12 +1,12 @@
-import { Root } from "./common/root";
+import { ThemeProvider } from "@mui/material";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Root } from "./common/root";
+import theme from "./common/theme.js";
 import { About } from "./core/about";
 import { Home } from "./core/home";
 import { PracticeSearch } from "./modules/practice-search/practice-search";
-import { ThemeProvider } from "@mui/material";
-import theme from "./theming/theme.js";
 
 const router = createBrowserRouter([
     {

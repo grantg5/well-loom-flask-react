@@ -1,4 +1,4 @@
-import { AppBar, Toolbar } from "@mui/material";
+import { AppBar } from "@mui/material";
 import { NavLink, Outlet } from "react-router-dom";
 
 export function Root() {
@@ -6,11 +6,11 @@ export function Root() {
       <div className="app-container">
         <header>
           <AppBar position="static">
-            <Toolbar>
-              <NavLink to="/">Home</NavLink>
-              <NavLink to="/about">About</NavLink>
-              <NavLink to="/practice-search">Practice Search</NavLink>
-            </Toolbar>
+            <nav className="justify-start">
+              <NavLink to="/" className="inline-flex items-center py-10 text-sm font-medium">Home</NavLink>
+              <NavLink to="/about" className="inline-flex items-center py-10 text-sm font-medium">About</NavLink>
+              <NavLink to="/practice-search" className="inline-flex items-center py-10 text-sm font-medium">Practice Search</NavLink>
+            </nav>
           </AppBar>
         </header>
         

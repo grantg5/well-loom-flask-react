@@ -57,6 +57,18 @@
   --tw-contain-style:  ;
 }
 
+nav {
+  padding-left: 10px;
+}
+
+nav a {
+  list-style: none;
+  font-size: 1.2em;
+  color: white;
+  transition: all ease-in-out 350ms;
+  padding: 10px;
+}
+
 ::backdrop {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
