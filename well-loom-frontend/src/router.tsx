@@ -5,8 +5,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Root } from "./common/root";
 import theme from "./common/theme.js";
 import { About } from "./core/about";
-import { Home } from "./core/home";
-import { PracticeSearch } from "./modules/practice-search/practice-search";
+// import { Home } from "./core/home";
+import { PracticeLibrary } from "./features/practice-library/practice-library.js";
 
 const router = createBrowserRouter([
     {
@@ -14,11 +14,11 @@ const router = createBrowserRouter([
         element: <Root />,
         // errorElement: <ErrorPage />
         children: [
-            { index: true, element: <Home/> },
-            { path: 'about', element: <About /> },
+            // { index: true, element: <Home/> },
+            { index: true, element: <About /> },
             { 
-                path: 'practice-search',
-                element: <PracticeSearch />,
+                path: 'practice-library',
+                element: <PracticeLibrary />,
                 // loader: async(({ params }) => {
                 //     // TODO: Call to fetch all practices for rendering
                 // })
