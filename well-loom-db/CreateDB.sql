@@ -1,5 +1,5 @@
 -- Creating tables
-CREATE TABLE area (
+CREATE TABLE Area (
     id BIGSERIAL PRIMARY KEY,
     area_name TEXT NOT NULL,
     area_description TEXT,
@@ -10,7 +10,7 @@ CREATE TABLE area (
     update_date_time TIMESTAMP
 );
 
-CREATE TABLE theory (
+CREATE TABLE Theory (
     id BIGSERIAL PRIMARY KEY,
     theory_name TEXT NOT NULL,
     theory_founder TEXT,
@@ -22,7 +22,7 @@ CREATE TABLE theory (
     update_date_time TIMESTAMP
 );
 
-CREATE TABLE area_theory_mapping (
+CREATE TABLE Area_Theory_Mapping (
     id BIGSERIAL PRIMARY KEY,
     area_id BIGINT REFERENCES area(id),
     theory_id BIGINT REFERENCES theory(id),
@@ -32,11 +32,8 @@ CREATE TABLE area_theory_mapping (
     updated_by BIGINT,
     update_date_time TIMESTAMP
 );
-COMMENT ON TABLE area_theory_mapping IS 'mapping_table';
-COMMENT ON COLUMN area_theory_mapping.area_id IS 'mapping_column_1';
-COMMENT ON COLUMN area_theory_mapping.theory_id IS 'mapping_column_2';
 
-CREATE TABLE practice_group (
+CREATE TABLE Practice_Group (
     id BIGSERIAL PRIMARY KEY,
     practice_group_name TEXT NOT NULL,
     practice_group_description TEXT,
@@ -48,7 +45,7 @@ CREATE TABLE practice_group (
     update_date_time TIMESTAMP
 );
 
-CREATE TABLE area_practice_group_mapping (
+CREATE TABLE Area_Practice_Group_Mapping (
     id BIGSERIAL PRIMARY KEY,
     area_id BIGINT REFERENCES area(id),
     practice_group_id BIGINT REFERENCES practice_group(id),
@@ -58,11 +55,8 @@ CREATE TABLE area_practice_group_mapping (
     updated_by BIGINT,
     update_date_time TIMESTAMP
 );
-COMMENT ON TABLE area_practice_group_mapping IS 'mapping_table';
-COMMENT ON COLUMN area_practice_group_mapping.area_id IS 'mapping_column_1';
-COMMENT ON COLUMN area_practice_group_mapping.practice_group_id IS 'mapping_column_2';
 
-CREATE TABLE practice (
+CREATE TABLE Practice (
     id BIGSERIAL PRIMARY KEY,
     practice_name TEXT NOT NULL,
     practice_short_description TEXT,
@@ -75,7 +69,7 @@ CREATE TABLE practice (
     update_date_time TIMESTAMP
 );
 
-CREATE TABLE practice_group_practice_mapping (
+CREATE TABLE Practice_Group_Practice_Mapping (
     id BIGSERIAL PRIMARY KEY,
     practice_group_id BIGINT REFERENCES practice_group(id),
     practice_id BIGINT REFERENCES practice(id),
@@ -85,11 +79,8 @@ CREATE TABLE practice_group_practice_mapping (
     updated_by BIGINT,
     update_date_time TIMESTAMP
 );
-COMMENT ON TABLE practice_group_practice_mapping IS 'mapping_table';
-COMMENT ON COLUMN practice_group_practice_mapping.practice_group_id IS 'mapping_column_1';
-COMMENT ON COLUMN practice_group_practice_mapping.practice_id IS 'mapping_column_2';
 
-CREATE TABLE resource (
+CREATE TABLE Resource (
     id BIGSERIAL PRIMARY KEY,
     resource_name TEXT NOT NULL,
     resource_author TEXT,
@@ -103,7 +94,7 @@ CREATE TABLE resource (
     update_date_time TIMESTAMP
 );
 
-CREATE TABLE theory_resource_mapping (
+CREATE TABLE Theory_Resource_Mapping (
     id BIGSERIAL PRIMARY KEY,
     theory_id BIGINT REFERENCES theory(id),
     resource_id BIGINT REFERENCES resource(id),
@@ -113,11 +104,8 @@ CREATE TABLE theory_resource_mapping (
     updated_by BIGINT,
     update_date_time TIMESTAMP
 );
-COMMENT ON TABLE theory_resource_mapping IS 'mapping_table';
-COMMENT ON COLUMN theory_resource_mapping.resource_id IS 'mapping_column_1';
-COMMENT ON COLUMN theory_resource_mapping.theory_id IS 'mapping_column_2';
 
-CREATE TABLE practice_resource_mapping (
+CREATE TABLE Practice_Resource_Mapping (
     id BIGSERIAL PRIMARY KEY,
     practice_id BIGINT REFERENCES practice(id),
     resource_id BIGINT REFERENCES resource(id),
@@ -127,11 +115,8 @@ CREATE TABLE practice_resource_mapping (
     updated_by BIGINT,
     update_date_time TIMESTAMP
 );
-COMMENT ON TABLE practice_resource_mapping IS 'mapping_table';
-COMMENT ON COLUMN practice_resource_mapping.practice_id IS 'mapping_column_1';
-COMMENT ON COLUMN practice_resource_mapping.resource_id IS 'mapping_column_2';
 
-CREATE TABLE challenge (
+CREATE TABLE Challenge (
     id BIGSERIAL PRIMARY KEY,
     challenge_name TEXT NOT NULL,
     challenge_description TEXT,
@@ -142,7 +127,7 @@ CREATE TABLE challenge (
     update_date_time TIMESTAMP
 );
 
-CREATE TABLE area_challenge_mapping (
+CREATE TABLE Area_Challenge_Mapping (
     id BIGSERIAL PRIMARY KEY,
     area_id BIGINT REFERENCES area(id),
     challenge_id BIGINT REFERENCES challenge(id),
@@ -152,11 +137,8 @@ CREATE TABLE area_challenge_mapping (
     updated_by BIGINT,
     update_date_time TIMESTAMP
 );
-COMMENT ON TABLE area_challenge_mapping IS 'mapping_table';
-COMMENT ON COLUMN area_challenge_mapping.area_id IS 'mapping_column_1';
-COMMENT ON COLUMN area_challenge_mapping.challenge_id IS 'mapping_column_2';
 
-CREATE TABLE practice_challenge_mapping (
+CREATE TABLE Practice_Challenge_Mapping (
     id BIGSERIAL PRIMARY KEY,
     practice_id BIGINT REFERENCES practice(id),
     challenge_id BIGINT REFERENCES challenge(id),
@@ -166,9 +148,6 @@ CREATE TABLE practice_challenge_mapping (
     updated_by BIGINT,
     update_date_time TIMESTAMP
 );
-COMMENT ON TABLE practice_challenge_mapping IS 'mapping_table';
-COMMENT ON COLUMN practice_challenge_mapping.challenge_id IS 'mapping_column_1';
-COMMENT ON COLUMN practice_challenge_mapping.practice_id IS 'mapping_column_2';
 
 -- Create datetime function
 CREATE FUNCTION set_create_date_time() RETURNS TRIGGER AS $set_create_date_time$
@@ -215,7 +194,7 @@ $apply_create_date_time_triggers$;
 
 -- Create view(s)
 
-CREATE OR REPLACE VIEW mapping_table_metadata AS (
+CREATE OR REPLACE VIEW Mapping_table_metadata AS (
     SELECT
         c.relname AS table_name,
         REPLACE(a1.attname, '_', '') AS column_1,
@@ -230,16 +209,16 @@ CREATE OR REPLACE VIEW mapping_table_metadata AS (
         pg_catalog.pg_attribute a2 ON a2.attrelid = c.oid
     WHERE
         n.nspname = 'public'
-        AND pg_catalog.obj_description(c.oid, 'pg_class') = 'mapping_table'
-        AND pg_catalog.col_description(a1.attrelid, a1.attnum) = 'mapping_column_1'
-        AND pg_catalog.col_description(a2.attrelid, a2.attnum) = 'mapping_column_2'
+        AND pg_catalog.obj_description(c.oid, 'pg_class') = 'Mapping_table'
+        AND pg_catalog.col_description(a1.attrelid, a1.attnum) = 'Mapping_column_1'
+        AND pg_catalog.col_description(a2.attrelid, a2.attnum) = 'Mapping_column_2'
 );
 
-INSERT INTO area(area_name, area_description, is_active) VALUES ('Spiritual', 'Spiritual pratices', true);
-INSERT INTO area(area_name, area_description, is_active) VALUES ('Mental', 'Mental pratices', true);
-INSERT INTO area(area_name, area_description, is_active) VALUES ('Physical', 'Physical pratices', true);
+INSERT INTO Area(area_name, area_description, is_active) VALUES ('Spiritual', 'Spiritual pratices', true);
+INSERT INTO Area(area_name, area_description, is_active) VALUES ('Mental', 'Mental pratices', true);
+INSERT INTO Area(area_name, area_description, is_active) VALUES ('Physical', 'Physical pratices', true);
 
-INSERT INTO theory (id, theory_name, theory_founder, theory_description, is_active) VALUES 
+INSERT INTO Theory (id, theory_name, theory_founder, theory_description, is_active) VALUES 
 (1, 'Cognitive Behavioral Theory', 'Aaron Beck', 'A theory focusing on changing patterns of thinking and behavior.', true),
 (2, 'Maslow''s Hierarchy of Needs', 'Abraham Maslow', 'A theory of psychological health based on fulfilling innate human needs.', true),
 (3, 'Analytical Psychology', 'Carl Jung', 'Focused on becoming your true self.', true),
@@ -248,7 +227,7 @@ INSERT INTO theory (id, theory_name, theory_founder, theory_description, is_acti
 (6, 'Hinduism', 'Unknown', 'A complex religion whose beliefs range from polytheism to a unitarian (''all is god'') framework.', true),
 (7, 'All is One', 'Various', 'Touched on in a variety of religious & spiritual frameworks, this theory asserts that all beings & forms arise from one unified source, and return to said-source in due time, like waves in an ocean.', true);
 
-INSERT INTO area_theory_mapping (id, area_id, theory_id, is_active) VALUES 
+INSERT INTO Area_Theory_Mapping (id, area_id, theory_id, is_active) VALUES 
 (1, 2, 1, true),
 (2, 2, 2, true),
 (3, 2, 3, true),
@@ -257,7 +236,7 @@ INSERT INTO area_theory_mapping (id, area_id, theory_id, is_active) VALUES
 (6, 1, 6, true),
 (7, 1, 7, true);
 
-INSERT INTO practice_group (id, practice_group_name, practice_group_description, practice_group_image, is_active)
+INSERT INTO Practice_Group (id, practice_group_name, practice_group_description, practice_group_image, is_active)
 VALUES
     (1, 'Mindfulness', 'A group of practices for mental clarity, relaxation, and stress reduction', 'yoga_image.jpg', true),
     (2, 'Socialization', 'Connecting with and spending time with others', 'meditation_image.jpg', true),
@@ -272,8 +251,8 @@ VALUES
     (11, 'Flexibility Training', 'Exercises that improve & maintain the body''s range of movement', 'fitness_image.jpg', true),
     (12, 'Nutrition', 'Habits and diets that increase nutritional intake and reduce consumption of harmful foods', 'nutrition_image.jpg', true);
 
--- Insert into area_practice_group_mapping table
-INSERT INTO area_practice_group_mapping (id, area_id, practice_group_id, is_active)
+-- INSERT INTO Area_practice_group_Mapping table
+INSERT INTO Area_Practice_Group_Mapping (id, area_id, practice_group_id, is_active)
 VALUES
     (1, 2, 1, true),
     (2, 2, 2, true),
@@ -288,8 +267,8 @@ VALUES
     (11, 3, 11, true),
     (12, 3, 12, true);
 
--- Insert into practice table
-INSERT INTO practice (id, practice_name, practice_short_description, practice_long_description, practice_image, is_active)
+-- INSERT INTO Practice table
+INSERT INTO Practice (id, practice_name, practice_short_description, practice_long_description, practice_image, is_active)
 VALUES
     (1, 'Breathing', 'A mind-body practice focusing on conscious breath control to improve physical and mental health.',
     'Breathing practices involve deliberate control of one''s breath to reduce stress, enhance relaxation, and improve focus. Techniques like diaphragmatic breathing and box breathing can calm the nervous system, lower blood pressure, and promote overall well-being. These practices are often integrated into meditation, yoga, and stress management routines.',
@@ -395,8 +374,8 @@ VALUES
     'Intermittent fasting is an eating pattern that alternates between periods of fasting and eating. It can take various forms, such as the 16/8 method (16 hours fasting, 8 hours eating) or the 5:2 method (eating normally for 5 days, restricting calories for 2 days). This practice has been shown to promote weight loss, improve metabolic health, and enhance cellular repair processes, among other benefits.',
     'intermittent_fasting_image.jpg', true);
 
--- Insert into practice_group_practice_mapping table
-INSERT INTO practice_group_practice_mapping (id, practice_group_id, practice_id, is_active)
+-- INSERT INTO Practice_Group_practice_Mapping table
+INSERT INTO Practice_Group_Practice_Mapping (id, practice_group_id, practice_id, is_active)
 VALUES
     (1, 1, 1, true),
     (2, 1, 12, true),
@@ -421,8 +400,8 @@ VALUES
     (21, 12, 25, true),
     (22, 12, 26, true);
 
--- Insert into resource table
-INSERT INTO resource (id, resource_name, resource_author, resource_description, resource_image, resource_link, is_active)
+-- INSERT INTO Resource table
+INSERT INTO Resource (id, resource_name, resource_author, resource_description, resource_image, resource_link, is_active)
 VALUES
     (1, 'Breath: The New Science of a Lost Art', 'James Nestor', 
     'A deep dive into the science behind breath control and its effect on physical and mental well-being.', 
@@ -508,8 +487,8 @@ VALUES
     'A classic text on Taoist philosophy that explores the interconnectedness of all things and the balance of the universe.', 
     'all_is_one_resource_image.jpg', 'https://www.amazon.com/Tao-Te-Ching-Lao-Tzu/dp/1590305469', true);
 
--- Insert into theory_resource_mapping table
-INSERT INTO theory_resource_mapping (id, theory_id, resource_id, is_active)
+-- INSERT INTO Theory_resource_Mapping table
+INSERT INTO Theory_Resource_Mapping (id, theory_id, resource_id, is_active)
 VALUES
     (1, 1, 15, true),
     (2, 2, 16, true),
@@ -519,8 +498,8 @@ VALUES
     (6, 6, 20, true),
     (7, 7, 21, true);
 
--- Insert into practice_resource_mapping table
-INSERT INTO practice_resource_mapping (id, practice_id, resource_id, is_active)
+-- INSERT INTO Practice_resource_Mapping table
+INSERT INTO Practice_Resource_Mapping (id, practice_id, resource_id, is_active)
 VALUES
     (1, 1, 1, true),
     (2, 2, 2, true),
@@ -543,8 +522,8 @@ VALUES
     (19, 19, 11, true),
     (20, 20, 12, true);
 
--- Insert into challenge table
-INSERT INTO challenge (id, challenge_name, challenge_description, is_active)
+-- INSERT INTO Challenge table
+INSERT INTO Challenge (id, challenge_name, challenge_description, is_active)
 VALUES
     (1, 'Anxiety', 'A feeling of worry, nervousness, or unease.', true),
     (2, 'Fatigue', 'A state of extreme tiredness or lack of energy.', true),
@@ -557,8 +536,8 @@ VALUES
     (9, 'Excessive Weight', 'Difficulty falling or staying asleep.', true),
     (10, 'Lack of Mobility', 'Persistent pain that lasts for weeks or months.', true);
 
--- Insert into area_challenge_mapping table
-INSERT INTO area_challenge_mapping (id, area_id, challenge_id, is_active)
+-- INSERT INTO Area_challenge_Mapping table
+INSERT INTO Area_Challenge_Mapping (id, area_id, challenge_id, is_active)
 VALUES
     (1, 1, 1, true),
     (2, 1, 6, true),
@@ -569,8 +548,8 @@ VALUES
     (7, 3, 9, true),
     (8, 3, 10, true);
 
--- Insert into practice_challenge_mapping table
-INSERT INTO practice_challenge_mapping (id, practice_id, challenge_id, is_active)
+-- INSERT INTO Practice_challenge_Mapping table
+INSERT INTO Practice_Challenge_Mapping (id, practice_id, challenge_id, is_active)
 VALUES
     (1, 1, 1, true),
     (2, 2, 1, true),
