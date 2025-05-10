@@ -1,6 +1,5 @@
 import datetime
 from model.model import entity_spec
-import json
 
 json_types = {
     int: "int",
