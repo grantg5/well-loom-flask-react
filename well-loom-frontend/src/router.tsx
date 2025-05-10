@@ -4,8 +4,8 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Root } from "./common/root";
 import theme from "./common/theme.js";
+import generateEntities from "./common/entites.js";
 import { About } from "./core/about";
-// import { Home } from "./core/home";
 import { PracticeLibrary } from "./features/practice-library/practice-library.js";
 
 const router = createBrowserRouter([
@@ -26,6 +26,8 @@ const router = createBrowserRouter([
         ]
     }
 ]);
+
+const entities: [Record<string, any>] = generateEntities();
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
