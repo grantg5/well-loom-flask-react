@@ -10,29 +10,6 @@
 | updated_by   | user(id)         |
 | update_date_time   | Datetime        |
 
-| theory      | Chains of through on well being from which practices emit |
-| ----------- | ----------- |
-| id      | Primary key       |
-| theory_name   | Text  (Unique)       |
-| theory_founder   | Text       |
-| theory_description      | Text      |
-| is_active      | Boolean       |
-| created_by   | user(id)        |
-| create_date_time   | Datetime        |
-| updated_by   | user(id)         |
-| update_date_time   | Datetime        |
-
-| area_theory_mapping      | Many-to-many relationship between area and theory |
-| ---------------- | ----------------------------------------------- |
-| id               | Primary key                                     |
-| area_id          | Foreign key (area.id)                           |
-| theory_id        | Foreign key (theory.id)                         |
-| is_active        | Boolean                                         |
-| created_by       | user(id)                                        |
-| create_date_time | Datetime                                        |
-| updated_by       | user(id)                                        |
-| update_date_time | Datetime                                        |
-
 | practice_group      | Grouping of practices |
 | ----------- | ----------- |
 | id      | Primary key       |
@@ -95,17 +72,6 @@
 | create_date_time   | Datetime        |
 | updated_by   | user(id)         |
 | update_date_time   | Datetime        |
-
-| theory_resource_mapping  | Many-to-many relationship between theory and resource |
-| --------------- | ---------------------------------------------------- |
-| id              | Primary key                                         |
-| theory_id       | Foreign key (theory.id)                             |
-| resource_id     | Foreign key (resource.id)                           |
-| is_active       | Boolean                                             |
-| created_by      | user(id)                                            |
-| create_date_time| Datetime                                            |
-| updated_by      | user(id)                                            |
-| update_date_time| Datetime                                            |
 
 | practice_resource_mapping  | Many-to-many relationship between practice and resource |
 | ----------------- | ------------------------------------------------------ |

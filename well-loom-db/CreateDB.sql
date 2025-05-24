@@ -10,29 +10,6 @@ CREATE TABLE Area (
     update_date_time TIMESTAMP
 );
 
-CREATE TABLE Theory (
-    id BIGSERIAL PRIMARY KEY,
-    theory_name TEXT NOT NULL,
-    theory_founder TEXT,
-    theory_description TEXT,
-    is_active BOOLEAN NOT NULL,
-    created_by BIGINT,
-    create_date_time TIMESTAMP,
-    updated_by BIGINT,
-    update_date_time TIMESTAMP
-);
-
-CREATE TABLE Area_Theory_Mapping (
-    id BIGSERIAL PRIMARY KEY,
-    area_id BIGINT REFERENCES area(id),
-    theory_id BIGINT REFERENCES theory(id),
-    is_active BOOLEAN NOT NULL,
-    created_by BIGINT,
-    create_date_time TIMESTAMP,
-    updated_by BIGINT,
-    update_date_time TIMESTAMP
-);
-
 CREATE TABLE Practice_Group (
     id BIGSERIAL PRIMARY KEY,
     practice_group_name TEXT NOT NULL,
@@ -87,17 +64,6 @@ CREATE TABLE Resource (
     resource_description TEXT,
     resource_image TEXT,
     resource_link TEXT,
-    is_active BOOLEAN NOT NULL,
-    created_by BIGINT,
-    create_date_time TIMESTAMP,
-    updated_by BIGINT,
-    update_date_time TIMESTAMP
-);
-
-CREATE TABLE Theory_Resource_Mapping (
-    id BIGSERIAL PRIMARY KEY,
-    theory_id BIGINT REFERENCES theory(id),
-    resource_id BIGINT REFERENCES resource(id),
     is_active BOOLEAN NOT NULL,
     created_by BIGINT,
     create_date_time TIMESTAMP,
@@ -217,24 +183,6 @@ CREATE OR REPLACE VIEW Mapping_table_metadata AS (
 INSERT INTO Area(area_name, area_description, is_active) VALUES ('Spiritual', 'Spiritual pratices', true);
 INSERT INTO Area(area_name, area_description, is_active) VALUES ('Mental', 'Mental pratices', true);
 INSERT INTO Area(area_name, area_description, is_active) VALUES ('Physical', 'Physical pratices', true);
-
-INSERT INTO Theory (id, theory_name, theory_founder, theory_description, is_active) VALUES 
-(1, 'Cognitive Behavioral Theory', 'Aaron Beck', 'A theory focusing on changing patterns of thinking and behavior.', true),
-(2, 'Maslow''s Hierarchy of Needs', 'Abraham Maslow', 'A theory of psychological health based on fulfilling innate human needs.', true),
-(3, 'Analytical Psychology', 'Carl Jung', 'Focused on becoming your true self.', true),
-(4, 'Buddhism', 'Siddhartha Gautama', 'A spiritual framework focused on impermanence, the oneness of all things, and acceptance of what is.', true),
-(5, 'Christianity', 'Jesus of Nazareth', 'A religion oriented around a single all-powerful god, and his son taking human form to save all humans from a torturous afterlife (Hell).', true),
-(6, 'Hinduism', 'Unknown', 'A complex religion whose beliefs range from polytheism to a unitarian (''all is god'') framework.', true),
-(7, 'All is One', 'Various', 'Touched on in a variety of religious & spiritual frameworks, this theory asserts that all beings & forms arise from one unified source, and return to said-source in due time, like waves in an ocean.', true);
-
-INSERT INTO Area_Theory_Mapping (id, area_id, theory_id, is_active) VALUES 
-(1, 2, 1, true),
-(2, 2, 2, true),
-(3, 2, 3, true),
-(4, 1, 4, true),
-(5, 1, 5, true),
-(6, 1, 6, true),
-(7, 1, 7, true);
 
 INSERT INTO Practice_Group (id, practice_group_name, practice_group_description, practice_group_image, is_active)
 VALUES
@@ -486,17 +434,6 @@ VALUES
     (21, 'The Tao Te Ching', 'Lao Tzu', 
     'A classic text on Taoist philosophy that explores the interconnectedness of all things and the balance of the universe.', 
     'all_is_one_resource_image.jpg', 'https://www.amazon.com/Tao-Te-Ching-Lao-Tzu/dp/1590305469', true);
-
--- INSERT INTO Theory_resource_Mapping table
-INSERT INTO Theory_Resource_Mapping (id, theory_id, resource_id, is_active)
-VALUES
-    (1, 1, 15, true),
-    (2, 2, 16, true),
-    (3, 3, 17, true),
-    (4, 4, 18, true),
-    (5, 5, 19, true),
-    (6, 6, 20, true),
-    (7, 7, 21, true);
 
 -- INSERT INTO Practice_resource_Mapping table
 INSERT INTO Practice_Resource_Mapping (id, practice_id, resource_id, is_active)

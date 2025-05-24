@@ -8,28 +8,28 @@ from typing import List, Tuple, Any
 from json import dumps
 
 
-def is_valid_table_name(conn, table_name: str) -> bool:
-    with conn.cursor() as cur:
-        cur.execute("""
-            SELECT EXISTS (
-                SELECT 1
-                FROM information_schema.tables
-                WHERE table_name = %s
-                AND table_schema = 'public'
-            );
-        """, (table_name,))
-        return cur.fetchone()[0]
+# def is_valid_table_name(conn, table_name: str) -> bool:
+#     with conn.cursor() as cur:
+#         cur.execute("""
+#             SELECT EXISTS (
+#                 SELECT 1
+#                 FROM information_schema.tables
+#                 WHERE table_name = %s
+#                 AND table_schema = 'public'
+#             );
+#         """, (table_name,))
+#         return cur.fetchone()[0]
 
 
-def fetch_all(entity_type: str) -> List[Tuple[Any, ...]]:
-    cur = db_connection.cursor(row_factory=dict_row)
+# def fetch_all(entity_type: str) -> List[Tuple[Any, ...]]:
+#     cur = db_connection.cursor(row_factory=dict_row)
 
-    if not is_valid_table_name(db_connection, entity_type):
-        raise ValueError(f"Invalid or unauthorized table input: {entity_type}")
+#     if not is_valid_table_name(db_connection, entity_type):
+#         raise ValueError(f"Invalid or unauthorized table input: {entity_type}")
 
-    query = sql.SQL(
-        "SELECT * FROM {}").format(sql.Identifier(entity_type))
-    return cur.execute(query).fetchall()
+#     query = sql.SQL(
+#         "SELECT * FROM {}").format(sql.Identifier(entity_type))
+#     return cur.execute(query).fetchall()
 
 
 def fetch_entity_relationships(entity_type: str, entity_id: int) -> List[Tuple[Any, ...]]:
@@ -48,6 +48,3 @@ def fetch_entity_relationships(entity_type: str, entity_id: int) -> List[Tuple[A
         result_dict[item["entity_name"]] = cur.execute(query).fetchall()
 
     return result_dict
-
-def fetch_entity_schema():
-    return dumps(schema_generator(), indent=4)
