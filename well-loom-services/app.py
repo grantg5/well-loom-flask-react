@@ -11,7 +11,6 @@ db_connection = connect(
     password=flask_config.DB_PASS
 )
 
-from model.blueprints import area_blp
 app = Flask(__name__)
 app.config["API_TITLE"] = "Well Loom Services"
 app.config["API_VERSION"] = "v1"
@@ -20,5 +19,10 @@ app.config['OPENAPI_URL_PREFIX'] = '/docs'
 app.config['OPENAPI_SWAGGER_UI_PATH'] = '/ui'
 app.config['OPENAPI_SWAGGER_UI_URL'] = 'https://cdn.jsdelivr.net/npm/swagger-ui-dist/'
 
+from routes import area_blp, practice_group_blp, practice_blp, resource_blp, challenge_blp
 api = Api(app)
 api.register_blueprint(area_blp)
+api.register_blueprint(practice_group_blp)
+api.register_blueprint(practice_blp)
+api.register_blueprint(resource_blp)
+api.register_blueprint(challenge_blp)

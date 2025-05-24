@@ -1,5 +1,5 @@
 -- Creating tables
-CREATE TABLE Area (
+CREATE TABLE area (
     id BIGSERIAL PRIMARY KEY,
     area_name TEXT NOT NULL,
     area_description TEXT,
@@ -10,7 +10,7 @@ CREATE TABLE Area (
     update_date_time TIMESTAMP
 );
 
-CREATE TABLE Practice_Group (
+CREATE TABLE practice_group (
     id BIGSERIAL PRIMARY KEY,
     practice_group_name TEXT NOT NULL,
     practice_group_description TEXT,
@@ -22,7 +22,7 @@ CREATE TABLE Practice_Group (
     update_date_time TIMESTAMP
 );
 
-CREATE TABLE Area_Practice_Group_Mapping (
+CREATE TABLE area_practice_group_mapping (
     id BIGSERIAL PRIMARY KEY,
     area_id BIGINT REFERENCES area(id),
     practice_group_id BIGINT REFERENCES practice_group(id),
@@ -33,7 +33,7 @@ CREATE TABLE Area_Practice_Group_Mapping (
     update_date_time TIMESTAMP
 );
 
-CREATE TABLE Practice (
+CREATE TABLE practice (
     id BIGSERIAL PRIMARY KEY,
     practice_name TEXT NOT NULL,
     practice_short_description TEXT,
@@ -46,7 +46,7 @@ CREATE TABLE Practice (
     update_date_time TIMESTAMP
 );
 
-CREATE TABLE Practice_Group_Practice_Mapping (
+CREATE TABLE practice_group_practice_mapping (
     id BIGSERIAL PRIMARY KEY,
     practice_group_id BIGINT REFERENCES practice_group(id),
     practice_id BIGINT REFERENCES practice(id),
@@ -57,7 +57,7 @@ CREATE TABLE Practice_Group_Practice_Mapping (
     update_date_time TIMESTAMP
 );
 
-CREATE TABLE Resource (
+CREATE TABLE resource (
     id BIGSERIAL PRIMARY KEY,
     resource_name TEXT NOT NULL,
     resource_author TEXT,
@@ -71,7 +71,7 @@ CREATE TABLE Resource (
     update_date_time TIMESTAMP
 );
 
-CREATE TABLE Practice_Resource_Mapping (
+CREATE TABLE practice_resource_mapping (
     id BIGSERIAL PRIMARY KEY,
     practice_id BIGINT REFERENCES practice(id),
     resource_id BIGINT REFERENCES resource(id),
@@ -82,7 +82,7 @@ CREATE TABLE Practice_Resource_Mapping (
     update_date_time TIMESTAMP
 );
 
-CREATE TABLE Challenge (
+CREATE TABLE challenge (
     id BIGSERIAL PRIMARY KEY,
     challenge_name TEXT NOT NULL,
     challenge_description TEXT,
@@ -93,7 +93,7 @@ CREATE TABLE Challenge (
     update_date_time TIMESTAMP
 );
 
-CREATE TABLE Area_Challenge_Mapping (
+CREATE TABLE area_challenge_mapping (
     id BIGSERIAL PRIMARY KEY,
     area_id BIGINT REFERENCES area(id),
     challenge_id BIGINT REFERENCES challenge(id),
@@ -104,7 +104,7 @@ CREATE TABLE Area_Challenge_Mapping (
     update_date_time TIMESTAMP
 );
 
-CREATE TABLE Practice_Challenge_Mapping (
+CREATE TABLE practice_challenge_mapping (
     id BIGSERIAL PRIMARY KEY,
     practice_id BIGINT REFERENCES practice(id),
     challenge_id BIGINT REFERENCES challenge(id),
@@ -158,49 +158,27 @@ BEGIN
 END;
 $apply_create_date_time_triggers$;
 
--- Create view(s)
+INSERT INTO area(area_name, area_description, is_active) VALUES ('Spiritual', 'Spiritual pratices', true);
+INSERT INTO area(area_name, area_description, is_active) VALUES ('Mental', 'Mental pratices', true);
+INSERT INTO area(area_name, area_description, is_active) VALUES ('Physical', 'Physical pratices', true);
 
-CREATE OR REPLACE VIEW Mapping_table_metadata AS (
-    SELECT
-        c.relname AS table_name,
-        REPLACE(a1.attname, '_', '') AS column_1,
-        REPLACE(a2.attname, '_', '') AS column_2
-    FROM
-        pg_catalog.pg_class c
-    JOIN
-        pg_catalog.pg_namespace n ON c.relnamespace = n.oid
-    JOIN
-        pg_catalog.pg_attribute a1 ON a1.attrelid = c.oid
-    JOIN
-        pg_catalog.pg_attribute a2 ON a2.attrelid = c.oid
-    WHERE
-        n.nspname = 'public'
-        AND pg_catalog.obj_description(c.oid, 'pg_class') = 'Mapping_table'
-        AND pg_catalog.col_description(a1.attrelid, a1.attnum) = 'Mapping_column_1'
-        AND pg_catalog.col_description(a2.attrelid, a2.attnum) = 'Mapping_column_2'
-);
-
-INSERT INTO Area(area_name, area_description, is_active) VALUES ('Spiritual', 'Spiritual pratices', true);
-INSERT INTO Area(area_name, area_description, is_active) VALUES ('Mental', 'Mental pratices', true);
-INSERT INTO Area(area_name, area_description, is_active) VALUES ('Physical', 'Physical pratices', true);
-
-INSERT INTO Practice_Group (id, practice_group_name, practice_group_description, practice_group_image, is_active)
+INSERT INTO practice_group (id, practice_group_name, practice_group_description, practice_group_image, is_active)
 VALUES
     (1, 'Mindfulness', 'A group of practices for mental clarity, relaxation, and stress reduction', 'yoga_image.jpg', true),
     (2, 'Socialization', 'Connecting with and spending time with others', 'meditation_image.jpg', true),
     (3, 'Parts Work & Internal Family Systems', 'Discovering and interacting with various "parts", a.k.a. subpersonalities, to help process and heal from difficult events.', 'fitness_image.jpg', true),
     (4, 'Behavioral Theory', 'Scientifically-grounded practices to change thought patterns', 'nutrition_image.jpg', true),
-    (5, 'Meditation', 'Practices that help one observe their daily mental chatter', 'mindfulness_image.jpg', true),
+    (5, 'Meditation', 'practices that help one observe their daily mental chatter', 'mindfulness_image.jpg', true),
     (6, 'Spiritual Reading', 'Reading spiritual & religious texts', 'yoga_image.jpg', true),
     (7, 'Connect with Nature', 'Spending time in nature to connect with the source of where we come from', 'meditation_image.jpg', true),
     (8, 'Aerobic Exercise', 'Exercises that raise heartrate for an extended period of time, leading to greater aerobic, lung, and oxegen utilization capacity', 'fitness_image.jpg', true),
-    (9, 'Sleep', 'Practices that help one sleep for longer each day, which has shown to be critical to mental & physical functioning', 'nutrition_image.jpg', true),
+    (9, 'Sleep', 'practices that help one sleep for longer each day, which has shown to be critical to mental & physical functioning', 'nutrition_image.jpg', true),
     (10, 'Strength Training', 'Exercises that help one build muscle & improve muscle to fat body composition', 'mindfulness_image.jpg', true),
     (11, 'Flexibility Training', 'Exercises that improve & maintain the body''s range of movement', 'fitness_image.jpg', true),
     (12, 'Nutrition', 'Habits and diets that increase nutritional intake and reduce consumption of harmful foods', 'nutrition_image.jpg', true);
 
--- INSERT INTO Area_practice_group_Mapping table
-INSERT INTO Area_Practice_Group_Mapping (id, area_id, practice_group_id, is_active)
+-- INSERT INTO area_practice_group_mapping table
+INSERT INTO area_practice_group_mapping (id, area_id, practice_group_id, is_active)
 VALUES
     (1, 2, 1, true),
     (2, 2, 2, true),
@@ -215,8 +193,8 @@ VALUES
     (11, 3, 11, true),
     (12, 3, 12, true);
 
--- INSERT INTO Practice table
-INSERT INTO Practice (id, practice_name, practice_short_description, practice_long_description, practice_image, is_active)
+-- INSERT INTO practice table
+INSERT INTO practice (id, practice_name, practice_short_description, practice_long_description, practice_image, is_active)
 VALUES
     (1, 'Breathing', 'A mind-body practice focusing on conscious breath control to improve physical and mental health.',
     'Breathing practices involve deliberate control of one''s breath to reduce stress, enhance relaxation, and improve focus. Techniques like diaphragmatic breathing and box breathing can calm the nervous system, lower blood pressure, and promote overall well-being. These practices are often integrated into meditation, yoga, and stress management routines.',
@@ -234,8 +212,8 @@ VALUES
     'Joining a club allows individuals to connect with others who share similar interests, hobbies, or goals. It fosters a sense of community and belonging while providing opportunities to learn, grow, and share experiences. Being part of a group can reduce isolation, improve confidence, and encourage positive interactions.',
     'join_a_club_image.jpg', true),
 
-    (5, 'Daily Parts Practice', 'An approach where individuals focus on different "parts" of themselves to improve self-awareness and integration.',
-    'Daily Parts Practice encourages individuals to explore and acknowledge the various "parts" or aspects of their personality, emotions, and thoughts. By journaling or reflecting on these parts, individuals can increase self-awareness, foster inner harmony, and address conflicting feelings or behaviors in a structured way.',
+    (5, 'Daily Parts practice', 'An approach where individuals focus on different "parts" of themselves to improve self-awareness and integration.',
+    'Daily Parts practice encourages individuals to explore and acknowledge the various "parts" or aspects of their personality, emotions, and thoughts. By journaling or reflecting on these parts, individuals can increase self-awareness, foster inner harmony, and address conflicting feelings or behaviors in a structured way.',
     'daily_parts_practice_image.jpg', true),
 
     (6, 'Journaling with Parts', 'Writing exercises that involve exploring different "parts" of the self to increase self-awareness and clarity.',
@@ -322,8 +300,8 @@ VALUES
     'Intermittent fasting is an eating pattern that alternates between periods of fasting and eating. It can take various forms, such as the 16/8 method (16 hours fasting, 8 hours eating) or the 5:2 method (eating normally for 5 days, restricting calories for 2 days). This practice has been shown to promote weight loss, improve metabolic health, and enhance cellular repair processes, among other benefits.',
     'intermittent_fasting_image.jpg', true);
 
--- INSERT INTO Practice_Group_practice_Mapping table
-INSERT INTO Practice_Group_Practice_Mapping (id, practice_group_id, practice_id, is_active)
+-- INSERT INTO practice_group_practice_mapping table
+INSERT INTO practice_group_practice_mapping (id, practice_group_id, practice_id, is_active)
 VALUES
     (1, 1, 1, true),
     (2, 1, 12, true),
@@ -348,8 +326,8 @@ VALUES
     (21, 12, 25, true),
     (22, 12, 26, true);
 
--- INSERT INTO Resource table
-INSERT INTO Resource (id, resource_name, resource_author, resource_description, resource_image, resource_link, is_active)
+-- INSERT INTO resource table
+INSERT INTO resource (id, resource_name, resource_author, resource_description, resource_image, resource_link, is_active)
 VALUES
     (1, 'Breath: The New Science of a Lost Art', 'James Nestor', 
     'A deep dive into the science behind breath control and its effect on physical and mental well-being.', 
@@ -375,7 +353,7 @@ VALUES
     'This podcast delves into the importance of friendships and how to foster them for better mental health.', 
     'friendship_podcast_image.jpg', 'https://www.friendshippodcast.com', true),
 
-    (7, 'The Art of Joining: How to Connect with Groups and Communities for Personal Growth', 'Alexandra Green', 
+    (7, 'The Art of Joining: How to Connect with groups and Communities for Personal Growth', 'Alexandra Green', 
     'A guide to using group memberships for personal development and reducing social isolation.', 
     'joining_resource_image.jpg', 'https://www.amazon.com/Art-Joining-Connect-Communities-Growth/dp/1478735032', true),
 
@@ -435,8 +413,8 @@ VALUES
     'A classic text on Taoist philosophy that explores the interconnectedness of all things and the balance of the universe.', 
     'all_is_one_resource_image.jpg', 'https://www.amazon.com/Tao-Te-Ching-Lao-Tzu/dp/1590305469', true);
 
--- INSERT INTO Practice_resource_Mapping table
-INSERT INTO Practice_Resource_Mapping (id, practice_id, resource_id, is_active)
+-- INSERT INTO practice_resource_mapping table
+INSERT INTO practice_resource_mapping (id, practice_id, resource_id, is_active)
 VALUES
     (1, 1, 1, true),
     (2, 2, 2, true),
@@ -459,8 +437,8 @@ VALUES
     (19, 19, 11, true),
     (20, 20, 12, true);
 
--- INSERT INTO Challenge table
-INSERT INTO Challenge (id, challenge_name, challenge_description, is_active)
+-- INSERT INTO challenge table
+INSERT INTO challenge (id, challenge_name, challenge_description, is_active)
 VALUES
     (1, 'Anxiety', 'A feeling of worry, nervousness, or unease.', true),
     (2, 'Fatigue', 'A state of extreme tiredness or lack of energy.', true),
@@ -473,8 +451,8 @@ VALUES
     (9, 'Excessive Weight', 'Difficulty falling or staying asleep.', true),
     (10, 'Lack of Mobility', 'Persistent pain that lasts for weeks or months.', true);
 
--- INSERT INTO Area_challenge_Mapping table
-INSERT INTO Area_Challenge_Mapping (id, area_id, challenge_id, is_active)
+-- INSERT INTO area_challenge_mapping table
+INSERT INTO area_challenge_mapping (id, area_id, challenge_id, is_active)
 VALUES
     (1, 1, 1, true),
     (2, 1, 6, true),
@@ -485,8 +463,8 @@ VALUES
     (7, 3, 9, true),
     (8, 3, 10, true);
 
--- INSERT INTO Practice_challenge_Mapping table
-INSERT INTO Practice_Challenge_Mapping (id, practice_id, challenge_id, is_active)
+-- INSERT INTO practice_challenge_mapping table
+INSERT INTO practice_challenge_mapping (id, practice_id, challenge_id, is_active)
 VALUES
     (1, 1, 1, true),
     (2, 2, 1, true),
