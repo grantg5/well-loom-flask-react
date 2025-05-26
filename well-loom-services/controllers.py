@@ -12,14 +12,14 @@ def fetch_entity_relationships(entity_type: str, entity_id: int) -> List[Tuple[A
     result_dict = {}
 
     for item in entity_mappings[entity_type]:
-        print(item["table_name"] + ", " + item["id_field"])
-
         query = sql.SQL(
             "SELECT * FROM {table} WHERE {id_field} = {id};").format(
                 table=sql.Identifier(item["table_name"]),
                 id_field=sql.Identifier(item["id_field"]),
                 id=entity_id
             )
-        result_dict[item["entity_name"]] = cur.execute(query).fetchall()
+        query_results = cur.execute(query).fetchall()
+        related_ids = [d[item["related_id"]] for d in query_results]
+        result_dict[item["entity_name"]] = related_ids
 
     return result_dict
