@@ -18,6 +18,11 @@ entity_mappings = {
             "id_field": "practice_group_id"
         },
         {
+            "entity_name": "challenge",
+            "table_name": "practice_group_challenge_mapping",
+            "id_field": "practice_group_id"
+        },
+        {
             "entity_name": "practice",
             "table_name": "practice_group_practice_mapping",
             "id_field": "practice_group_id"
@@ -44,6 +49,11 @@ entity_mappings = {
         {
             "entity_name": "area",
             "table_name": "area_challenge_mapping",
+            "id_field": "challenge_id"
+        },
+        {
+            "entity_name": "practice_group",
+            "table_name": "practice_group_challenge_mapping",
             "id_field": "challenge_id"
         },
         {

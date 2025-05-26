@@ -115,6 +115,17 @@ CREATE TABLE practice_challenge_mapping (
     update_date_time TIMESTAMP
 );
 
+CREATE TABLE practice_group_challenge_mapping (
+    id BIGSERIAL PRIMARY KEY,
+    practice_group_id BIGINT REFERENCES practice_group(id),
+    challenge_id BIGINT REFERENCES challenge(id),
+    is_active BOOLEAN NOT NULL,
+    created_by BIGINT,
+    create_date_time TIMESTAMP,
+    updated_by BIGINT,
+    update_date_time TIMESTAMP
+);
+
 -- Create datetime function
 CREATE FUNCTION set_create_date_time() RETURNS TRIGGER AS $set_create_date_time$
   BEGIN
@@ -486,3 +497,15 @@ VALUES
     (18, 19, 9, true),
     (19, 24, 9, true),
     (20, 25, 9, true);
+
+    INSERT INTO practice_group_challenge_mapping (id, practice_group_id, challenge_id, is_active)
+VALUES
+    (1, 1, 1, true),
+    (2, 2, 1, true),
+    (3, 3, 7, true),
+    (4, 4, 7, true),
+    (5, 5, 6, true),
+    (6, 6, 6, true),
+    (7, 7, 2, true),
+    (8, 8, 3, true),
+    (9, 9, 3, true);
