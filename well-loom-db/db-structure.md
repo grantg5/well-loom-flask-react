@@ -1,5 +1,5 @@
 # Practice Associated
-| area      | Broad categorization of well-being practices. Spiritual, mental, physical |
+| area      | Broad categorization of well-being practices. Sky, sail, hull |
 | ----------- | ----------- |
 | id      | Primary key       |
 | area_name   | Text  (Unique)       |
@@ -10,23 +10,23 @@
 | updated_by   | user(id)         |
 | update_date_time   | Datetime        |
 
-| practice_group      | Grouping of practices |
+| component      | Area of the boat, grouping of practices |
 | ----------- | ----------- |
 | id      | Primary key       |
-| practice_group_name   | Text  (Unique)       |
-| practice_group_description   | Text       |
-| practice_group_image   | Text       |
+| component_name   | Text  (Unique)       |
+| component_description   | Text       |
+| component_image   | Text       |
 | is_active      | Boolean       |
 | created_by   | user(id)        |
 | create_date_time   | Datetime        |
 | updated_by   | user(id)         |
 | update_date_time   | Datetime        |
 
-| area_practice_group_mapping  | Many-to-many relationship between area and practice_group |
+| area_component_mapping  | Many-to-many relationship between area and component |
 | ------------------- | ------------------------------------------------------- |
 | id                  | Primary key                                            |
 | area_id             | Foreign key (area.id)                                  |
-| practice_group_id   | Foreign key (practice_group.id)                        |
+| component_id   | Foreign key (component.id)                        |
 | is_active           | Boolean                                                |
 | created_by          | user(id)                                               |
 | create_date_time    | Datetime                                               |
@@ -47,10 +47,10 @@
 | updated_by   | user(id)         |
 | update_date_time   | Datetime        |
 
-| practice_group_practice_mapping  | Many-to-many relationship between practice_group and practice |
+| component_practice_mapping  | Many-to-many relationship between component and practice |
 | ----------------------- | ----------------------------------------------------------- |
 | id                      | Primary key                                                |
-| practice_group_id       | Foreign key (practice_group.id)                            |
+| component_id       | Foreign key (component.id)                            |
 | practice_id             | Foreign key (practice.id)                                  |
 | is_active               | Boolean                                                    |
 | created_by              | user(id)                                                   |
@@ -83,39 +83,6 @@
 | create_date_time  | Datetime                                              |
 | updated_by        | user(id)                                              |
 | update_date_time  | Datetime                                              |
-
-| challenge      | Something that a person can suffer from, which reduces their well being |
-| ----------- | ----------- |
-| id      | Primary key       |
-| challenge_name   | Text  (Unique)       |
-| challenge description   | Text      |
-| is_active      | Boolean       |
-| created_by   | user(id)        |
-| create_date_time   | Datetime        |
-| updated_by   | user(id)         |
-| update_date_time   | Datetime        |
-
-| area_challenge_mapping   | Many-to-many relationship between area and challenge |
-| ------------- | -------------------------------------------------- |
-| id            | Primary key                                       |
-| area_id       | Foreign key (area.id)                             |
-| challenge_id    | Foreign key (challenge.id)                          |
-| is_active     | Boolean                                           |
-| created_by    | user(id)                                          |
-| create_date_time | Datetime                                        |
-| updated_by    | user(id)                                          |
-| update_date_time | Datetime                                        |
-
-| practice_challenge_mapping  | Many-to-many relationship between practice and challenge |
-| ---------------- | ----------------------------------------------------- |
-| id               | Primary key                                          |
-| practice_id      | Foreign key (practice.id)                            |
-| challenge_id       | Foreign key (challenge.id)                             |
-| is_active        | Boolean                                              |
-| created_by       | user(id)                                             |
-| create_date_time | Datetime                                             |
-| updated_by       | user(id)                                             |
-| update_date_time | Datetime                                             |
 
 # User Associated
 NOTE: Will compile from https://docs.google.com/document/d/1Mo0cguLlhVtyfLPmjs34fU7aRJls58sMwlZ2B8Akl1I/edit?tab=t.0 when needed
