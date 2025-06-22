@@ -1,14 +1,11 @@
 import { Area, WellBeingComponent}  from '@entity_types/entity_types'
-import { areasService } from '../../../services/areas_service'
-import { wellBeingComponentsService } from '../../../services/well_being_components_service'
+import { useAreas, useWellBeingComponents } from '@hooks/cached_entities';
 
 export default function PracticeSearchBar() {
-    // Default these to inital fetch all call
+    const { data: allAreas = [], isLoading: areasLoading } = useAreas();
+    const { data: allWellBeingComponents = [], isLoading: wellBeingComponentsLoading } = useWellBeingComponents();
 
-    // TODO: Look into react query or other caching mechanism to cache all areas & components
-
-    const allAreas: Area[] = areasService.getAll()
-    const allWellBeingComponents: WellBeingComponent[] = wellBeingComponentsService.getAll()
+    // TODO: Set dropdowns equal to filteredAreas & filteredWellBeingComponetns
 
     const filteredAreas: Area[] = allAreas;
     const filteredWellBeingComponents: WellBeingComponent[] = allWellBeingComponents;

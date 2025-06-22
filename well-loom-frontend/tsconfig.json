@@ -7,7 +7,8 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "paths": {
-      "@entity_types/*": ["entity_types/*"]
+      "@entity_types/*": ["entity_types/*"],
+      "@hooks/*": ["hooks/*"]
     }
   }
 }
