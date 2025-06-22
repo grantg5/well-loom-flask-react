@@ -40,7 +40,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/practice_groups": {
+    "/components": {
         parameters: {
             query?: never;
             header?: never;
@@ -62,7 +62,7 @@ export interface paths {
                         [name: string]: unknown;
                     };
                     content: {
-                        "application/json": components["schemas"]["PracticeGroup"][];
+                        "application/json": components["schemas"]["WellBeingComponent"][];
                     };
                 };
                 default: components["responses"]["DEFAULT_ERROR"];
@@ -148,42 +148,6 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/challenges": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get: {
-            parameters: {
-                query?: never;
-                header?: never;
-                path?: never;
-                cookie?: never;
-            };
-            requestBody?: never;
-            responses: {
-                /** @description OK */
-                200: {
-                    headers: {
-                        [name: string]: unknown;
-                    };
-                    content: {
-                        "application/json": components["schemas"]["Challenge"][];
-                    };
-                };
-                default: components["responses"]["DEFAULT_ERROR"];
-            };
-        };
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
@@ -222,11 +186,10 @@ export interface components {
             /** Format: date-time */
             readonly update_date_time?: string;
         };
-        PracticeGroup: {
+        WellBeingComponent: {
             readonly id?: number;
-            practice_group_name: string;
-            practice_group_description?: string | null;
-            practice_group_image?: string | null;
+            component_name: string;
+            component_description?: string | null;
             /** @default true */
             is_active: boolean;
             created_by: number;
@@ -258,19 +221,6 @@ export interface components {
             resource_description?: string | null;
             resource_image?: string | null;
             resource_link?: string | null;
-            /** @default true */
-            is_active: boolean;
-            created_by: number;
-            /** Format: date-time */
-            readonly create_date_time?: string;
-            updated_by?: number | null;
-            /** Format: date-time */
-            readonly update_date_time?: string;
-        };
-        Challenge: {
-            readonly id?: number;
-            challenge_name: string;
-            challenge_description?: string | null;
             /** @default true */
             is_active: boolean;
             created_by: number;

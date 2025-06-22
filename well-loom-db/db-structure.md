@@ -10,7 +10,7 @@
 | updated_by   | user(id)         |
 | update_date_time   | Datetime        |
 
-| component      | Area of the boat, grouping of practices |
+| well_being_component      | Area of the boat, grouping of practices |
 | ----------- | ----------- |
 | id      | Primary key       |
 | component_name   | Text  (Unique)       |
@@ -22,11 +22,11 @@
 | updated_by   | user(id)         |
 | update_date_time   | Datetime        |
 
-| area_component_mapping  | Many-to-many relationship between area and component |
+| area_well_being_component_mapping  | Many-to-many relationship between area and well_being_component |
 | ------------------- | ------------------------------------------------------- |
 | id                  | Primary key                                            |
 | area_id             | Foreign key (area.id)                                  |
-| component_id   | Foreign key (component.id)                        |
+| well_being_component_id   | Foreign key (well_being_component.id)                        |
 | is_active           | Boolean                                                |
 | created_by          | user(id)                                               |
 | create_date_time    | Datetime                                               |
@@ -47,10 +47,10 @@
 | updated_by   | user(id)         |
 | update_date_time   | Datetime        |
 
-| component_practice_mapping  | Many-to-many relationship between component and practice |
+| well_being_component_practice_mapping  | Many-to-many relationship between well_being_component and practice |
 | ----------------------- | ----------------------------------------------------------- |
 | id                      | Primary key                                                |
-| component_id       | Foreign key (component.id)                            |
+| well_being_component_id       | Foreign key (well_being_component.id)                            |
 | practice_id             | Foreign key (practice.id)                                  |
 | is_active               | Boolean                                                    |
 | created_by              | user(id)                                                   |

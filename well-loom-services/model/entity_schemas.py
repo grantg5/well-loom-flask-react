@@ -10,11 +10,10 @@ class AreaSchema(Schema):
     updated_by = fields.Int(allow_none=True)
     update_date_time = fields.DateTime(dump_only=True)
 
-class PracticeGroupSchema(Schema):
+class WellBeingComponentSchema(Schema):
     id = fields.Int(dump_only=True)
-    practice_group_name = fields.Str(required=True)
-    practice_group_description = fields.Str(allow_none=True)
-    practice_group_image = fields.Str(allow_none=True)
+    component_name = fields.Str(required=True)
+    component_description = fields.Str(allow_none=True)
     is_active = fields.Bool(load_default=True)
     created_by = fields.Int(required=True)
     create_date_time = fields.DateTime(dump_only=True)
@@ -46,12 +45,3 @@ class ResourceSchema(Schema):
     updated_by = fields.Int(allow_none=True)
     update_date_time = fields.DateTime(dump_only=True)
 
-class ChallengeSchema(Schema):
-    id = fields.Int(dump_only=True)
-    challenge_name = fields.Str(required=True)
-    challenge_description = fields.Str(allow_none=True)
-    is_active = fields.Bool(load_default=True)
-    created_by = fields.Int(required=True)
-    create_date_time = fields.DateTime(dump_only=True)
-    updated_by = fields.Int(allow_none=True)
-    update_date_time = fields.DateTime(dump_only=True)

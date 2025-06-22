@@ -19,10 +19,9 @@ app.config['OPENAPI_URL_PREFIX'] = '/docs'
 app.config['OPENAPI_SWAGGER_UI_PATH'] = '/ui'
 app.config['OPENAPI_SWAGGER_UI_URL'] = 'https://cdn.jsdelivr.net/npm/swagger-ui-dist/'
 
-from routes import area_blp, practice_group_blp, practice_blp, resource_blp, challenge_blp
+from routes import area_blp, well_being_component_blp, practice_blp, resource_blp
 api = Api(app)
 api.register_blueprint(area_blp)
-api.register_blueprint(practice_group_blp)
+api.register_blueprint(well_being_component_blp)
 api.register_blueprint(practice_blp)
 api.register_blueprint(resource_blp)
-api.register_blueprint(challenge_blp)

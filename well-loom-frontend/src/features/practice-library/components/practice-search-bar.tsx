@@ -1,19 +1,16 @@
-import { Area, PracticeGroup, Challenge}  from '@types/types'
+import { Area, WellBeingComponent}  from '@types/types'
 
 export default function PracticeSearchBar() {
     // Default these to inital fetch all call
     const allAreas: Area[]
-    const allPracticeGroups: PracticeGroup[]
-    const allChallenges: Challenge[]
+    const allWellBeingComponents: WellBeingComponent[]
 
     const filteredAreas: Area[] = allAreas;
-    const filteredPracticeGroups: PracticeGroup[] = allPracticeGroups;
-    const filteredChallenges: Challenge[] = allChallenges;
+    const filteredWellBeingComponents: WellBeingComponent[] = allWellBeingComponents;
 
     // These'll track ids
     const selectedAreas: number[]
-    const selectedPracticeGroups: number[]
-    const selectedChallenges: number[]
+    const selectedWellBeingComponents: number[]
 
     let searchText: string = "";
 

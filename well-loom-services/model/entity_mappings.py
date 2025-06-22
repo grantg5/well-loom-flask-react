@@ -1,10 +1,10 @@
 entity_mappings = {
     "areas": [
         {
-            "entity_name": "practice_group",
-            "table_name": "area_practice_group_mapping",
+            "entity_name": "well_being_component",
+            "table_name": "area_component_mapping",
             "id_field": "area_id",
-            "related_id": "practice_group_id"
+            "related_id": "component_id"
         },
         {
             "entity_name": "challenge",
@@ -13,32 +13,32 @@ entity_mappings = {
             "related_id": "challenge_id"
         }
     ],
-    "practice_groups": [
+    "well_being_components": [
         {
             "entity_name": "area",
-            "table_name": "area_practice_group_mapping",
-            "id_field": "practice_group_id",
+            "table_name": "area_component_mapping",
+            "id_field": "component_id",
             "related_id": "area_id"
         },
         {
             "entity_name": "challenge",
-            "table_name": "practice_group_challenge_mapping",
-            "id_field": "practice_group_id",
+            "table_name": "component_challenge_mapping",
+            "id_field": "component_id",
             "related_id": "challenge_id"
         },
         {
             "entity_name": "practice",
-            "table_name": "practice_group_practice_mapping",
-            "id_field": "practice_group_id",
+            "table_name": "component_practice_mapping",
+            "id_field": "component_id",
             "related_id": "practice_id"
         }
     ],
     "practices": [
         {
-            "entity_name": "practice_group",
-            "table_name": "practice_group_practice_mapping",
+            "entity_name": "well_being_component",
+            "table_name": "component_practice_mapping",
             "id_field": "practice_id",
-            "related_id": "practice_group_id"
+            "related_id": "component_id"
         },
         {
             "entity_name": "resource",
@@ -61,10 +61,10 @@ entity_mappings = {
             "related_id": "area_id"
         },
         {
-            "entity_name": "practice_group",
-            "table_name": "practice_group_challenge_mapping",
+            "entity_name": "well_being_component",
+            "table_name": "component_challenge_mapping",
             "id_field": "challenge_id",
-            "related_id": "practice_group_id"
+            "related_id": "component_id"
         },
         {
             "entity_name": "practice",

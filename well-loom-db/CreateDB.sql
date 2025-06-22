@@ -10,7 +10,7 @@ CREATE TABLE area (
     update_date_time TIMESTAMP
 );
 
-CREATE TABLE component (
+CREATE TABLE well_being_component (
     id BIGSERIAL PRIMARY KEY,
     component_name TEXT NOT NULL,
     component_description TEXT,
@@ -150,6 +150,7 @@ INSERT INTO area(area_name, area_description, is_active) VALUES ('Hull', 'Founda
 INSERT INTO area(area_name, area_description, is_active) VALUES ('Sail', 'Expansionary elements that are required to live a full life', true);
 INSERT INTO area(area_name, area_description, is_active) VALUES ('Sky', 'Experiencing beyond oneself', true);
 
+-- INSERT INTO well_being_component table
 INSERT INTO component (id, component_name, component_description, component_image, is_active)
 VALUES
     (1, 'Safety', 'Little unnecessary anxiety, and a general sense of safety', true),
@@ -160,7 +161,7 @@ VALUES
     (6, 'Purpose', 'Feeling like your unique gifts and interests are being put to good use', true),
     (7, 'Transcendence', 'Connecting with something beyond yourself, and having an experience seemingly beyond the walls of your mind', true);
 
--- INSERT INTO area_component_mapping table
+-- INSERT INTO area_well_being_component_mapping table
 INSERT INTO area_component_mapping (id, area_id, component_id, is_active)
 VALUES
     (1, 1, 1, true),
@@ -195,7 +196,7 @@ VALUES
     (19, 'Community Service', 'Helping others', 'Volunteering and contributing to your community for purpose and connection', true),
     (20, 'Meditation Retreats', 'Intensive spiritual practice', 'Participating in extended periods of meditation and spiritual contemplation', true);
 
--- INSERT INTO component_practice_mapping table
+-- INSERT INTO well_being_component_practice_mapping table
 INSERT INTO component_practice_mapping (id, component_id, practice_id, is_active)
 VALUES
     (1, 1, 1, true),   -- Safety - Cognitive Behavioral Therapy
