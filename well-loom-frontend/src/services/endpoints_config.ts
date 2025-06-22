@@ -1,0 +1,1 @@
+export const BASE_SERVICES_URL: string = "localhost:5432"
