@@ -5,8 +5,6 @@ export default function PracticeSearchBar() {
     const { data: allAreas = [], isLoading: areasLoading } = useAreas();
     const { data: allWellBeingComponents = [], isLoading: wellBeingComponentsLoading } = useWellBeingComponents();
 
-    // TODO: Set dropdowns equal to filteredAreas & filteredWellBeingComponetns
-
     const filteredAreas: Area[] = allAreas;
     const filteredWellBeingComponents: WellBeingComponent[] = allWellBeingComponents;
 
@@ -21,14 +19,20 @@ export default function PracticeSearchBar() {
 
     }
 
-    // Put dropdowns here
+    if (areasLoading || wellBeingComponentsLoading) {
+        return <div>Loading...</div>;
+    }
+
+    // TODO: Add writting of selected items back to selected vars, refresh components filter when area is updated
 
     return (
-        <div>Coming soon</div>
+        <div>
+            <select>
+                {filteredAreas.map(area => <option key={area.id}>{area.area_name}</option>)}
+            </select>
+            <select>
+                {filteredWellBeingComponents.map(comp => <option key={comp.id}>{comp.component_name}</option>)}
+            </select>
+        </div>
     );
 }
-
-export function Dropdown(options: {id: number, name: string}[], selected: number[]) {
-    // TODO: Define dropdown in here
-}
-
