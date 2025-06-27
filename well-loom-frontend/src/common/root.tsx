@@ -8,7 +8,7 @@ export function Root() {
           <AppBar position="static">
             <nav className="justify-start">
               <NavLink to="/" className="inline-flex items-center py-10 text-sm font-medium">Home</NavLink>
-              <NavLink to="/practice-search" className="inline-flex items-center py-10 text-sm font-medium">Practice Search</NavLink>
+              <NavLink to="/practice-library" className="inline-flex items-center py-10 text-sm font-medium">Practice Search</NavLink>
             </nav>
           </AppBar>
         </header>

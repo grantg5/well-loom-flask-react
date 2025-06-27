@@ -6,6 +6,26 @@ import { Root } from "./common/root";
 import theme from "./common/theme.js";
 import { About } from "./core/about";
 import { PracticeLibrary } from "./features/practice-library/practice-library.js";
+import { useAreas, useWellBeingComponents } from "@hooks/cached_entities.js";
+import { useQuery } from "@tanstack/react-query";
+import { areasService } from "services/entity_crud_services/areas_service.js";
+
+// TODO: Work out another way to call the areas & wellBeingComponents services in the loader for practice library
+
+// async function practiceLibraryPropsLoader() {
+//     const allAreas = useQuery({
+//         queryKey: ['allAreas'],
+//         queryFn: areasService.getAll,
+//         staleTime: Infinity
+//     });
+//     const allWellBeingComponents = useQuery({
+//         queryKey: ['allWellBeingComponents'],
+//         queryFn: wellBeingComponentsService.getAll,
+//         staleTime: Infinity
+//     });
+
+
+// }
 
 const router = createBrowserRouter([
     {
@@ -18,9 +38,7 @@ const router = createBrowserRouter([
             { 
                 path: 'practice-library',
                 element: <PracticeLibrary />,
-                // loader: async(({ params }) => {
-                //     // TODO: Call to fetch all practices for rendering
-                // })
+                // loader: 
             }
         ]
     }
