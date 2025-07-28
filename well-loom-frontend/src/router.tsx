@@ -6,26 +6,22 @@ import { Root } from "./common/root";
 import theme from "./common/theme.js";
 import { About } from "./core/about";
 import { PracticeLibrary } from "./features/practice-library/practice-library.js";
-import { useAreas, useWellBeingComponents } from "@hooks/cached_entities.js";
-import { useQuery } from "@tanstack/react-query";
-import { areasService } from "services/entity_crud_services/areas_service.js";
+import { QueryClient } from "@tanstack/react-query";
+import { areasService } from "./services/entity_crud_services/areas_service.js";
 
-// TODO: Work out another way to call the areas & wellBeingComponents services in the loader for practice library
-
-// async function practiceLibraryPropsLoader() {
-//     const allAreas = useQuery({
-//         queryKey: ['allAreas'],
-//         queryFn: areasService.getAll,
-//         staleTime: Infinity
-//     });
-//     const allWellBeingComponents = useQuery({
-//         queryKey: ['allWellBeingComponents'],
-//         queryFn: wellBeingComponentsService.getAll,
-//         staleTime: Infinity
-//     });
-
-
-// }
+const allAreasLoader =
+    (queryClient: QueryClient) =>
+        async () => {
+            const allAreasQuery = ({
+                queryKey: ['allAreas'],
+                queryFn: areasService.getAll,
+                staleTime: Infinity
+            });
+            return (
+                queryClient.getQueryData(allAreasQuery.queryKey) ??
+                (await queryClient.fetchQuery(allAreasQuery))
+            );
+        }
 
 const router = createBrowserRouter([
     {
@@ -38,7 +34,7 @@ const router = createBrowserRouter([
             { 
                 path: 'practice-library',
                 element: <PracticeLibrary />,
-                // loader: 
+                loader: allAreasLoader(new QueryClient())
             }
         ]
     }

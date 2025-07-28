@@ -1,15 +1,5 @@
-from psycopg import connect
 from flask import Flask
 from flask_smorest import Api
-
-import flask_config
-db_connection = connect(
-    host=flask_config.DB_IP,
-    port=flask_config.DB_PORT,
-    dbname=flask_config.DB_NAME,
-    user=flask_config.DB_USERNAME,
-    password=flask_config.DB_PASS
-)
 
 app = Flask(__name__)
 app.config["API_TITLE"] = "Well Loom Services"
@@ -19,9 +9,15 @@ app.config['OPENAPI_URL_PREFIX'] = '/docs'
 app.config['OPENAPI_SWAGGER_UI_PATH'] = '/ui'
 app.config['OPENAPI_SWAGGER_UI_URL'] = 'https://cdn.jsdelivr.net/npm/swagger-ui-dist/'
 
-from routes import area_blp, well_being_component_blp, practice_blp, resource_blp
+from wl_routes import db_connection, area_blp, well_being_component_blp, practice_blp, resource_blp
+import controllers
+
 api = Api(app)
 api.register_blueprint(area_blp)
 api.register_blueprint(well_being_component_blp)
 api.register_blueprint(practice_blp)
 api.register_blueprint(resource_blp)
+
+@app.route('/<entity_type>/<entity_id>/relationships', methods=['GET'])
+def fetch_entity_relationships(entity_type: str, entity_id: int):
+    return controllers.fetch_entity_relationships(entity_type, entity_id)

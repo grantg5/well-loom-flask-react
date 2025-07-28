@@ -3,7 +3,6 @@ import { useAreas, useWellBeingComponents } from '@hooks/cached_entities';
 
 export default function PracticeSearchBar() {
     const { data: allAreas = [], isLoading: areasLoading } = useAreas();
-    const { data: allWellBeingComponents = [], isLoading: wellBeingComponentsLoading } = useWellBeingComponents();
 
     const filteredAreas: Area[] = allAreas;
     const filteredWellBeingComponents: WellBeingComponent[] = allWellBeingComponents;

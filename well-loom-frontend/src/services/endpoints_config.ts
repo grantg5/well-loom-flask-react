@@ -1,1 +1,1 @@
-export const BASE_SERVICES_URL: string = "localhost:5432"
+export const BASE_SERVICES_URL: string = "http://localhost:5000"
