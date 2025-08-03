@@ -1,37 +1,38 @@
-import { Area, WellBeingComponent}  from '@entity_types/entity_types'
-import { useAreas, useWellBeingComponents } from '@hooks/cached_entities';
+import { Area }  from '@entity_types/entity_types';
+import { useLoaderData } from 'react-router-dom';
+import { FormControl, InputLabel, Select, MenuItem, SelectChangeEvent } from '@mui/material';
+import { useState } from 'react';
 
 export default function PracticeSearchBar() {
-    const { data: allAreas = [], isLoading: areasLoading } = useAreas();
-
+    const allAreas: Area[] = useLoaderData();
     const filteredAreas: Area[] = allAreas;
-    const filteredWellBeingComponents: WellBeingComponent[] = allWellBeingComponents;
 
     // These'll track ids
-    const selectedAreas: number[]
-    const selectedWellBeingComponents: number[]
+    const [selectedAreas, setSelectedAreas] = useState<number[]>([]);
 
-    let searchText: string = "";
-
-    function updateDropdownValues() {
-    // For each selected in the changed dropdown, get relationship ids, and union results, updating filters w/ ids that come back
-
-    }
-
-    if (areasLoading || wellBeingComponentsLoading) {
-        return <div>Loading...</div>;
-    }
-
-    // TODO: Add writting of selected items back to selected vars, refresh components filter when area is updated
+    const handleAreaChange = (event: SelectChangeEvent<number[]>) => {
+        const value = event.target.value;
+        setSelectedAreas(typeof value === 'string' ? [] : value);
+    };
 
     return (
         <div>
-            <select>
-                {filteredAreas.map(area => <option key={area.id}>{area.area_name}</option>)}
-            </select>
-            <select>
-                {filteredWellBeingComponents.map(comp => <option key={comp.id}>{comp.component_name}</option>)}
-            </select>
+            <FormControl fullWidth>
+                <InputLabel id="areas-select-label">Areas</InputLabel>
+                <Select
+                    labelId="areas-select-label"
+                    label="Areas"
+                    multiple
+                    value={selectedAreas}
+                    onChange={handleAreaChange}
+                >
+                    {filteredAreas.map(area => (
+                        <MenuItem key={area.id} value={area.id}>
+                            {area.area_name}
+                        </MenuItem>
+                    ))}
+                </Select>
+            </FormControl>
         </div>
     );
 }

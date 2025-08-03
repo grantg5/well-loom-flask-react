@@ -1,1 +1,1 @@
-export const BASE_SERVICES_URL: string = "http://localhost:5000"
+export const BASE_SERVICES_URL: string = "https://glorious-orbit-7gpx69jxq2px55-5000.app.github.dev/"

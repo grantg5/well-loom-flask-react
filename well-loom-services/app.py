@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_smorest import Api
+from flask_cors import CORS
 
 app = Flask(__name__)
 app.config["API_TITLE"] = "Well Loom Services"
@@ -11,6 +12,12 @@ app.config['OPENAPI_SWAGGER_UI_URL'] = 'https://cdn.jsdelivr.net/npm/swagger-ui-
 
 from wl_routes import db_connection, area_blp, well_being_component_blp, practice_blp, resource_blp
 import controllers
+
+frontend_url = "https://glorious-orbit-7gpx69jxq2px55-5173.app.github.dev/"
+CORS(app, 
+     origins=[frontend_url],
+     allow_headers=["Content-Type", "Authorization"],
+     methods=["GET"])
 
 api = Api(app)
 api.register_blueprint(area_blp)
