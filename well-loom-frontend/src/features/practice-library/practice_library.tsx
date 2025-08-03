@@ -1,4 +1,4 @@
-import PracticeSearchBar from './components/practice-search-bar';
+import PracticeSearchBar from './components/practice_search_bar';
 
 export function PracticeLibrary() {
     return (

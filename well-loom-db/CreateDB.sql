@@ -151,7 +151,7 @@ INSERT INTO area(area_name, area_description, is_active) VALUES ('Sail', 'Expans
 INSERT INTO area(area_name, area_description, is_active) VALUES ('Sky', 'Experiencing beyond oneself', true);
 
 -- INSERT INTO well_being_component table
-INSERT INTO component (id, component_name, component_description, component_image, is_active)
+INSERT INTO well_being_component (id, component_name, component_description, component_image, is_active)
 VALUES
     (1, 'Safety', 'Little unnecessary anxiety, and a general sense of safety', true),
     (2, 'Relationships', 'Having strong, nurturing relationships, and a solid support system', true),

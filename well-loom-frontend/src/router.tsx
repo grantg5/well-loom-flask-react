@@ -5,7 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Root } from "./common/root";
 import theme from "./common/theme.js";
 import { About } from "./core/about";
-import { PracticeLibrary } from "./features/practice-library/practice-library.js";
+import { PracticeLibrary } from "./features/practice-library/practice_library.js";
 import { QueryClient } from "@tanstack/react-query";
 import { areasService } from "./services/entity_crud_services/areas_service.js";
 
