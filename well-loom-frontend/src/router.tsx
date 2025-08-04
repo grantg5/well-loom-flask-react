@@ -8,6 +8,7 @@ import { About } from "./core/about";
 import { PracticeLibrary } from "./features/practice-library/practice_library.js";
 import { QueryClient } from "@tanstack/react-query";
 import { areasService } from "./services/entity_crud_services/areas_service.js";
+import { AdminAssetsSearch } from "./core/admin/admin_assets_search";
 
 const allAreasLoader =
     (queryClient: QueryClient) =>
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
                 path: 'practice-library',
                 element: <PracticeLibrary />,
                 loader: allAreasLoader(new QueryClient())
+            },
+            {
+                path: 'admin/assets-search',
+                element: <AdminAssetsSearch />
             }
         ]
     }

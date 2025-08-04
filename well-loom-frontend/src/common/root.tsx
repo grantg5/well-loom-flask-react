@@ -1,18 +1,10 @@
-import { AppBar } from "@mui/material";
-import { NavLink, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import Header from "./header";
 
 export function Root() {
     return (
       <div className="app-container">
-        <header>
-          <AppBar position="static">
-            <nav className="justify-start">
-              <NavLink to="/" className="inline-flex items-center py-10 text-sm font-medium">Home</NavLink>
-              <NavLink to="/practice-library" className="inline-flex items-center py-10 text-sm font-medium">Practice Search</NavLink>
-            </nav>
-          </AppBar>
-        </header>
-        
+        <Header />
         <main>
           {}
           <Outlet />
