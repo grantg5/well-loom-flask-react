@@ -146,9 +146,9 @@ BEGIN
 END;
 $apply_create_date_time_triggers$;
 
-INSERT INTO area(area_name, area_description, is_active) VALUES ('Hull', 'Foundation required to live well', true);
-INSERT INTO area(area_name, area_description, is_active) VALUES ('Sail', 'Expansionary elements that are required to live a full life', true);
-INSERT INTO area(area_name, area_description, is_active) VALUES ('Sky', 'Experiencing beyond oneself', true);
+INSERT INTO area(area_name, area_description, is_active) VALUES ('Foundation', 'Foundation required to live well', true);
+INSERT INTO area(area_name, area_description, is_active) VALUES ('Growth', 'Expansionary elements that are required to live a full life', true);
+INSERT INTO area(area_name, area_description, is_active) VALUES ('Transcendence', 'Experiencing beyond oneself', true);
 
 -- INSERT INTO well_being_component table
 INSERT INTO well_being_component (id, component_name, component_description, component_image, is_active)
