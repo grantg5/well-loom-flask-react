@@ -57,6 +57,21 @@
   --tw-contain-style:  ;
 }
 
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.gradient-primary {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 nav {
   padding-left: 10px;
 }
