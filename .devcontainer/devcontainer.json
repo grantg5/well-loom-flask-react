@@ -1,5 +1,5 @@
 {
-  "name": "Well Loom Flask + Angular + PostgreSQL Codespace Development Environment",
+  "name": "Well Loom Flask + React + PostgreSQL Codespace Development Environment",
   "image": "mcr.microsoft.com/devcontainers/universal:2",
   "features": {
     "node": "22.12.0",
@@ -13,15 +13,6 @@
   },
   "waitFor": "onCreateCommand",
   "updateContentCommand": "pip install -r flask-requirements.txt",
-  "postAttachCommand": {
-    "server": "flask --debug run"
-  },
-  "portsAttributes": {
-    "5000": {
-      "label": "Application",
-      "onAutoForward": "openPreview"
-    }
-  },
   "customizations": {
     "vscode": {
       "extensions": [
