@@ -1,10 +1,10 @@
-import { ThemeProvider } from "@mui/material";
+// import { ThemeProvider } from "@mui/material";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Root } from "./common/root";
-import theme from "./common/theme.js";
-import { About } from "./core/about";
+// import theme from "./common/theme.js";
+import Home from "./core/home";
 import { PracticeLibrary } from "./features/practice-library/practice_library.js";
 import { QueryClient } from "@tanstack/react-query";
 import { areasService } from "./services/entity_crud_services/areas_service.js";
@@ -30,8 +30,7 @@ const router = createBrowserRouter([
         element: <Root />,
         // errorElement: <ErrorPage />
         children: [
-            // { index: true, element: <Home/> },
-            { index: true, element: <About /> },
+            { index: true, element: <Home/> },
             { 
                 path: 'practice-library',
                 element: <PracticeLibrary />,
@@ -47,8 +46,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
-        <ThemeProvider theme={theme}>
+        {/* <ThemeProvider theme={theme}> */}
             <RouterProvider router={router} />
-        </ThemeProvider>
+        {/* </ThemeProvider> */}
     </React.StrictMode>
 );
